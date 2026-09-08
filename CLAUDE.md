@@ -54,5 +54,7 @@ scripts/stats.sh                 # signes, pages équivalentes, durées par chap
 
 - `/chapitre <NN> <slug> "<Titre>"` : crée un nouveau chapitre avec les fichiers types.
 - `/retour-mentor <N> <YYYY-MM-DD>` : crée le compte-rendu d'une séance.
+- `/script-video <fichier.md>` : écrit ou réécrit un script de vidéo en langage parlé,
+  avec minutage et plan de montage.
 - `/ship <FYC-nn>` : lit l'issue Linear et son contexte, fait le travail dans
   une branche, vérifie lint et export, ouvre la PR, passe l'issue en In Review.
