@@ -16,7 +16,7 @@ _À définir par le groupe._ À renseigner ici puis à reporter dans `reference.
 ## Structure d'un fichier `cours.md`
 
 ```markdown
-# Chapitre N — Titre
+# Chapitre N : Titre
 
 > Durée estimée : X min · Objectifs : ...
 
@@ -45,7 +45,7 @@ _À définir par le groupe._ À renseigner ici puis à reporter dans `reference.
 Format d'un exercice (`exercices.md`) :
 
 ```markdown
-## Exercice N — Titre
+## Exercice N : Titre
 
 **Objectif :** ...
 **Durée :** X min
@@ -84,7 +84,7 @@ Format d'une question (`qcm.md`) :
 Un fichier par vidéo dans `cours/NN-slug/videos/` :
 
 ```markdown
-# Vidéo — Titre
+# Vidéo : Titre
 
 - Durée cible : X min (max 8)
 - Intervenant : ...

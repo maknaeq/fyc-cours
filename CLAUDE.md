@@ -1,17 +1,28 @@
-# Contexte pour Claude — projet FYC
+# Contexte pour Claude : projet FYC
 
 Ce dépôt contient un cours en ligne rédigé par un groupe d'étudiants (projet
 FYC, ESGI / Sciences-U Lyon). Le contenu est en français.
 
 ## Rôle attendu de Claude
 
-- Aider à structurer, relire, reformuler, vérifier la cohérence et exporter.
-- **Ne jamais rédiger le fond du cours à la place des auteurs.** Le règlement
-  considère la génération automatique comme de la triche (exclusion). Si on te
-  demande d'écrire un chapitre entier, propose plutôt un plan, des questions
-  à traiter, ou une relecture du texte existant.
+- Structurer, rédiger, relire, reformuler, vérifier la cohérence et exporter.
+- Le groupe a autorisé Claude à rédiger le fond du cours (décision du
+  08/09/2026). Le règlement FYC considère la génération automatique comme de
+  la triche : tout texte rédigé par Claude est donc relu et validé par un
+  membre du groupe avant merge, et la PR le signale.
 - Les schémas doivent être construits par l'équipe. Tu peux proposer une
   structure de schéma (mermaid, texte) que l'équipe redessine.
+
+## Règles de rédaction
+
+Tout texte publié ou affiché respecte `charte/regles-redaction.md`. Ce fichier
+est la source unique des règles, à lire avant d'écrire. Résumé des règles
+vérifiées par le lint :
+
+- Pas de tiret long (U+2014, « em dash »). Utiliser « : », une virgule ou une nouvelle phrase.
+
+`scripts/lint.sh` tourne automatiquement après chaque écriture de fichier
+Markdown (hook dans `.claude/settings.json`) et bloque en cas de violation.
 
 ## Contraintes chiffrées à respecter
 
@@ -43,3 +54,5 @@ scripts/stats.sh                 # signes, pages équivalentes, durées par chap
 
 - `/chapitre <NN> <slug> "<Titre>"` : crée un nouveau chapitre avec les fichiers types.
 - `/retour-mentor <N> <YYYY-MM-DD>` : crée le compte-rendu d'une séance.
+- `/ship <FYC-nn>` : lit l'issue Linear et son contexte, fait le travail dans
+  une branche, vérifie lint et export, ouvre la PR, passe l'issue en In Review.

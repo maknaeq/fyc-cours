@@ -1,4 +1,4 @@
-# QCM — chapitre 02
+# QCM : chapitre 02
 
 ## Question 1
 

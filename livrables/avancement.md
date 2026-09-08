@@ -28,7 +28,7 @@ livrables/archives/2026-07-08-avancement-s1.pdf.
 - Suivi des tâches : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9)
 - Documents : ce dépôt (`livrables/`, `cours/`)
 
-# Séance 2 — 09/09/2026
+# Séance 2 : 09/09/2026
 
 **Attendu :** scénarisation finale, vidéo de présentation, bibliographie, 20 % des supports.
 
@@ -59,7 +59,7 @@ livrables/archives/2026-07-08-avancement-s1.pdf.
 |-------|-------------|----------|
 | | | |
 
-# Séance 1 — 08/07/2026
+# Séance 1 : 08/07/2026
 
 Voir `livrables/archives/2026-07-08-avancement-s1.pdf`. Backlog prévisionnel
 (toutes les tâches « à faire »). Retour du mentor : ajouter échéances, statuts

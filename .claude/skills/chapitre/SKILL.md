@@ -26,7 +26,7 @@ cours/NN-slug/
 3. Contenu de `README.md` :
 
 ```markdown
-# NN — Titre
+# NN : Titre
 
 - Durée apprenant : _X h_ (lecture + vidéos + exercices)
 - Pré-requis : _..._
@@ -41,7 +41,7 @@ cours/NN-slug/
 4. Contenu de `cours.md` :
 
 ```markdown
-# Chapitre NN — Titre
+# Chapitre NN : Titre
 
 > Durée estimée : _X min_ · Objectifs : _..._
 

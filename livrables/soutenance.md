@@ -1,5 +1,5 @@
 ---
-title: "Support de soutenance — plan"
+title: "Support de soutenance : plan"
 ---
 
 <!-- Soutenance le 3 février 2027 : 15 min de présentation, 25 min de Q&R.

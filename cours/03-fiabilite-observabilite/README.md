@@ -1,4 +1,4 @@
-# 03 — Rendre son appli fiable et surveillable
+# 03 : Rendre son appli fiable et surveillable
 
 - Durée apprenant : 3h
 - Note : la V1 totalise 2h40, il manque 20 min (retour mentor séance 1)

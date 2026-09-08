@@ -1,4 +1,4 @@
-# 04 — Bien tester, et se méfier des attaques
+# 04 : Bien tester, et se méfier des attaques
 
 - Durée apprenant : 3h
 - Séquences (scénarisation V1, à réviser après les retours de la séance 1) :

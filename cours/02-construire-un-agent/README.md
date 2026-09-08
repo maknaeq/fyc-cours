@@ -1,4 +1,4 @@
-# 02 — Un agent IA, ça se construit comme un composant
+# 02 : Un agent IA, ça se construit comme un composant
 
 - Durée apprenant : 3h
 - Séquences (scénarisation V1, à réviser après les retours de la séance 1) :

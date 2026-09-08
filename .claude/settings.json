@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(jq -r '.tool_input.file_path // .tool_response.filePath // empty'); case \"$f\" in *.md) out=$(\"$CLAUDE_PROJECT_DIR\"/scripts/lint.sh \"$f\" 2>&1) || { printf '%s\\n' \"$out\" >&2; exit 2; } ;; esac; exit 0",
+            "timeout": 15,
+            "statusMessage": "Vérification des règles de rédaction"
+          }
+        ]
+      }
+    ]
+  }
+}

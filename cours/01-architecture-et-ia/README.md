@@ -1,4 +1,4 @@
-# 01 — Les bases de l'architecture web, et pourquoi l'IA les bouscule
+# 01 : Les bases de l'architecture web, et pourquoi l'IA les bouscule
 
 - Durée apprenant : 3h
 - Séquences (scénarisation V1, à réviser après les retours de la séance 1) :

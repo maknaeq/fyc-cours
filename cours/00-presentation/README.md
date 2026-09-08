@@ -1,4 +1,4 @@
-# 00 — Présentation du cours
+# 00 : Présentation du cours
 
 Bloc d'ouverture du cours sur Moodle. Ne contient pas de chapitre de fond.
 

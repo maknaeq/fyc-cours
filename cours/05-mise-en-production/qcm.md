@@ -1,4 +1,4 @@
-# QCM — chapitre 05
+# QCM : chapitre 05
 
 ## Question 1
 

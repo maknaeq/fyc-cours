@@ -1,4 +1,4 @@
-# Séance N — JJ/MM/AAAA
+# Séance N : JJ/MM/AAAA
 
 **Présents :** _..._
 **Livré avant la séance :** _..._

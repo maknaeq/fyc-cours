@@ -1,4 +1,4 @@
-# Vidéo — Présentation de l'équipe et du cours
+# Vidéo : Présentation de l'équipe et du cours
 
 - Durée cible : 3 min (max imposé)
 - Intervenants : toute l'équipe

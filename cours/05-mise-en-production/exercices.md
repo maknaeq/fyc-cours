@@ -1,6 +1,6 @@
-# Exercices — chapitre 05
+# Exercices : chapitre 05
 
-## Exercice 1 — Titre
+## Exercice 1 : Titre
 
 **Objectif :** ...
 **Durée :** X min

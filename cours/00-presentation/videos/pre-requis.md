@@ -1,4 +1,4 @@
-# Vidéo — Présentation des pré-requis
+# Vidéo : Présentation des pré-requis
 
 - Durée cible : 3 à 5 min (max 8)
 - Intervenant : _..._
