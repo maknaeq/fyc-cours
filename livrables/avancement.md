@@ -47,12 +47,21 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 | Activités synchrones remplacées par des activités autonomes (FYC-14) | Quentin Bauduin | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/3 |
 | Parcours unique Laravel, TP sans SDK (FYC-13) | Groupe, proposition de Kaan | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/4 |
 | Règles de rédaction et lint automatique | Quentin Bauduin | 08/09/2026 | `charte/regles-redaction.md` |
+| Sous-issues du 20 % créées et réparties (FYC-26 à FYC-30) | Quentin Bauduin | 08/09/2026 | https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9 |
 
 ## Tâches en cours
 
 | Tâche | Responsable | Échéance | Avancement |
 |-------|-------------|----------|------------|
-| | | | |
+| Scénarisation finale : périmètre, durée S3, ressources, vue d'ensemble (FYC-15, 16, 17, 12) | Quentin Bauduin | 09/09/2026 | Rédigé, en relecture : https://github.com/maknaeq/fyc-cours/pull/5 |
+| Support écrit S1.1 et S1.2, exercice et QCM corrigés (FYC-26) | Quentin Bauduin | 09/09/2026 | Rédigé, en relecture : https://github.com/maknaeq/fyc-cours/pull/6 |
+| Vidéo de présentation et pré-requis (FYC-30) | Quentin Bauduin | 09/09/2026 | Scripts rédigés (https://github.com/maknaeq/fyc-cours/pull/7), tournage à faire |
+| Dépôt de départ du TP S1.4 (FYC-27) | Kaan Topkaya | 09/09/2026 | À faire |
+| Cas fil rouge, app type Notion avec agents (FYC-28) | Timothé Geoffroy | 09/09/2026 | À faire |
+| Guide d'installation de l'environnement (FYC-29) | Erwin Gossin | 09/09/2026 | À faire |
+| Bibliographie aux normes (FYC-19) | Kaan Topkaya | 09/09/2026 | Structure en place, champs à compléter |
+| Publications scientifiques (FYC-20) | Timothé Geoffroy | 09/09/2026 | À faire |
+| Charte graphique définitive, logos, page de garde (FYC-23) | Erwin Gossin | 02/12/2026 | Base posée et mergée (PR #2), reste les logos |
 
 ## Blocages rencontrés
 
@@ -65,7 +74,10 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 
 | Tâche | Responsable | Échéance |
 |-------|-------------|----------|
-| | | |
+| Dépôt de la scénarisation finale sur Teams | Quentin Bauduin | 09/09/2026 avant la séance |
+| Release GitHub `seance-2` avec tous les docx | Quentin Bauduin | 09/09/2026 |
+| Chapitres 00, 01 et 02 complets sur Moodle (50 %) | Groupe | 02/12/2026 |
+| Chapitres 03, 04 et 05, cas pratique, test final (100 %) | Groupe | 06/01/2027 |
 
 # Séance 1 : 08/07/2026
 
