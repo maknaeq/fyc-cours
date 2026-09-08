@@ -39,7 +39,7 @@ conducteur et les vidéos.
 
 [Écran : les cinq séances]
 
-Le cours dure quinze heures, en cinq séances. D'abord, les bases de
+Le cours dure quinze heures découpé en cinq séances. D'abord, les bases de
 l'architecture web, et pourquoi une IA les met à l'épreuve. Ensuite, la
 construction d'un agent, avec des outils et de la recherche dans vos
 documents. Puis la fiabilité et la mesure. Puis les tests et la sécurité. Et
