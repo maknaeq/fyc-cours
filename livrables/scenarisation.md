@@ -109,7 +109,7 @@ placer le reste en approfondissement. Ajouter la colonne Équipement & matériel
 | S1.1 | 45 min | Architectures web : les bases | Revoir les couches, la séparation des responsabilités, l'architecture hexagonale (isoler le cœur du code des outils externes) et le pattern CQRS (séparer lecture et écriture des données), appliqués à une appli web (contrôleur → service → domaine) | |
 | S1.2 | 45 min | Pourquoi l'IA complique les architectures classiques | Comprendre l'effet du fait qu'une IA ne répond jamais exactement pareil, met un temps variable à répondre, coûte à chaque appel, et dépend d'un service externe | |
 | S1.3 | 40 min | Installer son environnement : IA en ligne ou IA en local | Installer et configurer une IA en local (ex. Ollama) comme alternative à une IA en ligne ; brancher l'une ou l'autre au même endroit du code, et voir ce que ça change (prix, vitesse, confidentialité, TP faisables sans connexion) | |
-| S1.4 | 50 min | TP : réorganiser un code « fourre-tout » | Transformer un contrôleur qui fait tout vers une architecture plus propre (« ports/adapters »), parcours Spring ou Laravel, puis comparaison entre groupes | |
+| S1.4 | 50 min | TP : réorganiser un code « fourre-tout » | Transformer un contrôleur qui fait tout vers une architecture plus propre (« ports/adapters ») dans le parcours choisi, puis comparer les deux parcours à l'aide d'une grille corrigée | |
 | S2.1 | 45 min | Function / tool calling | Comprendre comment une IA peut « demander » à du code métier d'exécuter une action (nom, description, format des paramètres) ; comparer Spring AI et Laravel AI SDK | |
 | S2.2 | 40 min | Organiser le travail d'un agent | Mettre en place une « machine à états » pour un agent, un enchaînement d'appels, et un pattern pour annuler proprement en cas d'échec, pour une tâche en plusieurs étapes exposée par une API | |
 | S2.3 | 45 min | Le RAG comme pipeline de données | Concevoir : récupérer des documents, les découper, les transformer en vecteurs, les indexer, puis aller les rechercher pour les donner en contexte à l'IA ; comparer les outils de Spring AI et de Laravel | |
@@ -123,12 +123,7 @@ placer le reste en approfondissement. Ajouter la colonne Équipement & matériel
 | S4.4 | 45 min | TP : écrire une série de tests pour l'agent | Écrire des tests (cas normal + tentatives de piégeage par texte) pour l'agent | |
 | S5.1 | 45 min | Gérer une IA en prod, différent du logiciel classique | Comprendre : versionner ses prompts, évaluer en continu, surveiller en prod, des choses qu'un cycle de dev classique ne prévoit pas | |
 | S5.2 | 45 min | Mise en prod et intégration continue adaptées | Adapter sa pipeline de tests automatiques à des résultats jamais parfaitement identiques, bien gérer les données ; comparer le déploiement en Java et en PHP | |
-| S5.3 | 1 h 30 | Présentation finale | Présenter son architecture (10 min) en expliquant pourquoi ce framework, puis répondre aux questions | |
-
-<!-- MENTOR : S1.4 « comparaison entre groupes » et S5.3 « Présentation finale »
-supposent un déroulement synchrone. À remplacer par une activité autonome
-(grille comparative, étude de cas corrigée, justification écrite, vidéo déposée,
-fiche d'architecture). -->
+| S5.3 | 1 h 30 | Cas pratique final et conclusion | Rédiger la fiche d'architecture du fil rouge (choix, tests, sécurité, coût, chaque choix justifié), la confronter au corrigé vidéo, passer le test final, puis ouvrir sur la suite | Modèle de fiche, vidéo de correction, test final (QCM), vidéo de conclusion |
 
 # Détails des séquences
 
@@ -151,9 +146,7 @@ Spring / Laravel, puis un TP. Les durées sont indicatives.
 |-----|------------------------|------------------|------------------|----------|
 | 15 min | Le fait qu'une IA ne répond jamais exactement pareil, met un temps variable à répondre, coûte à chaque appel, et dépend d'un service externe | Relier chaque caractéristique à sa conséquence concrète sur l'architecture | Prend des notes organisées par caractéristique | |
 | 15 min | Étude de cas : un appel à une IA fait en direct dans un contrôleur web, ce qui casse (timeout, worker bloqué, facture imprévisible) | Montrer un vrai cas de timeout, pas juste le décrire | Analyse le cas et repère les points de rupture | |
-| 15 min | Discussion : quelles solutions possibles ? (traitement en arrière-plan, file d'attente, limite de temps, cache) | Ne pas conclure : les réponses seront construites en séance 3 | Participe et teste ses idées | |
-
-<!-- MENTOR : « Discussion » suppose du synchrone. Prévoir une alternative autonome. -->
+| 15 min | Fiche de réponse : à partir de l'étude de cas, proposer trois parades possibles, puis lire le corrigé commenté qui passe en revue les pistes (traitement en arrière-plan, file d'attente, limite de temps, cache) et leurs limites | Le corrigé ne tranche pas : les solutions seront construites en séance 3 | Rédige sa fiche, la compare au corrigé, note les écarts | Modèle de fiche, corrigé commenté |
 
 ### S1.3 : Installer son environnement : IA en ligne ou IA en local (40 min)
 
@@ -168,11 +161,8 @@ Spring / Laravel, puis un TP. Les durées sont indicatives.
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
 | 10 min | Présentation du code de départ : un contrôleur « fourre-tout » qui appelle directement le SDK du fournisseur d'IA | Le code fourni doit être réaliste, pas exagéré | Lit le code et repère les endroits trop liés entre eux | |
-| 30 min | Réorganisation guidée : sortir le cœur métier, écrire un adaptateur pour le fournisseur d'IA, isoler le métier | Chaque groupe travaille sur Spring ou Laravel selon son parcours | Réorganise le code et fait passer les tests fournis | |
-| 10 min | Mise en commun : ce que le framework impose, ce qu'il laisse libre | Faire ressortir les principes qui restent vrais peu importe le langage | Présente sa solution et écoute l'autre parcours | |
-
-<!-- MENTOR : « mise en commun » et « écoute l'autre parcours » sont synchrones.
-Alternative : grille comparative fournie + corrigé des deux parcours. -->
+| 30 min | Réorganisation guidée : sortir le cœur métier, écrire un adaptateur pour le fournisseur d'IA, isoler le métier | L'apprenant travaille dans le parcours qu'il a choisi | Réorganise le code et fait passer les tests fournis | Dépôt de départ et tests du parcours |
+| 10 min | Grille comparative : ce que Spring impose, ce que Laravel impose, ce qui est commun aux deux | Faire ressortir les principes qui restent vrais peu importe le langage | Remplit la colonne de son parcours, puis lit le corrigé qui remplit les deux | Grille vierge, corrigé Spring et Laravel |
 
 ## Séance 2 (3 h) : Un agent IA, ça se construit comme un composant
 
@@ -285,15 +275,11 @@ Alternative : grille comparative fournie + corrigé des deux parcours. -->
 | 15 min | L'IA locale comme outil de CI : évaluer sans clé d'accès ni facture, au prix d'une fidélité un peu moindre | Ça rejoint la séance 1 : l'architecture par adaptateurs paie ici | Évalue si cette option est utile pour son projet | |
 | 10 min | Gestion des données, traçabilité des prompts et réponses, contraintes légales ; déploiement comparé Java vs PHP | Ce qui part dans le contexte de l'IA quitte l'entreprise : le rappeler une dernière fois | Note quelles données passent par son agent | |
 
-### S5.3 : Présentation finale (1 h 30)
-
-<!-- MENTOR : séquence entièrement synchrone (présentation par groupe, questions
-croisées). À remplacer par une activité autonome : fiche d'architecture déposée,
-courte vidéo, justification écrite des choix, étude de cas corrigée.
-Rappel FYC : le cas pratique doit avoir un corrigé en vidéo. -->
+### S5.3 : Cas pratique final et conclusion (1 h 30)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
-| 60 min | Présentation par groupe (10 min) : architecture choisie, pourquoi ce framework, stratégie de test, mesures de sécurité, coût estimé | Chaque groupe doit défendre un choix, pas juste décrire ce qu'il a codé | Présente et répond aux questions | |
-| 20 min | Questions croisées entre groupes Spring et Laravel sur les mêmes problèmes | C'est là que la comparaison prend tout son sens | Interroge un groupe de l'autre parcours | |
-| 10 min | Bilan : ce qui vient de l'architecture, ce qui vient du framework, ce qui vient du modèle d'IA | Conclure sur l'idée principale : un agent IA est un composant comme un autre | Dit ce qu'il retient et ce qu'il ferait différemment | |
+| 45 min | Cas pratique final : rédiger la fiche d'architecture du fil rouge (2 pages max) : architecture choisie, stratégie de test, mesures de sécurité, coût estimé, et pour chaque point pourquoi ce choix plutôt qu'un autre | L'apprenant doit défendre des choix, pas décrire ce qu'il a codé. La fiche est déposée sur Moodle et évaluée avec une grille fournie | Rédige sa fiche à partir de son agent et de ses mesures des séances 3 et 4, la dépose | Modèle de fiche, grille d'évaluation, agent du fil rouge |
+| 15 min | Vidéo de correction du cas pratique : une fiche de référence commentée pour chaque parcours, avec les erreurs fréquentes et ce qui distingue une justification d'une description | Montrer les deux parcours côte à côte : mêmes principes, implémentations différentes | Regarde, s'auto-évalue avec la grille, note ce qu'il aurait changé | Vidéo de correction (sous-titrée), fiches de référence Spring et Laravel |
+| 20 min | Test final : QCM d'une quarantaine de questions couvrant les cinq séances, corrigé automatique avec explication par question | Vérifier les acquis, pas la mémoire : chaque question part d'une situation concrète | Passe le test, lit les explications de ses erreurs | Test final sur Moodle, corrigé |
+| 10 min | Vidéo de conclusion « pour aller plus loin » : ce qui vient de l'architecture, ce qui vient du framework, ce qui vient du modèle ; les sujets non couverts (évaluation continue, agents multiples, choix de modèle) et par où continuer | Conclure sur l'idée principale : l'agent IA s'isole comme une dépendance technique, mais son comportement oblige à adapter tests, observabilité et sécurité | Regarde, note ce qu'il retient et ce qu'il ferait différemment | Vidéo de conclusion (sous-titrée), bibliographie |
