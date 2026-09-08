@@ -15,8 +15,9 @@ Parcours technique : Laravel (PHP). Le Laravel AI SDK et Spring AI (Java) serven
 
 > **Comment intégrer un agent IA dans une application web sans dégrader sa maintenabilité, sa testabilité, sa sécurité et sa maîtrise en production ?**
 
-La démarche complète (opinion admise, constats, questions, délimitation) est
-dans `livrables/problematique.md`.
+La démarche qui y conduit (opinion admise, constats, questions soulevées,
+délimitation du cours) est développée dans le document de présentation de la
+problématique, remis avec cette scénarisation.
 
 # Synoptique de l'intervention
 
