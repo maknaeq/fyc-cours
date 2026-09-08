@@ -1,5 +1,5 @@
 ---
-title: "Architectures web boostées à l'IA"
+title: "Concevoir une application web maintenable intégrant un agent IA : architecture, tests, sécurité et mise en production"
 subtitle: "Document de scénarisation, V1 (séance 1, 08/07/2026)"
 author: "Quentin Bauduin, Timothé Geoffroy, Kaan Topkaya, Erwin Gossin"
 date: "8 juillet 2026"
@@ -12,22 +12,18 @@ Cette V1 doit évoluer vers la version finale attendue pour la séance 2 (09/09/
 Les commentaires <!-- MENTOR --> signalent les points à retravailler.
 -->
 
-<!-- MENTOR : titre trop général et promotionnel. Piste : « Concevoir une application
-web maintenable intégrant un agent IA : architecture, tests, sécurité et mise en production ». -->
-
 # Titre du module
 
-**Architectures web boostées à l'IA**
-Comment bien organiser, sécuriser et tester une appli qui utilise une IA.
-Comparaison Spring AI (Java) vs Laravel AI SDK (PHP).
+**Concevoir une application web maintenable intégrant un agent IA : architecture, tests, sécurité et mise en production.**
 
-<!-- MENTOR : ajouter une section Problématique clairement formulée. Piste :
-« Comment intégrer un agent IA dans une application web sans dégrader sa
-maintenabilité, sa testabilité, sa sécurité et sa maîtrise en production ? » -->
+Deux parcours techniques au choix : Spring AI (Java) ou Laravel AI SDK (PHP).
 
 # Problématique
 
-_À rédiger (voir `livrables/problematique.md`)._
+> **Comment intégrer un agent IA dans une application web sans dégrader sa maintenabilité, sa testabilité, sa sécurité et sa maîtrise en production ?**
+
+La démarche complète (opinion admise, constats, questions, délimitation) est
+dans `livrables/problematique.md`.
 
 # Synoptique de l'intervention
 
