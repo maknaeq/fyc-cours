@@ -106,3 +106,5 @@ Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-c
   Linear n'accepte que des entiers : le chapitre 00 vaut 1 pour 30 min réelles).
 - Une issue par action issue d'un retour du mentor (label `retour-mentor`).
 - Labels `spring` / `laravel` pour les tâches propres à un parcours.
+- Nomenclature complète (labels, jalons, priorités, statuts, définition de
+  terminé) : [document Linear](https://linear.app/fyc/document/nomenclature-linear-comment-on-utilise-ce-projet-ef7b50633f27).
