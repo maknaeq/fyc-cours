@@ -1,75 +1,67 @@
 # Vidéo : Présentation de l'équipe et du cours
 
-- Durée cible : 3 min (maximum imposé par le FYC)
-- Intervenant : Quentin Bauduin, face caméra
-- Format : plan fixe, téléphone en mode paysage, éclairage de face. Trois
-  incrustations de texte à l'écran, indiquées entre crochets.
-- Rythme : environ 140 mots par minute, soit 400 à 420 mots. Le script en fait
-  410. Parler posément, respirer aux paragraphes.
+- Durée cible : 2 min 45 (limite FYC : 3 min)
+- Intervenant : Quentin Bauduin
+- Format : plan fixe, face caméra, téléphone en paysage, lumière de face.
+  Incrustations entre crochets, elles ne se lisent pas.
+- Mots : 375 (140 mots par minute)
 
 ## Script
 
 [Écran : titre du cours]
 
-Bonjour, et bienvenue dans ce cours. Il s'appelle « Concevoir une application
-web maintenable intégrant un agent IA », et il répond à une question simple en
-apparence : comment ajouter une IA à une application web sans casser tout ce
-qui fait qu'une application est maintenable, testable et sûre.
+Bonjour. Si vous êtes là, c'est sans doute que vous avez déjà branché une IA
+sur une application, ou que vous allez le faire. Ça prend dix minutes. On
+appelle une API, on affiche la réponse, ça marche. Et puis quelques semaines
+plus tard, la réponse n'est plus la même deux fois de suite. Un appel prend
+trente secondes. La facture a doublé sans que personne sache pourquoi. Et
+personne ne sait vraiment comment tester tout ça.
 
-Je m'appelle Quentin Bauduin. Nous sommes quatre à avoir construit ce cours,
-tous en première année de mastère IW à l'ESGI.
+C'est ce moment-là que ce cours prend au sérieux. Pas l'IA elle-même, mais ce
+qu'elle fait à votre application. Comment on la branche sans qu'elle
+contamine tout le reste. Comment on la teste alors qu'elle ne répond jamais
+pareil. Comment on s'en protège, comment on la met en production, et comment
+on garde la main sur ce qu'elle coûte.
 
-[Écran : les quatre prénoms et les rôles]
+[Écran : les quatre prénoms]
 
-Kaan Topkaya a écrit les travaux pratiques Laravel, les squelettes de code et
-leurs corrigés. Erwin Gossin a préparé l'environnement : le modèle local, la
-base vectorielle, le guide d'installation. Timothé Geoffroy a conçu le projet
-fil rouge et les comparaisons avec d'autres frameworks. Et moi, j'ai écrit le
-contenu transversal et les vidéos.
+On est quatre à l'avoir construit. Quatre développeurs qui se sont posé ces
+questions sur leurs propres projets, et qui n'ont pas trouvé de réponse
+toute faite. Alors on l'a écrite. Chacun a pris un morceau : les travaux
+pratiques, l'environnement technique, le projet fil rouge, et le fil
+conducteur entre tout ça.
 
-Pourquoi ce sujet ? Parce qu'aujourd'hui, brancher une IA sur une application
-prend dix minutes. Les fournisseurs exposent une API, les frameworks proposent
-un SDK, on appelle un modèle depuis un contrôleur et ça marche. Le problème
-arrive après. La réponse n'est jamais la même deux fois. L'appel prend parfois
-trente secondes. Chaque requête coûte de l'argent. Le fournisseur change de
-modèle sans prévenir. Et n'importe quel texte qui entre dans le modèle peut le
-manipuler.
+[Écran : les cinq séances]
 
-Ce cours part de ces cinq caractéristiques, et vous apprend à construire une
-application qui les prend en compte dès l'architecture.
+Le cours dure quinze heures, en cinq séances, sur Moodle, à votre rythme. On
+commence par l'architecture, et par ce que l'IA vient y casser. Ensuite on
+construit un agent, avec des outils et de la recherche dans vos documents. On
+le rend solide et mesurable. On apprend à le tester et à le défendre contre
+les textes piégés. Et on finit par le mettre en production.
 
-[Écran : le plan en cinq séances]
+Tout ça sur un seul projet, une application de notes en Laravel, que vous
+faites évoluer d'une séance à l'autre. Avec un parti pris : vous n'utiliserez
+pas de SDK d'IA. Vous construirez chaque brique vous-même, et vous la
+comparerez ensuite à ce que font les SDK. À la fin, vous saurez pourquoi
+chaque pièce existe. C'est ça qui fait la différence entre brancher et
+concevoir.
 
-Il se déroule en cinq séances de trois heures, sur Moodle, à votre rythme.
-Séance un : les bases de l'architecture web, et pourquoi l'IA les bouscule.
-Séance deux : construire un agent, avec des outils et de la recherche dans vos
-documents. Séance trois : rendre l'application fiable et mesurer ce que fait
-l'agent. Séance quatre : tester un composant qui ne répond jamais pareil, et
-se défendre contre les attaques par texte piégé. Séance cinq : mettre en
-production, et rédiger la fiche d'architecture qui conclut le cours.
+Tout ce qu'il faut est fourni : les supports, le code de départ, les
+corrigés, et un modèle qui tourne sur votre machine, pour ne rien payer.
 
-Un fil rouge traverse tout ça : une application de prise de notes, en Laravel,
-que vous faites évoluer d'une séance à l'autre. Et un parti pris : vous
-n'utiliserez pas de SDK d'IA. Vous construirez vous-même chaque brique, puis
-vous la comparerez à ce que font les SDK. À la fin, vous saurez pourquoi
-chaque pièce existe.
-
-Le cours est fait pour être suivi seul, avec tout ce qu'il faut à chaque
-étape : les supports, le code de départ, les corrigés, et un modèle qui
-tourne sur votre machine pour ne rien payer.
-
-La prochaine vidéo détaille les pré-requis. On se retrouve juste après.
+La vidéo suivante fait le point sur ce qu'il faut savoir et installer avant
+de commencer. Prenez trois minutes pour la regarder, et on démarre.
 
 ## Plan de montage
 
 | Temps | Plan | Écran |
 |-------|------|-------|
-| 0:00 | Face caméra | Carton titre : nom du cours, logo si disponible |
-| 0:20 | Face caméra | Incrustation : quatre prénoms et rôles, un par ligne |
-| 1:00 | Face caméra | Rien, ou les cinq caractéristiques qui apparaissent une par une |
-| 1:45 | Face caméra | Incrustation : les cinq séances, une par ligne |
-| 2:30 | Face caméra | Rien |
-| 2:55 | Face caméra | Carton de fin : « Suite : les pré-requis » |
+| 0:00 | Face caméra | Carton titre : nom complet du cours |
+| 0:35 | Face caméra | Rien |
+| 1:05 | Face caméra | Incrustation : Quentin, Kaan, Erwin, Timothé, un rôle sous chaque prénom |
+| 1:30 | Face caméra | Incrustation : les cinq séances, une ligne chacune, qui apparaissent au fil de la phrase |
+| 2:00 | Face caméra | Rien |
+| 2:35 | Face caméra | Carton de fin : « Vidéo suivante : avant de commencer » |
 
-Sous-titres obligatoires : générer automatiquement, puis relire mot à mot.
-Les noms propres et « Laravel » sont souvent mal transcrits.
+Sous-titres : vérifier « Laravel », « SDK », « Moodle » dans la
+transcription automatique.

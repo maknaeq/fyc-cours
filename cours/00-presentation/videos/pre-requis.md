@@ -1,86 +1,72 @@
-# Vidéo : Présentation des pré-requis
+# Vidéo : Avant de commencer, ce qu'il faut savoir et installer
 
-- Durée cible : 3 min 30 (maximum 8)
-- Intervenant : Quentin Bauduin, face caméra
-- Format : plan fixe, même cadrage que la vidéo de présentation. Deux
-  incrustations de texte, indiquées entre crochets. Possibilité de couper sur
-  une capture d'écran du guide d'installation à 2:30.
-- Rythme : environ 480 mots. Le script en fait 470.
+- Durée cible : 3 min (limite FYC : 8 min)
+- Intervenant : Quentin Bauduin
+- Format : plan fixe, face caméra, même cadrage que la présentation. Une
+  coupe possible sur capture d'écran vers 2:15. Incrustations entre crochets.
+- Mots : 405 (140 mots par minute)
 
 ## Script
 
-Avant de commencer, vérifions ensemble ce qu'il faut savoir et ce qu'il faut
-installer. Rien de tout ça n'est difficile, mais si un point vous manque,
-c'est le moment de le combler.
+[Écran : « Avant de commencer »]
 
-[Écran : ce qu'il faut savoir, quatre lignes]
+Avant de vous lancer, prenons trois minutes pour vérifier que vous avez ce
+qu'il faut. Rien de compliqué. Mais si un point vous manque, mieux vaut le
+savoir maintenant qu'au milieu du premier TP.
 
-Côté connaissances, quatre choses.
+[Écran : PHP orienté objet, Laravel, HTTP et REST, Git]
 
-Un : programmer en orienté objet en PHP. Classes, interfaces, injection de
-dépendances. Si vous savez écrire une interface et une classe qui
-l'implémente, c'est bon.
+Côté connaissances, ce cours suppose que vous êtes déjà à l'aise en PHP,
+avec des classes et des interfaces, et que vous avez déjà travaillé avec
+Laravel. Pas besoin d'être expert. Si vous savez créer une route, un
+contrôleur, et lire une table avec Eloquent, vous avez ce qu'il faut. Il
+faut aussi savoir ce qui se passe quand un client envoie une requête HTTP à
+un serveur, parce que tout le cours tourne autour d'appels vers un
+fournisseur d'IA. Et il faut utiliser Git au quotidien, puisque chaque TP
+part d'un dépôt et que vous versionnez votre travail.
 
-Deux : connaître les bases de Laravel. Les routes, les contrôleurs, Eloquent
-pour la base de données, et le conteneur de dépendances. Pas besoin d'être
-expert : on part d'un contrôleur simple et on le fait évoluer.
+Ce qu'il ne faut pas savoir, c'est tout ce qui concerne l'intelligence
+artificielle. Aucune notion de réseau de neurones, aucune formule. Pour nous,
+un modèle, c'est une boîte qui reçoit du texte et qui renvoie du texte. Le
+reste, on le construit ensemble. Et pas besoin de Java non plus. Vous verrez
+des extraits de code Spring dans les comparaisons, mais ils se lisent, ils ne
+s'exécutent pas.
 
-Trois : savoir ce qu'est une API REST, et comment se passe un aller-retour
-HTTP entre un client et un serveur. Tout le cours tourne autour d'appels HTTP
-vers un fournisseur d'IA.
+[Écran : PHP 8.3 et Composer, Docker, Ollama, clé API en option]
 
-Quatre : utiliser Git au quotidien. Cloner un dépôt, créer une branche,
-commiter. Chaque TP part d'un dépôt et vous versionnez votre travail.
+Côté machine, il vous faut PHP 8.3 avec Composer, l'éditeur de votre choix,
+et Docker pour lancer PostgreSQL avec l'extension pgvector, qui servira à
+chercher dans vos documents à partir de la deuxième séance. Il vous faut
+aussi Ollama, qui fait tourner un modèle de langage directement sur votre
+ordinateur. Comptez seize gigas de mémoire pour être à l'aise. Si vous en
+avez moins, le guide propose un modèle plus léger.
 
-Ce qu'il ne faut pas savoir : rien sur l'intelligence artificielle. Aucune
-notion de réseau de neurones, aucune formule. On traite le modèle comme une
-boîte à laquelle on envoie du texte et qui renvoie du texte. Tout le reste,
-on le construit ensemble. Et pas besoin de Java non plus : les extraits Spring
-que vous verrez dans les comparaisons se lisent, ils ne s'exécutent pas.
-
-[Écran : ce qu'il faut installer, cinq lignes]
-
-Côté machine, cinq choses, toutes gratuites.
-
-PHP 8.3 et Composer. Un éditeur, celui que vous voulez. Docker, pour lancer
-PostgreSQL avec l'extension pgvector, qui servira à la recherche dans vos
-documents à partir de la séance deux. Ollama, qui fait tourner un modèle de
-langage directement sur votre ordinateur. Et, en option, une clé d'accès chez
-un fournisseur d'IA en ligne.
-
-Un mot sur ce dernier point. Tout le cours peut se faire avec le modèle local,
-sans payer et sans connexion. La clé en ligne sert à comparer : vitesse,
-qualité, coût. Si vous n'en voulez pas, vous ne perdez rien d'essentiel.
-
-Pour Ollama, comptez seize gigaoctets de mémoire pour être à l'aise avec un
-petit modèle. Si votre machine en a moins, le guide d'installation propose un
-modèle plus léger, ou l'API en ligne seule.
+Et en option, une clé chez un fournisseur d'IA en ligne. Je dis bien en
+option. Tout le cours se fait avec le modèle local, sans rien payer et sans
+connexion. La clé sert à comparer la vitesse, la qualité et le coût. Si vous
+n'en voulez pas, vous ne perdez rien d'important.
 
 [Écran : capture du guide d'installation]
 
 Le guide d'installation pas à pas est dans la première séance. Il se termine
-par une commande de vérification qui vous dit si tout est en place. Faites-le
-avant de commencer la séance un : ça vous évitera de perdre le fil au milieu
-du premier TP.
+par une commande qui vérifie que tout est en place. Faites-le avant de
+commencer, tranquillement, et vous n'aurez plus à y penser.
 
-Un dernier conseil. Ce cours se suit seul, à votre rythme, mais il demande de
-manipuler. Chaque séance contient un TP d'une heure environ. Lire sans faire,
-ça ne marche pas pour ce sujet-là. Prévoyez trois heures par séance, avec
-votre éditeur ouvert.
-
-C'est tout. Rendez-vous dans la séance un.
+Un dernier mot. Ce cours se suit seul, mais il ne se lit pas, il se pratique.
+Chaque séance contient un TP d'une heure environ. Prévoyez trois heures, avec
+votre éditeur ouvert. On se retrouve dans la première séance.
 
 ## Plan de montage
 
 | Temps | Plan | Écran |
 |-------|------|-------|
-| 0:00 | Face caméra | Carton : « Pré-requis » |
-| 0:15 | Face caméra | Incrustation : les quatre connaissances, une par ligne |
-| 1:30 | Face caméra | Rien |
-| 1:50 | Face caméra | Incrustation : les cinq outils, un par ligne |
-| 2:30 | Capture d'écran | Guide d'installation, puis la commande de vérification |
-| 3:00 | Face caméra | Rien |
-| 3:25 | Face caméra | Carton de fin : « Séance 1 » |
+| 0:00 | Face caméra | Carton : « Avant de commencer » |
+| 0:15 | Face caméra | Incrustation : les quatre connaissances, une ligne chacune |
+| 1:10 | Face caméra | Rien |
+| 1:35 | Face caméra | Incrustation : les cinq outils, une ligne chacune |
+| 2:15 | Capture d'écran | Le guide d'installation, puis la commande de vérification |
+| 2:40 | Face caméra | Rien |
+| 2:55 | Face caméra | Carton de fin : « Séance 1 » |
 
-Sous-titres obligatoires. Vérifier « pgvector », « Ollama », « Composer »
+Sous-titres : vérifier « pgvector », « Ollama », « Composer », « Eloquent »
 dans la transcription automatique.
