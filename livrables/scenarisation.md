@@ -112,19 +112,19 @@ Durée totale : **15 h** (5 séances de 3 h).
 | S1.3 | 40 min | Installer son environnement : IA en ligne ou IA en local | Installer et configurer une IA en local (ex. Ollama) comme alternative à une IA en ligne ; brancher l'une ou l'autre au même endroit du code, et voir ce que ça change (prix, vitesse, confidentialité, TP faisables sans connexion) | Guide d'installation, docker-compose pgvector, Ollama + modèle, clé API, script de vérification |
 | S1.4 | 50 min | TP : réorganiser un code « fourre-tout » | Transformer un contrôleur Laravel qui fait tout vers une architecture plus propre (« ports/adapters »), sans SDK, puis comparer avec ce qu'imposent le Laravel AI SDK et Spring AI à l'aide d'une grille corrigée | Dépôt de départ Laravel avec tests, branche corrigée, grille comparative et corrigé |
 | S2.1 | 45 min | Function / tool calling | Comprendre comment une IA peut « demander » à du code métier d'exécuter une action (nom, description, format des paramètres) ; écrire ce contrat soi-même, puis le comparer à celui du Laravel AI SDK et de Spring AI | Support écrit, squelette de contrat d'outil, extraits Laravel AI SDK et Spring AI |
-| S2.2 | 40 min | Organiser le travail d'un agent | Mettre en place une « machine à états » pour un agent, un enchaînement d'appels, et un pattern pour annuler proprement en cas d'échec, pour une tâche en plusieurs étapes exposée par une API | Support écrit, étude de cas en trois étapes, schéma de boucle d'agent |
+| S2.2 | 25 min | Organiser le travail d'un agent | Mettre en place une « machine à états » pour un agent, un enchaînement d'appels, et un pattern pour annuler proprement en cas d'échec, pour une tâche en plusieurs étapes exposée par une API | Support écrit, étude de cas en trois étapes, schéma de boucle d'agent |
 | S2.3 | 45 min | Le RAG comme pipeline de données | Concevoir : récupérer des documents, les découper, les transformer en vecteurs, les indexer, puis aller les rechercher pour les donner en contexte à l'IA ; le construire sur pgvector, puis le comparer aux VectorStore de Spring AI et à la recherche du Laravel AI SDK | PostgreSQL + pgvector (Docker), jeu de documents à indexer, squelette d'indexation, extraits SDK |
-| S2.4 | 50 min | TP : agent avec outils + recherche par similarité | Construire un agent (qui utilise des outils + une recherche par ressemblance) sur un cas simple, en Laravel et sans SDK | Présentation du fil rouge, dépôt du fil rouge, documents à indexer, critères de réussite |
+| S2.4 | 65 min | TP : agent avec outils + recherche par similarité | Construire un agent (qui utilise des outils + une recherche par ressemblance) sur un cas simple, en Laravel et sans SDK | Présentation du fil rouge, dépôt du fil rouge, documents à indexer, critères de réussite |
 | S3.1 | 55 min | Rendre son appli solide face à l'incertitude | Mettre en place : réessayer un appel qui échoue, un « coupe-circuit » qui bloque les appels si ça part en vrille, et un plan de repli (IA locale, puis mode sans IA) | Support écrit, script de panne simulée, squelettes retry et coupe-circuit, extraits SDK et Resilience4j |
 | S3.2 | 50 min | Surveiller ce que fait l'agent | Suivre chaque appel à l'IA, avoir des logs bien structurés, et des chiffres utiles (coût, vitesse, taux d'échec) dans une appli web | Support écrit, exemple de logs structurés, extraits SDK et Spring AI, grille de coût |
 | S3.3 | 1 h 15 | TP : suivi + plan de secours | Ajouter le suivi et un mode de secours à l'agent construit en séance 2, puis se corriger avec la vidéo de correction guidée | Agent du fil rouge (état fin S2), script de panne simulée, vidéo de correction, corrigé |
 | S4.1 | 55 min | Tester un système qui ne répond jamais pareil | Simuler les réponses de l'IA, créer un jeu de tests de référence, utiliser une IA pour juger une autre IA, détecter quand la qualité baisse | Support écrit, squelette de doublure PHPUnit/Pest, modèle de jeu de tests de référence |
 | S4.2 | 50 min | Risques et sécurité | Comprendre et limiter : les tentatives de manipuler l'IA avec un texte piégé (directement ou caché dans un document), les fuites de données, les inventions de l'IA dans un contexte sensible | Support écrit, référentiel OWASP (lien), document piégé pour l'injection indirecte, liste de parades |
-| S4.3 | 30 min | Comparer les approches | Comparer ce que l'apprenant a construit, le Laravel AI SDK, Spring AI et des outils dédiés (LangChain/LangGraph) sur : facilité à changer de fournisseur, facilité à surveiller, coût, maturité | Grille de comparaison vierge et corrigée, cas de décision |
-| S4.4 | 45 min | TP : écrire une série de tests pour l'agent | Écrire des tests (cas normal + tentatives de piégeage par texte) pour l'agent | Agent du fil rouge (état fin S3), squelettes de tests, corrigé |
-| S5.1 | 45 min | Gérer une IA en prod, différent du logiciel classique | Comprendre : versionner ses prompts, évaluer en continu, surveiller en prod, des choses qu'un cycle de dev classique ne prévoit pas | Support écrit, exemple de dépôt de prompts versionnés, modèle d'alertes |
+| S4.3 | 15 min | Comparer les approches | Comparer ce que l'apprenant a construit, le Laravel AI SDK, Spring AI et des outils dédiés (LangChain/LangGraph) sur : facilité à changer de fournisseur, facilité à surveiller, coût, maturité | Grille de comparaison vierge et corrigée, cas de décision |
+| S4.4 | 60 min | TP : écrire une série de tests pour l'agent | Écrire des tests (cas normal + tentatives de piégeage par texte) pour l'agent | Agent du fil rouge (état fin S3), squelettes de tests, corrigé |
+| S5.1 | 35 min | Gérer une IA en prod, différent du logiciel classique | Comprendre : versionner ses prompts, évaluer en continu, surveiller en prod, des choses qu'un cycle de dev classique ne prévoit pas | Support écrit, exemple de dépôt de prompts versionnés, modèle d'alertes |
 | S5.2 | 45 min | Mise en prod et intégration continue adaptées | Adapter sa pipeline de tests automatiques à des résultats jamais parfaitement identiques, bien gérer les données ; déployer une application Laravel avec son worker de file d'attente | Support écrit, exemple de pipeline CI (GitHub Actions) en deux étapes, docker-compose de déploiement |
-| S5.3 | 1 h 30 | Cas pratique final et conclusion | Rédiger la fiche d'architecture du fil rouge (choix, tests, sécurité, coût, chaque choix justifié), la confronter au corrigé vidéo, passer le test final, puis ouvrir sur la suite | Modèle de fiche, vidéo de correction, test final (QCM), vidéo de conclusion |
+| S5.3 | 1 h 40 | Cas pratique final et conclusion | Rédiger la fiche d'architecture du fil rouge (choix, tests, sécurité, coût, chaque choix justifié), la confronter au corrigé vidéo, passer le test final, puis ouvrir sur la suite | Modèle de fiche, vidéo de correction, test final (QCM), vidéo de conclusion |
 
 # Périmètre : notions centrales et approfondissements
 
@@ -134,6 +134,10 @@ notion en **approfondissement** est présentée en quelques minutes, illustrée
 dans les supports (encart « pour aller plus loin ») mais ni manipulée ni
 évaluée. Les blocs concernés sont marqués « approfondissement » dans les
 tableaux ci-dessous.
+
+Ce classement libère du temps : 40 minutes sont reprises sur les blocs
+théoriques (S2.2, S4.3, S5.1) et rendues aux manipulations (S2.4, S4.4 et la
+rédaction de la fiche en S5.3). Le total reste à 15 h, chaque séance à 3 h.
 
 | Séance | Notions centrales | Approfondissements |
 |--------|-------------------------------|-----------------------|
@@ -193,13 +197,13 @@ indicatives.
 | 20 min | Écrire le contrat d'outil soi-même (interface PHP, schéma JSON des paramètres, dispatch), puis comparaison avec la méthode tools() du Laravel AI SDK et les annotations de Spring AI | Mettre les trois versions côte à côte sur le même outil | Écrit son contrat, le teste, repère ce que le SDK ajoute | Squelette du contrat, extraits SDK et Spring AI |
 | 10 min | Point sécurité : un outil, c'est une porte ouverte vers le code métier, donner le minimum de droits nécessaire | Annonce la séance 4 sans trop en dire | Liste les outils qu'il n'exposerait pas | Liste d'outils à classer (exercice) |
 
-### S2.2 : Organiser le travail d'un agent (40 min)
+### S2.2 : Organiser le travail d'un agent (25 min)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
-| 15 min | La boucle d'un agent, la machine à états, l'enchaînement d'appels et un pattern pour annuler proprement en cas d'échec, pour des tâches en plusieurs étapes | Distinguer ce qui est décidé à l'avance de ce qui est décidé par l'IA. Machine à états et annulation : approfondissement, présentés sans TP | Dessine la machine à états d'un exemple simple | Support écrit S2.2, schéma de la boucle d'agent |
-| 15 min | Étude de cas : une tâche en trois étapes où une seule a vraiment besoin de l'IA | Montrer qu'on limite ce qu'on confie à l'IA | Repère où l'IA est utile, et où elle ne l'est pas | Étude de cas écrite, corrigé |
-| 10 min | Exposer ça via une API web : requête longue, streaming, ou file d'attente | Relier au problème de lenteur vu en S1.2. Le streaming est un approfondissement | Choisit une méthode et explique pourquoi | Tableau comparatif des trois modes d'exposition |
+| 10 min | La boucle d'un agent, la machine à états, l'enchaînement d'appels et un pattern pour annuler proprement en cas d'échec, pour des tâches en plusieurs étapes | Distinguer ce qui est décidé à l'avance de ce qui est décidé par l'IA. Machine à états et annulation : approfondissement, présentés sans TP | Dessine la machine à états d'un exemple simple | Support écrit S2.2, schéma de la boucle d'agent |
+| 10 min | Étude de cas : une tâche en trois étapes où une seule a vraiment besoin de l'IA | Montrer qu'on limite ce qu'on confie à l'IA | Repère où l'IA est utile, et où elle ne l'est pas | Étude de cas écrite, corrigé |
+| 5 min | Exposer ça via une API web : requête longue, streaming, ou file d'attente | Relier au problème de lenteur vu en S1.2. Le streaming est un approfondissement | Choisit une méthode et explique pourquoi | Tableau comparatif des trois modes d'exposition |
 
 ### S2.3 : Le RAG comme pipeline de données (45 min)
 
@@ -209,12 +213,12 @@ indicatives.
 | 20 min | Construire l'indexation et la recherche sur pgvector avec Eloquent et une requête SQL de similarité, puis comparaison avec la recherche du Laravel AI SDK et les VectorStore de Spring AI | Montrer que la base vectorielle n'est qu'un adaptateur de plus | Indexe un petit ensemble de documents et fait une recherche | PostgreSQL + pgvector (Docker), jeu de documents, extraits SDK |
 | 10 min | Les limites : le RAG n'empêche ni les inventions de l'IA, ni le risque qu'un document piégé la manipule | Semer le doute avant la séance 4 | Trouve une question à laquelle son index répond mal | Jeu de questions pièges sur l'index |
 
-### S2.4 : TP : agent avec outils + recherche (50 min)
+### S2.4 : TP : agent avec outils + recherche (65 min)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
 | 10 min | Présentation du cas fil rouge, réutilisé jusqu'à la séance 5 | Cas simple, compréhensible sans expertise préalable | Découvre le cas et les critères de réussite | Fiche du fil rouge : cas métier, outils, critères de réussite par séance |
-| 35 min | Construire un agent avec un ou deux outils, plus une recherche par similarité sur un ensemble de documents fourni | Sans SDK : le cœur métier ne doit dépendre d'aucun fournisseur d'IA en particulier ; l'IA locale doit rester utilisable | Code, teste à la main, versionne son travail | Dépôt du fil rouge, documents à indexer |
+| 50 min | Construire un agent avec un ou deux outils, plus une recherche par similarité sur un ensemble de documents fourni | Sans SDK : le cœur métier ne doit dépendre d'aucun fournisseur d'IA en particulier ; l'IA locale doit rester utilisable | Code, teste à la main, versionne son travail | Dépôt du fil rouge, documents à indexer |
 | 5 min | Point d'étape : ce qui marche, ce qui échoue de façon imprévisible | Noter les échecs : ils serviront en S3 et S4 | Note les comportements bizarres observés | Journal des comportements observés (modèle) |
 
 ## Séance 3 (3 h) : Rendre son appli fiable et surveillable
@@ -261,29 +265,29 @@ indicatives.
 | 20 min | Injection directe (l'utilisateur écrit l'attaque lui-même) et indirecte (un document indexé la contient) ; fuite de données via le contexte ; outils avec trop de droits | Montrer une vraie injection indirecte sur l'index construit en séance 2 | Écrit un texte piégé et le teste sur son propre agent | Document piégé fourni, agent du fil rouge avec index de S2 |
 | 15 min | Se défendre sur plusieurs niveaux à la fois : vérifier les entrées, filtrer les sorties, donner le minimum de droits aux outils, séparer le contenu non fiable, faire valider par un humain les actions sensibles | Aucune mesure seule ne suffit : c'est le cumul qui compte | Choisit deux mesures et les met en place | Liste des parades avec exemples de code |
 
-### S4.3 : Comparer les approches (30 min)
+### S4.3 : Comparer les approches (15 min)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
-| 15 min | Grille de comparaison : le code construit pendant le cours, le Laravel AI SDK, Spring AI, LangChain/LangGraph ; facilité à changer de fournisseur, suivi natif, facilité à tester, maturité, écosystème | Comparer sur des critères techniques, jamais sur la mode | Remplit la grille pour son propre projet | Grille vierge, corrigé |
-| 15 min | Cas de décision : quand une seule stack suffit, et quand un service Python séparé se justifie vraiment | Un service séparé a un vrai coût de fonctionnement : le nommer. Approfondissement | Défend un choix et répond aux objections | Cas de décision écrit, corrigé argumenté |
+| 10 min | Grille de comparaison : le code construit pendant le cours, le Laravel AI SDK, Spring AI, LangChain/LangGraph ; facilité à changer de fournisseur, suivi natif, facilité à tester, maturité, écosystème | Comparer sur des critères techniques, jamais sur la mode | Remplit la grille pour son propre projet | Grille vierge, corrigé |
+| 5 min | Cas de décision : quand une seule stack suffit, et quand un service Python séparé se justifie vraiment | Un service séparé a un vrai coût de fonctionnement : le nommer. Approfondissement | Défend un choix et répond aux objections | Cas de décision écrit, corrigé argumenté |
 
-### S4.4 : TP : écrire une série de tests (45 min)
+### S4.4 : TP : écrire une série de tests (60 min)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
-| 30 min | Écrire une série de tests : cas normal avec réponses simulées, cas dégradé, et au moins deux tentatives d'injection (directe et indirecte) | Un test d'injection qui passe du premier coup est probablement mal écrit | Écrit les tests, les fait échouer, puis corrige l'agent | Agent du fil rouge (état fin S3), squelettes de tests, textes piégés |
+| 45 min | Écrire une série de tests : cas normal avec réponses simulées, cas dégradé, et au moins deux tentatives d'injection (directe et indirecte) | Un test d'injection qui passe du premier coup est probablement mal écrit | Écrit les tests, les fait échouer, puis corrige l'agent | Agent du fil rouge (état fin S3), squelettes de tests, textes piégés |
 | 15 min | Intégrer au dépôt et lancer toute la suite | Mesurer le temps d'exécution : ça conditionne la CI de la séance 5 | Commit, exécute, note la durée | Commande de lancement de la suite, gabarit de relevé de durée |
 
 ## Séance 5 (3 h) : Mettre en prod et présenter son travail
 
-### S5.1 : Gérer une IA en prod (45 min)
+### S5.1 : Gérer une IA en prod (35 min)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
 | 15 min | Ce que le cycle classique ne couvre pas : le prompt est aussi un fichier à versionner, l'évaluation est continue, la qualité peut baisser sans qu'on touche au code | Une mise à jour du modèle côté fournisseur est un déploiement qu'on ne contrôle pas | Repère ce qu'il faut versionner dans son projet | Support écrit S5.1 |
-| 15 min | Versionner ses prompts, gérer les versions de modèle, figer une version, prévoir une migration en cas de changement | Figer la version du modèle n'est pas optionnel en prod. La migration de version est un approfondissement | Met en place un versionnage de ses prompts | Exemple de dépôt de prompts versionnés |
-| 15 min | Surveillance en prod : baisse de qualité, dérive du coût, retours des utilisateurs | Distinguer un incident ponctuel d'une dérive lente | Définit trois alertes et leurs seuils | Modèle de définition d'alertes |
+| 10 min | Versionner ses prompts, gérer les versions de modèle, figer une version, prévoir une migration en cas de changement | Figer la version du modèle n'est pas optionnel en prod. La migration de version est un approfondissement | Met en place un versionnage de ses prompts | Exemple de dépôt de prompts versionnés |
+| 10 min | Surveillance en prod : baisse de qualité, dérive du coût, retours des utilisateurs | Distinguer un incident ponctuel d'une dérive lente | Définit trois alertes et leurs seuils | Modèle de définition d'alertes |
 
 ### S5.2 : Mise en prod & CI/CD adaptées (45 min)
 
@@ -293,11 +297,11 @@ indicatives.
 | 15 min | L'IA locale comme outil de CI : évaluer sans clé d'accès ni facture, au prix d'une fidélité un peu moindre | Ça rejoint la séance 1 : l'architecture par adaptateurs paie ici | Évalue si cette option est utile pour son projet | Exemple de job CI avec Ollama |
 | 10 min | Gestion des données, traçabilité des prompts et réponses, contraintes légales ; déploiement Laravel avec worker de file d'attente et migration pgvector | Ce qui part dans le contexte de l'IA quitte l'entreprise : le rappeler une dernière fois | Note quelles données passent par son agent | Check-list données et traçabilité, docker-compose de déploiement |
 
-### S5.3 : Cas pratique final et conclusion (1 h 30)
+### S5.3 : Cas pratique final et conclusion (1 h 40)
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
-| 45 min | Cas pratique final : rédiger la fiche d'architecture du fil rouge (2 pages max) : architecture choisie, stratégie de test, mesures de sécurité, coût estimé, et pour chaque point pourquoi ce choix plutôt qu'un autre | L'apprenant doit défendre des choix, pas décrire ce qu'il a codé. La fiche est déposée sur Moodle et évaluée avec une grille fournie | Rédige sa fiche à partir de son agent et de ses mesures des séances 3 et 4, la dépose | Modèle de fiche, grille d'évaluation, agent du fil rouge |
+| 55 min | Cas pratique final : rédiger la fiche d'architecture du fil rouge (2 pages max) : architecture choisie, stratégie de test, mesures de sécurité, coût estimé, et pour chaque point pourquoi ce choix plutôt qu'un autre | L'apprenant doit défendre des choix, pas décrire ce qu'il a codé. La fiche est déposée sur Moodle et évaluée avec une grille fournie | Rédige sa fiche à partir de son agent et de ses mesures des séances 3 et 4, la dépose | Modèle de fiche, grille d'évaluation, agent du fil rouge |
 | 15 min | Vidéo de correction du cas pratique : une fiche de référence commentée, avec les erreurs fréquentes et ce qui distingue une justification d'une description | Mettre en regard l'architecture construite et celle du Laravel AI SDK : mêmes principes, mêmes pièces | Regarde, s'auto-évalue avec la grille, note ce qu'il aurait changé | Vidéo de correction (sous-titrée), fiche de référence |
 | 20 min | Test final : QCM d'une quarantaine de questions couvrant les cinq séances, corrigé automatique avec explication par question | Vérifier les acquis, pas la mémoire : chaque question part d'une situation concrète | Passe le test, lit les explications de ses erreurs | Test final sur Moodle, corrigé |
 | 10 min | Vidéo de conclusion « pour aller plus loin » : ce qui vient de l'architecture, ce qui vient du framework, ce qui vient du modèle ; les sujets non couverts (évaluation continue, agents multiples, choix de modèle) et par où continuer | Conclure sur l'idée principale : l'agent IA s'isole comme une dépendance technique, mais son comportement oblige à adapter tests, observabilité et sécurité | Regarde, note ce qu'il retient et ce qu'il ferait différemment | Vidéo de conclusion (sous-titrée), bibliographie |
