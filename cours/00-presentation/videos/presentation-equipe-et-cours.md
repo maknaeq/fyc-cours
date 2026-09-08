@@ -1,13 +1,13 @@
 # Vidéo : Présentation du cours et de l'équipe
 
-- Durée cible : 3 min (limite FYC : 8 min)
+- Durée cible : 2 min 55 (limite FYC : 3 min, page 5 de la consigne)
 - Intervenant : Quentin Bauduin
 - Format : plan fixe, face caméra, téléphone en paysage, lumière de face.
   Incrustations entre crochets, elles ne se lisent pas.
 - Mots : 415 (140 mots par minute)
-- Consigne FYC : « Présentation du cours, pour présenter le cours et son
-  contenu ». L'équipe n'est pas imposée ici mais elle est demandée à la
-  soutenance, autant la montrer dès maintenant.
+- Consigne FYC (page 5) : « 1 vidéo de présentation du cours et de l'équipe
+  (3 mn maxi) ». La page 18 liste aussi une présentation des pré-requis parmi
+  les vidéos obligatoires : c'est la vidéo suivante.
 
 ## Script
 
