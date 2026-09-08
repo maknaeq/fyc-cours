@@ -9,10 +9,10 @@ date: "9 septembre 2026"
 
 | Nom | Prénom | Filière |
 |-----|--------|---------|
-| Bauduin | Quentin | _à compléter_ |
-| Geoffroy | Timothé | _à compléter_ |
-| Topkaya | Kaan | _à compléter_ |
-| Gossin | Erwin | _à compléter_ |
+| Bauduin | Quentin | IW |
+| Geoffroy | Timothé | IW |
+| Topkaya | Kaan | IW |
+| Gossin | Erwin | IW |
 
 # Sujet
 

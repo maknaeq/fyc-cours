@@ -15,10 +15,10 @@ et à générer les documents Word (docx) avec la charte graphique du groupe.
 
 | Nom | Prénom | Filière | Rôle |
 |-----|--------|---------|------|
-| Bauduin | Quentin | _à compléter_ | Chef de projet, contenu transversal |
-| Geoffroy | Timothé | _à compléter_ | Parcours Spring / Java |
-| Topkaya | Kaan | _à compléter_ | Parcours Laravel / PHP |
-| Gossin | Erwin | _à compléter_ | Environnement & infrastructure |
+| Bauduin | Quentin | IW | Chef de projet, contenu transversal |
+| Geoffroy | Timothé | IW | Parcours Spring / Java |
+| Topkaya | Kaan | IW | Parcours Laravel / PHP |
+| Gossin | Erwin | IW | Environnement & infrastructure |
 
 ## Contraintes du projet (résumé)
 
