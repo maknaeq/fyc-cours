@@ -33,6 +33,7 @@ PANDOC_OPTS=(
   --toc --toc-depth 2
   --number-sections
   --metadata lang=fr-FR
+  --metadata toc-title="Sommaire"
 )
 
 export_file() {
