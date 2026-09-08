@@ -97,6 +97,20 @@ Les fichiers sortent dans `build/`. La mise en page vient de
 `charte/reference.docx` : modifier ce fichier dans Word change la charte de
 tous les exports.
 
+## Rendus par jalon
+
+Les docx ne sont pas versionnés (`build/` est ignoré). À chaque jalon, on
+publie une release GitHub qui contient tous les exports, et on archive une
+copie datée dans `livrables/archives/` :
+
+```bash
+scripts/release.sh seance-2 "Séance 2 : scénarisation finale, biblio, 20 % des supports"
+```
+
+La release est l'endroit centralisé des rendus. Coller son lien dans le jalon
+Linear et dans les issues concernées. `livrables/archives/` garde aussi les
+PDF tels que déposés sur Teams ou Moodle.
+
 ## Suivi du projet
 
 Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
