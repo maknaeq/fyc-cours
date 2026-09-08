@@ -6,7 +6,7 @@ Le livrable final est un cours en ligne déposé sur Moodle. Ce dépôt sert à
 et à générer les documents Word (docx) avec la charte graphique du groupe.
 
 > **Concevoir une application web maintenable intégrant un agent IA : architecture, tests, sécurité et mise en production.**
-> Parcours Spring AI (Java) ou Laravel AI SDK (PHP).
+> Parcours Laravel (PHP), TP sans SDK d'IA. Le Laravel AI SDK et Spring AI servent de points de comparaison.
 >
 > Problématique : _Comment intégrer un agent IA dans une application web sans dégrader sa maintenabilité, sa testabilité, sa sécurité et sa maîtrise en production ?_
 > Détail dans `livrables/problematique.md`.

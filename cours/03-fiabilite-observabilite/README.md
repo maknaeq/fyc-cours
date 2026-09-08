@@ -1,7 +1,7 @@
 # 03 : Rendre son appli fiable et surveillable
 
 - Durée apprenant : 3h
-- Note : la V1 totalise 2h40, il manque 20 min (retour mentor séance 1)
+- Note : la V1 totalisait 2h40 ; 20 min de correction guidée ajoutées en S3.3 (FYC-16)
 - Séquences (scénarisation V1, à réviser après les retours de la séance 1) :
   - S3.1 Rendre son appli solide face à l'incertitude (55 min)
   - S3.2 Surveiller ce que fait l'agent (50 min)
