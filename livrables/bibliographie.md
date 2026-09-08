@@ -97,44 +97,48 @@ de la source. Ne pas inventer de date ni d'URL.
 
 # Référentiels et standards
 
-<!-- MENTOR : préciser l'édition exacte, distinguer LLM Applications et Agentic Applications. -->
-
-- OWASP Foundation (2025), _OWASP Top 10 for LLM Applications_, édition 2025
-  (v2025), URL _à compléter_, consulté le _à compléter_. (★) [S4.2]
-- OWASP Foundation (_année à compléter_), _OWASP Top 10 for Agentic
-  Applications_, édition _à compléter_, URL _à compléter_, consulté le
-  _à compléter_. [S4.2]
-- OpenTelemetry (_année à compléter_), _Semantic Conventions for Generative AI
-  systems_, version _à compléter_, URL _à compléter_, consulté le _à compléter_. [S3.2]
+- OWASP Foundation (2025), _OWASP Top 10 for LLM Applications_, édition 2025,
+  https://genai.owasp.org/llm-top-10/, consulté le 8 septembre 2026. (★) [S4.2]
+- OWASP Foundation (2026), _OWASP Top 10 for Agentic Applications_, édition
+  2026 (publiée le 9 décembre 2025),
+  https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/,
+  consulté le 8 septembre 2026. [S4.2]
+- OpenTelemetry (2026), _Semantic Conventions for Generative AI systems_,
+  spécification en évolution continue, pas de numéro de version stable,
+  https://github.com/open-telemetry/semantic-conventions-genai, consulté le
+  8 septembre 2026. [S3.2]
 
 # Documentation technique
 
 ## Architecture logicielle
 
-- Cockburn A. (2005), _Hexagonal Architecture_, article en ligne,
-  URL _à compléter_, consulté le _à compléter_. [S1.1]
+- Cockburn A. (2005), _Hexagonal Architecture_ (HaT Technical Report 2005.02),
+  article en ligne, https://alistair.cockburn.us/hexagonal-architecture/,
+  consulté le 8 septembre 2026. [S1.1]
 - Fowler M. (2011), _CQRS_, article en ligne (martinfowler.com),
-  consulté le _à compléter_. [S1.1]
+  https://martinfowler.com/bliki/CQRS.html, consulté le 8 septembre 2026.
+  [S1.1]
 
 ## Frameworks et SDK
 
-<!-- MENTOR : distinguer la documentation Laravel 13 de celle du Laravel AI SDK ;
-sourcer officiellement la date de sortie du Laravel AI SDK. -->
-
-- VMware / Broadcom (_année_), _Spring AI Reference Documentation_, version
-  _à compléter_, URL _à compléter_, consulté le _à compléter_. (★) [S2.1, S2.3, S3.2, S4.1]
-- Laravel LLC (_année_), _Laravel AI SDK Documentation_ (package `laravel/ai`),
-  version _à compléter_, URL _à compléter_, consulté le _à compléter_. (★)
-  [S2.1, S2.3, S3.1, S4.1]
-  _Date de sortie annoncée en V1 : février 2026, à relier à une source officielle._
-- Laravel LLC (_année_), _Laravel 13 Documentation_, URL _à compléter_,
-  consulté le _à compléter_. [S1.1]
-- Resilience4j (_année_), _Resilience4j User Guide_, version _à compléter_,
-  URL _à compléter_, consulté le _à compléter_. [S3.1]
+- VMware / Broadcom (2026), _Spring AI Reference Documentation_, version
+  2.0.1, https://docs.spring.io/spring-ai/reference/, consulté le
+  8 septembre 2026. (★) [S2.1, S2.3, S3.2, S4.1]
+- Laravel LLC (2026), _Laravel AI SDK Documentation_ (package `laravel/ai`),
+  version 0.x (première publication le 5 février 2026, tag `v0.1.0`,
+  github.com/laravel/ai/releases), https://laravel.com/docs/ai-sdk, consulté
+  le 8 septembre 2026. (★) [S2.1, S2.3, S3.1, S4.1]
+- Laravel LLC (2026), _Laravel 13 Documentation_, https://laravel.com/docs/13.x,
+  consulté le 8 septembre 2026. [S1.1]
+  _Documentation distincte de celle du Laravel AI SDK (`laravel.com/docs/ai-sdk`,
+  package `laravel/ai` séparé)._
+- Resilience4j (2024), _Resilience4j User Guide_, version 2.4.0,
+  https://resilience4j.readme.io/, consulté le 8 septembre 2026. [S3.1]
 
 ## Outils
 
-- Ollama (_année_), _Ollama Documentation_, version _à compléter_,
-  URL _à compléter_, consulté le _à compléter_. (★) [S1.3]
-- pgvector (_année_), _pgvector: Open-source vector similarity search for
-  Postgres_, version _à compléter_, URL _à compléter_, consulté le _à compléter_. [S2.3]
+- Ollama (2026), _Ollama Documentation_, version 0.34.0,
+  https://docs.ollama.com/, consulté le 8 septembre 2026. (★) [S1.3]
+- pgvector (2026), _pgvector: Open-source vector similarity search for
+  Postgres_, version 0.8.6, https://github.com/pgvector/pgvector, consulté le
+  8 septembre 2026. [S2.3]
