@@ -52,9 +52,15 @@ poser la question avant de coder.
 ## 5. Livrer
 
 1. Commit avec un message court en français qui commence par l'identifiant :
-   `FYC-12 : réécrit la vue d'ensemble`.
+   `FYC-12 : réécrit la vue d'ensemble`. **Exception** : si la PR ne termine
+   pas l'issue (il reste des cases non cochées), ne pas mettre l'identifiant
+   en tête du commit ni du titre de la PR. L'intégration GitHub de Linear
+   passe l'issue en Done au merge dès qu'elle voit l'identifiant, y compris
+   dans le message du commit squashé. Mettre le lien de l'issue dans le corps
+   de la PR seulement.
 2. `git push -u origin <branche>`.
-3. Ouvrir la PR avec `gh pr create`. Titre = `FYC-12 : <titre de l'issue>`.
+3. Ouvrir la PR avec `gh pr create`. Titre = `FYC-12 : <titre de l'issue>`
+   (sans l'identifiant si la PR ne termine pas l'issue, voir ci-dessus).
    Corps : lien vers l'issue Linear, résumé de ce qui a été fait, ce que le
    relecteur doit vérifier en priorité, et une case à cocher « Relu par un
    humain » (règle 2 de `charte/regles-redaction.md`).
