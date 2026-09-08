@@ -28,7 +28,7 @@ Source : `ressources/presentation-projet-fyc-26-27.pdf`.
 - Écrit : ~**30 pages** (1 page = 4 000 signes), 20 % max en illustrations/code.
   Schémas construits par nous. Reproduction citée et limitée à 15 %.
 - Vidéo : ~**1 h 30** au total, **8 min max** par vidéo, **sous-titres obligatoires**.
-  Vidéos imposées : équipe, présentation du cours (3 min max), pré-requis,
+  Vidéos imposées : présentation du cours et de son contenu, pré-requis,
   2 sujets complexes, conclusion « pour aller plus loin », correction du cas pratique.
 - Évaluation apprenant : test de positionnement, 1 exercice par chapitre,
   au moins 2 exercices non-QCM, 1 cas pratique avec corrigé vidéo,
