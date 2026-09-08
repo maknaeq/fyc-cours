@@ -5,13 +5,20 @@ ce guide couvre le fond et la structure Markdown.
 
 ## Charte graphique
 
-_À définir par le groupe._ À renseigner ici puis à reporter dans `reference.docx` :
+Décidée le 08/09/2026 avec la page « Charte FYC », reportée dans `reference.docx`.
 
-- Police titres : _à définir_
-- Police corps : _à définir_
-- Couleur principale : _à définir_
-- Couleur secondaire : _à définir_
-- Logos : `charte/logos/`
+| Élément | Valeur |
+|---|---|
+| Police titres et corps | Arial, corps 11 pt, interligne 1,3 |
+| Police code | JetBrains Mono (à installer sur chaque poste, Word remplace sinon) |
+| Titres | Noir `#111111`, gras, numérotés, niveau 1 en capitales, sans filet |
+| Accent | Bleu pétrole `#14526D` : liens, filet gauche des citations |
+| Tableaux | Bordures `#999999`, en-tête fond `#EFEFEF` en gras, lignes alternées `#F5F7F9`, texte 9 pt |
+| Page de titre | Alignée à gauche, sans bandeau |
+| Logos | `charte/logos/` (à ajouter) |
+
+Pour changer une valeur : rouvrir la page Charte FYC, enregistrer, puis
+reporter dans `reference.docx` (styles Word) et ici.
 
 ## Structure d'un fichier `cours.md`
 
