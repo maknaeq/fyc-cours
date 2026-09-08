@@ -5,14 +5,19 @@ Le livrable final est un cours en ligne déposé sur Moodle. Ce dépôt sert à
 écrire le contenu en Markdown, à le versionner, à suivre les retours du mentor
 et à générer les documents Word (docx) avec la charte graphique du groupe.
 
-> Sujet du cours : _à compléter_
-> Problématique : _à compléter_
+> Sujet du cours (titre V1, à reformuler) : **Architectures web boostées à l'IA** —
+> comment organiser, sécuriser et tester une application web qui intègre un agent IA.
+> Parcours Spring AI (Java) ou Laravel AI SDK (PHP).
+> Problématique : _à formuler pour la séance 2_ (voir `livrables/problematique.md`).
 
 ## Équipe
 
 | Nom | Prénom | Filière | Rôle |
 |-----|--------|---------|------|
-| _à compléter_ | | | |
+| Bauduin | Quentin | _à compléter_ | Chef de projet, contenu transversal |
+| Geoffroy | Timothé | _à compléter_ | Parcours Spring / Java |
+| Topkaya | Kaan | _à compléter_ | Parcours Laravel / PHP |
+| Gossin | Erwin | _à compléter_ | Environnement & infrastructure |
 
 ## Contraintes du projet (résumé)
 
@@ -48,7 +53,8 @@ Source : `ressources/presentation-projet-fyc-26-27.pdf`.
 ```
 ressources/       Documents fournis par l'école (consigne, template, normes biblio)
 cours/            Contenu du cours en Markdown, un dossier par chapitre
-livrables/        Problématique, scénarisation, bibliographie, accroche, soutenance
+livrables/        Problématique, scénarisation, bibliographie, accroche, avancement, soutenance
+                  archives/ : les PDF tels que rendus à chaque séance
 retours-mentor/   Compte-rendu de chaque séance avec le mentor
 charte/           Charte graphique : reference.docx, logos, guide de style
 scripts/          Outils de build (md → docx)
