@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Hook git : refuse le commit si un fichier Markdown modifié viole les règles
+# de rédaction (charte/regles-redaction.md). Installé par scripts/install-hooks.sh.
+ROOT="$(git rev-parse --show-toplevel)"
+files=$(git diff --cached --name-only --diff-filter=ACM -- '*.md')
+[[ -z "$files" ]] && exit 0
+cd "$ROOT" && scripts/lint.sh $files || {
+  echo "Commit refusé : corriger les violations ci-dessus (charte/regles-redaction.md)." >&2
+  exit 1
+}

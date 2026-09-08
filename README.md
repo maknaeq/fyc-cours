@@ -112,6 +112,24 @@ La release est l'endroit centralisé des rendus. Coller son lien dans le jalon
 Linear et dans les issues concernées. `livrables/archives/` garde aussi les
 PDF tels que déposés sur Teams ou Moodle.
 
+## Avec Claude Code ou Codex
+
+Le dépôt fonctionne avec les deux. Les fichiers de contexte et les skills sont
+partagés :
+
+| | Claude Code | Codex |
+|---|---|---|
+| Contexte du projet | `CLAUDE.md` | `AGENTS.md` (lien vers le même fichier) |
+| Skills (`/ship`, `/chapitre`, `/retour-mentor`) | `.claude/skills/` | `.agents/skills/` (lien vers le même dossier) |
+| Lint après chaque écriture | hook dans `.claude/settings.json` | pas d'équivalent : installer le hook git ci-dessous |
+| Linear | connecteur claude.ai | serveur MCP Linear à déclarer dans `~/.codex/config.toml` |
+
+Après le clonage, quel que soit l'outil :
+
+```bash
+scripts/install-hooks.sh   # refuse un commit qui viole charte/regles-redaction.md
+```
+
 ## Suivi du projet
 
 Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
