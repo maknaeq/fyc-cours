@@ -5,19 +5,20 @@ Le livrable final est un cours en ligne déposé sur Moodle. Ce dépôt sert à
 écrire le contenu en Markdown, à le versionner, à suivre les retours du mentor
 et à générer les documents Word (docx) avec la charte graphique du groupe.
 
-> Sujet du cours (titre V1, à reformuler) : **Architectures web boostées à l'IA**,
-> comment organiser, sécuriser et tester une application web qui intègre un agent IA.
+> **Concevoir une application web maintenable intégrant un agent IA : architecture, tests, sécurité et mise en production.**
 > Parcours Spring AI (Java) ou Laravel AI SDK (PHP).
-> Problématique : _à formuler pour la séance 2_ (voir `livrables/problematique.md`).
+>
+> Problématique : _Comment intégrer un agent IA dans une application web sans dégrader sa maintenabilité, sa testabilité, sa sécurité et sa maîtrise en production ?_
+> Détail dans `livrables/problematique.md`.
 
 ## Équipe
 
 | Nom | Prénom | Filière | Rôle |
 |-----|--------|---------|------|
-| Bauduin | Quentin | _à compléter_ | Chef de projet, contenu transversal |
-| Geoffroy | Timothé | _à compléter_ | Parcours Spring / Java |
-| Topkaya | Kaan | _à compléter_ | Parcours Laravel / PHP |
-| Gossin | Erwin | _à compléter_ | Environnement & infrastructure |
+| Bauduin | Quentin | IW | Chef de projet, contenu transversal |
+| Geoffroy | Timothé | IW | Parcours Spring / Java |
+| Topkaya | Kaan | IW | Parcours Laravel / PHP |
+| Gossin | Erwin | IW | Environnement & infrastructure |
 
 ## Contraintes du projet (résumé)
 
