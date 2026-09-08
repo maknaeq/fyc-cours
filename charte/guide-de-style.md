@@ -10,7 +10,7 @@ Décidée le 08/09/2026 avec la page « Charte FYC », reportée dans `reference
 | Élément | Valeur |
 |---|---|
 | Police titres et corps | Arial, corps 11 pt, interligne 1,3 |
-| Police code | JetBrains Mono (à installer sur chaque poste, Word remplace sinon) |
+| Police code | Consolas (présente dans Word) |
 | Titres | Noir `#111111`, gras, numérotés, niveau 1 en capitales, sans filet |
 | Accent | Bleu pétrole `#14526D` : liens, filet gauche des citations |
 | Tableaux | Bordures `#999999`, en-tête fond `#EFEFEF` en gras, lignes alternées `#F5F7F9`, texte 9 pt |
