@@ -99,5 +99,10 @@ tous les exports.
 
 ## Suivi du projet
 
-Le suivi se fait dans Linear (projet FYC). Un jalon par séance, une issue
-par chapitre ou par livrable.
+Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
+
+- Un jalon par séance (S2, S3, S4, fermeture Moodle, soutenance).
+- Une issue par chapitre (label `chapitre`, estimation = heures apprenant,
+  Linear n'accepte que des entiers : le chapitre 00 vaut 1 pour 30 min réelles).
+- Une issue par action issue d'un retour du mentor (label `retour-mentor`).
+- Labels `spring` / `laravel` pour les tâches propres à un parcours.

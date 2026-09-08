@@ -25,7 +25,7 @@ livrables/archives/2026-07-08-avancement-s1.pdf.
 ## Outils de suivi
 
 - Dépôt GitHub : https://github.com/maknaeq/fyc-cours
-- Suivi des tâches : Linear, projet FYC (_lien à ajouter_)
+- Suivi des tâches : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9)
 - Documents : ce dépôt (`livrables/`, `cours/`)
 
 # Séance 2 — 09/09/2026
@@ -37,6 +37,8 @@ livrables/archives/2026-07-08-avancement-s1.pdf.
 | Tâche | Responsable | Terminé le | Preuve (lien, commit, capture) |
 |-------|-------------|------------|--------------------------------|
 | Mise en place du dépôt GitHub et du workflow | Quentin Bauduin | 08/09/2026 | https://github.com/maknaeq/fyc-cours |
+| Mise en place du suivi Linear (jalons, 21 issues) | Quentin Bauduin | 08/09/2026 | https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9 |
+| Intégration des retours mentor S1 en actions | Quentin Bauduin | 08/09/2026 | `retours-mentor/2026-07-08-seance-1.md` |
 | | | | |
 
 ## Tâches en cours
