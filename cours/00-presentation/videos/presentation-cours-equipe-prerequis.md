@@ -4,7 +4,7 @@
 - Intervenant : Quentin Bauduin
 - Format : plan fixe, face caméra, téléphone en paysage, lumière de face.
   Incrustations entre crochets, elles ne se lisent pas.
-- Mots : 400 (140 mots par minute)
+- Mots : 401 (140 mots par minute)
 - Consigne FYC : « 1 vidéo de présentation du cours et de l'équipe (3 mn
   maxi) » (page 5) et « présentation des pré-requis » parmi les vidéos
   obligatoires (page 18). Décision du groupe : une seule vidéo pour les trois.
@@ -39,23 +39,26 @@ conducteur et les vidéos.
 
 [Écran : les cinq séances]
 
-Le cours dure quinze heures, en cinq séances. Les bases de l'architecture et
-ce que l'IA vient y casser. La construction d'un agent, avec des outils et de
-la recherche dans vos documents. La fiabilité et la mesure. Les tests et la
-sécurité. Et la mise en production.
+Le cours dure quinze heures, en cinq séances. D'abord, les bases de
+l'architecture web, et pourquoi une IA les met à l'épreuve. Ensuite, la
+construction d'un agent, avec des outils et de la recherche dans vos
+documents. Puis la fiabilité et la mesure. Puis les tests et la sécurité. Et
+pour finir, la mise en production.
 
 [Écran : vidéo, support écrit, TP, exercice, QCM]
 
 Chaque séance suit le même déroulé : une courte vidéo, un support écrit, un
-TP sur le projet fil rouge, une application de notes en Laravel que vous
-faites évoluer d'une séance à l'autre, puis un exercice corrigé et un QCM. Un
+TP, puis un exercice corrigé et un QCM. Tous les TP portent sur le même
+projet, une application de prise de notes en Laravel, que vous enrichissez
+séance après séance. Un
 test de positionnement au début, un cas pratique et un test final à la fin.
 Tout est corrigé, tout se fait à votre rythme.
 
 [Écran : PHP et Laravel, HTTP et Git, PHP 8.3, Docker, Ollama]
 
-Pour suivre, il vous faut être à l'aise en PHP orienté objet, connaître les
-bases de Laravel, savoir ce qu'est une requête HTTP et utiliser Git. Aucune
+Pour suivre ce cours, il vous faut être à l'aise en PHP orienté objet,
+connaître les bases de Laravel, savoir ce qu'est une requête HTTP et utiliser
+Git. Aucune
 connaissance en IA, aucun Java. Côté machine : PHP 8.3, Docker pour la base
 de données, et Ollama, qui fait tourner un modèle sur votre ordinateur, pour
 ne rien payer. Le guide d'installation est dans la première séance, et il se
