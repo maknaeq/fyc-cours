@@ -4,7 +4,7 @@
 
 Ce chapitre couvre les séquences S1.1 et S1.2. Les séquences S1.3 (installation
 de l'environnement) et S1.4 (TP de réorganisation) ont leurs propres supports :
-`installation.md` et le dépôt de départ du TP, [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp)
+le guide d'installation et le dépôt du TP, [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp)
 (branche `fyc-tp-s1`, corrigé sur `fyc-tp-s1-correction`).
 
 ## 1. Architectures web : les bases
@@ -338,8 +338,8 @@ implicite qu'il ne devrait pas prendre :
 - **Rien n'est mesuré.** Ni durée, ni coût, ni taux d'échec. On découvre les
   problèmes par les plaintes.
 
-Vous allez maintenant proposer des parades dans la fiche de réponse
-(`exercices.md`, exercice 1). Ne cherchez pas la solution parfaite : en
+Vous allez maintenant proposer des parades dans la fiche de réponse de
+l'exercice 1 de ce chapitre. Ne cherchez pas la solution parfaite : en
 séance 3, vous construirez ces parades une par une. L'objectif ici est de
 relier chaque point de rupture à une famille de solutions.
 

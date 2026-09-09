@@ -6,5 +6,5 @@ Bloc d'ouverture du cours sur Moodle. Ne contient pas de chapitre de fond.
 - Contenu :
   - Une seule vidéo : présentation du cours, de l'équipe et des pré-requis (3 min max), décision du 08/09/2026
   - Texte des pré-requis sous la vidéo dans Moodle (repris de l'accroche et du guide d'installation)
-  - Texte d'accroche (source : `livrables/accroche.md`)
-  - Test de positionnement (`positionnement.md`)
+  - Texte d'accroche
+  - Test de positionnement, dix questions corrigées
