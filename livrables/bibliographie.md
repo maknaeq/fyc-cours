@@ -12,7 +12,7 @@ réorganisée selon les retours du mentor (retours-mentor/2026-07-08-seance-1.md
 
 Les champs « _à compléter_ » sont à renseigner par le groupe après vérification
 de la source. Ne pas inventer de date ni d'URL.
-(★) = lecture prioritaire pour l'apprenant. [Sx.y] = séquence qui s'en sert.
+[Sx.y] = séquence qui s'en sert.
 -->
 
 # Ouvrages
@@ -98,7 +98,7 @@ de la source. Ne pas inventer de date ni d'URL.
 # Référentiels et standards
 
 - OWASP Foundation (2025), _OWASP Top 10 for LLM Applications_, édition 2025,
-  https://genai.owasp.org/llm-top-10/, consulté le 8 septembre 2026. (★) [S4.2]
+  https://genai.owasp.org/llm-top-10/, consulté le 8 septembre 2026. [S4.2]
 - OWASP Foundation (2026), _OWASP Top 10 for Agentic Applications_, édition
   2026 (publiée le 9 décembre 2025),
   https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/,
@@ -123,11 +123,11 @@ de la source. Ne pas inventer de date ni d'URL.
 
 - VMware / Broadcom (2026), _Spring AI Reference Documentation_, version
   2.0.1, https://docs.spring.io/spring-ai/reference/, consulté le
-  8 septembre 2026. (★) [S2.1, S2.3, S3.2, S4.1]
+  8 septembre 2026. [S2.1, S2.3, S3.2, S4.1]
 - Laravel LLC (2026), _Laravel AI SDK Documentation_ (package `laravel/ai`),
   version 0.x (première publication le 5 février 2026, tag `v0.1.0`,
   github.com/laravel/ai/releases), https://laravel.com/docs/ai-sdk, consulté
-  le 8 septembre 2026. (★) [S2.1, S2.3, S3.1, S4.1]
+  le 8 septembre 2026. [S2.1, S2.3, S3.1, S4.1]
 - Laravel LLC (2026), _Laravel 13 Documentation_, https://laravel.com/docs/13.x,
   consulté le 8 septembre 2026. [S1.1]
   _Documentation distincte de celle du Laravel AI SDK (`laravel.com/docs/ai-sdk`,
@@ -138,7 +138,7 @@ de la source. Ne pas inventer de date ni d'URL.
 ## Outils
 
 - Ollama (2026), _Ollama Documentation_, version 0.34.0,
-  https://docs.ollama.com/, consulté le 8 septembre 2026. (★) [S1.3]
+  https://docs.ollama.com/, consulté le 8 septembre 2026. [S1.3]
 - pgvector (2026), _pgvector: Open-source vector similarity search for
   Postgres_, version 0.8.6, https://github.com/pgvector/pgvector, consulté le
   8 septembre 2026. [S2.3]
