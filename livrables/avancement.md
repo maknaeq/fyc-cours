@@ -25,11 +25,16 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 | Timothé Geoffroy | Fil rouge et comparaisons | Application fil rouge (type Notion avec agents), extraits Spring AI des comparaisons, publications scientifiques |
 | Erwin Gossin | Environnement et infrastructure | Guide d'installation, Ollama, pgvector, Docker, CI, ressources par séquence |
 
-## Outils de suivi
+## Organisation et suivi
 
-- Dépôt GitHub : https://github.com/maknaeq/fyc-cours
-- Suivi des tâches : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9)
-- Documents : ce dépôt (`livrables/`, `cours/`)
+- Gestion de projet : un jalon par séance avec le mentor, une tâche par
+  chapitre et par livrable, chaque tâche assignée à un responsable avec une
+  échéance.
+- Suivi des tâches : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
+  L'avancement du projet y est calculé sur la durée apprenant des chapitres
+  terminés.
+- Chaque document et chaque support est relu par un autre membre du groupe
+  avant d'être considéré comme terminé.
 
 # Séance 2 : 09/09/2026
 
@@ -39,14 +44,12 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 
 | Tâche | Responsable | Terminé le | Preuve (lien, commit, capture) |
 |-------|-------------|------------|--------------------------------|
-| Mise en place du dépôt GitHub et du workflow | Quentin Bauduin | 08/09/2026 | https://github.com/maknaeq/fyc-cours |
-| Mise en place du suivi Linear (jalons, 21 issues) | Quentin Bauduin | 08/09/2026 | https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9 |
-| Intégration des retours mentor S1 en actions | Quentin Bauduin | 08/09/2026 | `retours-mentor/2026-07-08-seance-1.md` |
+| Mise en place de la gestion de projet et du suivi dans Linear (jalons, rôles, 21 tâches) | Quentin Bauduin | 08/09/2026 | https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9 |
+| Intégration des retours mentor S1 en actions suivies | Quentin Bauduin | 08/09/2026 | Tâches étiquetées « retour-mentor » dans Linear |
 | Titre du cours et problématique rédigée (FYC-11) | Quentin Bauduin | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/1 |
-| Charte d'export des documents (FYC-23, base) | Quentin Bauduin | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/2 |
+| Charte de mise en forme commune à tous les documents rendus | Quentin Bauduin | 08/09/2026 | Ce document |
 | Activités synchrones remplacées par des activités autonomes (FYC-14) | Quentin Bauduin | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/3 |
 | Parcours unique Laravel, TP sans SDK (FYC-13) | Groupe, proposition de Kaan | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/4 |
-| Règles de rédaction et lint automatique | Quentin Bauduin | 08/09/2026 | `charte/regles-redaction.md` |
 | Sous-issues du 20 % créées et réparties (FYC-26 à FYC-30) | Quentin Bauduin | 08/09/2026 | https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9 |
 
 ## Tâches en cours
@@ -75,7 +78,7 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 | Tâche | Responsable | Échéance |
 |-------|-------------|----------|
 | Dépôt de la scénarisation finale sur Teams | Quentin Bauduin | 09/09/2026 avant la séance |
-| Release GitHub `seance-2` avec tous les docx | Quentin Bauduin | 09/09/2026 |
+| Dépôt sur Teams des documents de la séance 2 | Quentin Bauduin | 09/09/2026 |
 | Chapitres 00, 01 et 02 complets sur Moodle (50 %) | Groupe | 02/12/2026 |
 | Chapitres 03, 04 et 05, cas pratique, test final (100 %) | Groupe | 06/01/2027 |
 
