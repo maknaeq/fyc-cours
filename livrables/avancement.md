@@ -58,7 +58,7 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 |-------|-------------|----------|------------|
 | Scénarisation finale : périmètre, durée S3, ressources, vue d'ensemble (FYC-15, 16, 17, 12) | Quentin Bauduin | 09/09/2026 | Rédigé, en relecture : https://github.com/maknaeq/fyc-cours/pull/5 |
 | Support écrit S1.1 et S1.2, exercice et QCM corrigés (FYC-26) | Quentin Bauduin | 09/09/2026 | Rédigé, en relecture : https://github.com/maknaeq/fyc-cours/pull/6 |
-| Vidéo de présentation et pré-requis (FYC-30) | Quentin Bauduin | 09/09/2026 | Scripts rédigés (https://github.com/maknaeq/fyc-cours/pull/7), tournage à faire |
+| Vidéo de présentation du cours, de l'équipe et des pré-requis (FYC-30) | Quentin Bauduin | 09/09/2026 | Script validé, vidéo tournée, montage et sous-titres en cours |
 | Dépôt de départ du TP S1.4 (FYC-27) | Kaan Topkaya | 09/09/2026 | À faire |
 | Cas fil rouge, app type Notion avec agents (FYC-28) | Timothé Geoffroy | 09/09/2026 | À faire |
 | Guide d'installation de l'environnement (FYC-29) | Erwin Gossin | 09/09/2026 | À faire |
@@ -84,6 +84,6 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 
 # Séance 1 : 08/07/2026
 
-Voir `livrables/archives/2026-07-08-avancement-s1.pdf`. Backlog prévisionnel
+Voir le document d'avancement remis à la séance 1. Backlog prévisionnel
 (toutes les tâches « à faire »). Retour du mentor : ajouter échéances, statuts
 réels, blocages et preuves d'avancement.
