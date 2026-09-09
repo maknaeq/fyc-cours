@@ -4,7 +4,8 @@
 
 Ce chapitre couvre les séquences S1.1 et S1.2. Les séquences S1.3 (installation
 de l'environnement) et S1.4 (TP de réorganisation) ont leurs propres supports :
-`installation.md` et le dépôt de départ du TP.
+`installation.md` et le dépôt de départ du TP, [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp)
+(branche `fyc-tp-s1`, corrigé sur `fyc-tp-s1-correction`).
 
 ## 1. Architectures web : les bases
 
