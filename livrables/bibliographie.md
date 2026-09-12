@@ -10,8 +10,7 @@ réorganisée selon les retours du mentor (retours-mentor/2026-07-08-seance-1.md
 - chaque entrée : auteur ou organisme, titre complet, date, version, URL, consulté le
 - normes : ressources/normes-bibliographie.pdf
 
-Les champs « _à compléter_ » sont à renseigner par le groupe après vérification
-de la source. Ne pas inventer de date ni d'URL.
+Chaque entrée a été vérifiée à la source le 8 septembre 2026.
 [Sx.y] = séquence qui s'en sert.
 -->
 

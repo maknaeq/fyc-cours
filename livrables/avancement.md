@@ -52,19 +52,19 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 | Parcours unique Laravel, TP sans SDK (FYC-13) | Groupe, proposition de Kaan | 08/09/2026 | https://github.com/maknaeq/fyc-cours/pull/4 |
 | Sous-issues du 20 % créées et réparties (FYC-26 à FYC-30) | Quentin Bauduin | 08/09/2026 | https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9 |
 
-## Tâches en cours
+## Tâches en cours au 09/09/2026
 
 | Tâche | Responsable | Échéance | Avancement |
 |-------|-------------|----------|------------|
-| Scénarisation finale : périmètre, durée S3, ressources, vue d'ensemble (FYC-15, 16, 17, 12) | Quentin Bauduin | 09/09/2026 | Rédigé, en relecture : https://github.com/maknaeq/fyc-cours/pull/5 |
-| Support écrit S1.1 et S1.2, exercice et QCM corrigés (FYC-26) | Quentin Bauduin | 09/09/2026 | Rédigé, en relecture : https://github.com/maknaeq/fyc-cours/pull/6 |
-| Vidéo de présentation du cours, de l'équipe et des pré-requis (FYC-30) | Quentin Bauduin | 09/09/2026 | Script validé, vidéo tournée, montage et sous-titres en cours |
-| Dépôt de départ du TP S1.4 (FYC-27) | Kaan Topkaya | 09/09/2026 | À faire |
-| Cas fil rouge, app type Notion avec agents (FYC-28) | Timothé Geoffroy | 09/09/2026 | À faire |
-| Guide d'installation de l'environnement (FYC-29) | Erwin Gossin | 09/09/2026 | À faire |
-| Bibliographie aux normes (FYC-19) | Kaan Topkaya | 09/09/2026 | Structure en place, champs à compléter |
-| Publications scientifiques (FYC-20) | Timothé Geoffroy | 09/09/2026 | À faire |
-| Charte graphique définitive, logos, page de garde (FYC-23) | Erwin Gossin | 02/12/2026 | Base posée et mergée (PR #2), reste les logos |
+| Scénarisation finale : périmètre, durée S3, ressources, vue d'ensemble (FYC-15, 16, 17, 12) | Quentin Bauduin | 09/09/2026 | Terminé, mergé |
+| Support écrit S1.1 et S1.2, exercice et QCM corrigés (FYC-26) | Quentin Bauduin | 09/09/2026 | Terminé, mergé |
+| Dépôt de départ du TP S1.4 (FYC-27) | Kaan Topkaya | 09/09/2026 | Terminé, dépôt public lié depuis le chapitre 01 |
+| Cas fil rouge, app type Notion avec agents (FYC-28) | Timothé Geoffroy | 09/09/2026 | Terminé |
+| Bibliographie aux normes (FYC-19) | Kaan Topkaya | 09/09/2026 | Terminé, chaque entrée vérifiée à la source |
+| Publications scientifiques (FYC-20) | Timothé Geoffroy | 09/09/2026 | Terminé, 4 catégories ajoutées |
+| Vidéo de présentation du cours, de l'équipe et des pré-requis (FYC-30) | Quentin Bauduin | 13/09/2026 | Tournée le 09/09, à refaire après le retour du mentor |
+| Guide d'installation de l'environnement (FYC-29) | Erwin Gossin | 13/09/2026 | En cours |
+| Charte graphique définitive, logos, page de garde (FYC-23) | Erwin Gossin | 02/12/2026 | Base mergée (PR #2), reste les logos |
 
 ## Blocages rencontrés
 
@@ -72,13 +72,33 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
 |---------|--------|-----------------------|
 | Deux parcours Spring et Laravel : trop large pour 15 h et activités de groupe impossibles sur Moodle | Scénarisation à revoir en profondeur | Parcours unique Laravel, TP sans SDK, Spring AI en comparaison lue (FYC-13, FYC-14) |
 | Rôle « parcours Spring » sans objet après cette décision | Répartition à refaire | Timothé prend le fil rouge et les comparaisons (tableau des rôles ci-dessus) |
+| Vidéo de présentation montrée en séance sans montage | Le mentor n'a vu que le rush et l'a jugé ennuyeux | Script réécrit avec accroche, nouvelle prise et montage avant le 13/09 (FYC-31, FYC-30) |
+
+## Retours de la séance 2 et suite
+
+Compte-rendu complet : `retours-mentor/2026-09-09-seance-2.md`. Quatre retours,
+transformés en tâches Linear le 12/09/2026 (FYC-31 à FYC-36).
+
+| Retour du mentor | Action | Responsable | Échéance |
+|------------------|--------|-------------|----------|
+| La vidéo de présentation doit donner envie, pas ouvrir sur « Bonjour » | Script réécrit : accroche, cible nommée, valeur montrée (FYC-31), puis nouvelle prise et montage (FYC-30) | Quentin Bauduin | 13/09/2026 |
+| Le TP 1 n'a pas de consignes écrites | Fiche apprenant pas à pas : étapes numérotées, résultat attendu, critères de réussite, corrigé (FYC-32) | Kaan Topkaya | 13/09/2026 |
+| Renvoyer vers des ressources externes là où une notion extérieure est manipulée | Rubrique « Ressources » normalisée dans le modèle de chapitre (FYC-33), chapitres 00 et 01 complétés (FYC-34), renvois en ligne dans les TP (FYC-35) | Quentin Bauduin, Kaan Topkaya | 02/12/2026 |
+| Piste bonus : une vidéo de live coding par TP | Tâche ouverte en réserve, conditionnée à un cours complet et à la place restante dans l'enveloppe vidéo (FYC-36) | Groupe | non planifié |
+
+## Rendu du week-end du 12 au 13/09/2026
+
+| Livrable | Responsable | État |
+|----------|-------------|------|
+| Suivi Linear à jour : qui fait quoi, échéances, statuts réels | Quentin Bauduin | Fait, 36 tâches, jalon Séance 2 à 78 % |
+| Bibliographie aux normes (FYC-19, FYC-20) | Kaan Topkaya, Timothé Geoffroy | Fait |
+| Vidéo de présentation montée et sous-titrée (FYC-30, FYC-31) | Quentin Bauduin | Script réécrit, tournage et montage à faire |
 
 ## Prochaines échéances
 
 | Tâche | Responsable | Échéance |
 |-------|-------------|----------|
-| Dépôt de la scénarisation finale sur Teams | Quentin Bauduin | 09/09/2026 avant la séance |
-| Dépôt sur Teams des documents de la séance 2 | Quentin Bauduin | 09/09/2026 |
+| Rendu du week-end : suivi Linear, bibliographie, vidéo de présentation | Groupe | 13/09/2026 |
 | Chapitres 00, 01 et 02 complets sur Moodle (50 %) | Groupe | 02/12/2026 |
 | Chapitres 03, 04 et 05, cas pratique, test final (100 %) | Groupe | 06/01/2027 |
 
