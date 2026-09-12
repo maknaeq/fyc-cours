@@ -1,5 +1,5 @@
 ---
-title: "Gestion de projet et répartition du travail"
+title: "Répartition du travail"
 subtitle: "Export du projet Linear, jalon Séance 2, au 12/09/2026"
 author: "Quentin Bauduin, Timothé Geoffroy, Kaan Topkaya, Erwin Gossin"
 ---
@@ -11,22 +11,8 @@ Linear, ce fichier est une photo à une date donnée. Régénérer avant chaque
 séance, puis exporter avec scripts/build.sh.
 -->
 
-# Comment le projet est géré
-
-Outil de suivi : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
-
-- Un jalon par séance avec le mentor : séance 2, séance 3, séance 4, fermeture
-  Moodle, soutenance. Chaque jalon porte son échéance et son attendu.
-- Une tâche par chapitre et par livrable, assignée à un membre, avec une
-  échéance. L'estimation des chapitres est en heures apprenant : leur somme
-  égale la durée cible du cours.
-- Les tâches issues d'un retour du mentor portent le label `retour-mentor`,
-  ce qui permet de vérifier qu'aucun retour n'est resté sans suite.
-- Le travail passe par une branche et une pull request sur
-  [le dépôt GitHub](https://github.com/maknaeq/fyc-cours), relue par un autre
-  membre avant d'être intégrée. La tâche Linear se ferme au merge.
-- Nomenclature complète (labels, statuts, priorités, définition de terminé) :
-  [document Linear](https://linear.app/fyc/document/nomenclature-linear-comment-on-utilise-ce-projet-ef7b50633f27).
+Suivi des tâches : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
+Dépôt du contenu : [github.com/maknaeq/fyc-cours](https://github.com/maknaeq/fyc-cours).
 
 # Qui a fait quoi
 
