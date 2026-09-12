@@ -90,9 +90,9 @@ transformés en tâches Linear le 12/09/2026 (FYC-31 à FYC-36).
 
 | Livrable | Responsable | État |
 |----------|-------------|------|
-| Suivi Linear à jour : qui fait quoi, échéances, statuts réels | Quentin Bauduin | Fait, 36 tâches, jalon Séance 2 à 78 % |
+| Suivi Linear à jour : qui fait quoi, échéances, statuts réels | Quentin Bauduin | Fait. Export du jalon dans `livrables/suivi-linear.md` |
 | Bibliographie aux normes (FYC-19, FYC-20) | Kaan Topkaya, Timothé Geoffroy | Fait |
-| Vidéo de présentation montée et sous-titrée (FYC-30, FYC-31) | Quentin Bauduin | Script réécrit, tournage et montage à faire |
+| Vidéo de présentation montée et sous-titrée (FYC-30, FYC-31) | Quentin Bauduin | Fait le 12/09/2026 : script réécrit après le retour du mentor, nouvelle prise, montage et sous-titres. Remise directe sur Teams, pas d'hébergement public |
 
 ## Prochaines échéances
 
