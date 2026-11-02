@@ -21,3 +21,7 @@ Arguments : `N YYYY-MM-DD` (numéro de séance, date). Demander si absents.
 5. Si un retour change une contrainte du projet (durée cible, périmètre,
    plan), mettre à jour `README.md` et `livrables/scenarisation.md` en
    conséquence et le signaler.
+6. Lancer `/audit-plan` sur les deux prochains jalons. Les retours du mentor ne
+   couvrent que ce qui lui a été montré : l'audit vérifie que tout le reste du
+   plan a aussi ses issues, et que les issues existantes suivent les
+   changements de l'étape 5.
