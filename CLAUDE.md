@@ -58,3 +58,17 @@ scripts/stats.sh                 # signes, pages équivalentes, durées par chap
   avec minutage et plan de montage.
 - `/ship <FYC-nn>` : lit l'issue Linear et son contexte, fait le travail dans
   une branche, vérifie lint et export, ouvre la PR, passe l'issue en In Review.
+- `/audit-plan [jalon]` : compare la scénarisation et les livrables FYC à
+  Linear, liste les ressources sans issue, les issues périmées et sans échéance.
+
+## Linear suit le plan
+
+`livrables/scenarisation.md` est la source du découpage. Linear doit la suivre :
+
+- Une sous-issue par ressource de la colonne « Ressources nécessaires », sous
+  l'issue du chapitre. Titre : `NN · Sx.y · …` (ou `NN · Vidéo · …`,
+  `Moodle · …`, `Avancement · …`, `Évaluation · …` pour le transversal).
+- Une PR qui modifie `livrables/scenarisation.md` liste dans sa description
+  les issues créées, modifiées ou fermées en conséquence.
+- Les deux prochains jalons sont toujours découpés, avec responsable et
+  échéance. `/audit-plan` le vérifie, `/retour-mentor` le lance.
