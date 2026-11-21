@@ -1,7 +1,7 @@
 # FYC : Find Your Course
 
 Dépôt de travail du projet FYC (ESGI / Sciences-U Lyon, promo 2026-2027).
-Le livrable final est un cours en ligne déposé sur Moodle. Ce dépôt sert à
+Le livrable final est un cours en ligne déposé sur Teams (changement de consigne de novembre 2026 : Moodle n'est plus utilisé). Ce dépôt sert à
 écrire le contenu en Markdown, à le versionner, à suivre les retours du mentor
 et à générer les documents Word (docx) avec la charte graphique du groupe.
 
@@ -44,9 +44,9 @@ Source : `ressources/presentation-projet-fyc-26-27.pdf`.
 |------|--------|---------|
 | 8 juil. 2026 | Séance 1 | Scénarisation V0 + ébauche biblio validées |
 | 9 sept. 2026 | Séance 2 | Scénarisation finale, vidéo de présentation, biblio, 20 % des supports |
-| 2 déc. 2026 | Séance 3 | 50 % du contenu sur Moodle, test des QCM/exercices/vidéos |
-| 6 janv. 2027 | Séance 4 | 100 % du contenu sur Moodle, V0 du support de soutenance |
-| 25 janv. 2027 | Fermeture Moodle | Mise en ligne définitive |
+| 2 déc. 2026 | Séance 3 | 50 % du contenu sur Teams, test des QCM/exercices/vidéos |
+| 6 janv. 2027 | Séance 4 | 100 % du contenu sur Teams, V0 du support de soutenance |
+| 25 janv. 2027 (à confirmer) | Dépôt final sur Teams | Dépôt définitif |
 | 3 févr. 2027 | Soutenance | 15 min présentation, 25 min Q&R |
 
 ## Organisation du dépôt
@@ -111,7 +111,7 @@ scripts/release.sh seance-2 "Séance 2 : scénarisation finale, biblio, 20 % des
 
 La release est l'endroit centralisé des rendus. Coller son lien dans le jalon
 Linear et dans les issues concernées. `livrables/archives/` garde aussi les
-PDF tels que déposés sur Teams ou Moodle.
+PDF tels que déposés sur Teams.
 
 ## Avec Claude Code ou Codex
 
@@ -135,14 +135,14 @@ scripts/install-hooks.sh   # refuse un commit qui viole charte/regles-redaction.
 
 Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
 
-- Un jalon par séance (S2, S3, S4, fermeture Moodle, soutenance).
+- Un jalon par séance (S2, S3, S4, dépôt final sur Teams, soutenance).
 - Une issue par chapitre (label `chapitre`, estimation = heures apprenant,
   Linear n'accepte que des entiers : le chapitre 00 vaut 1 pour 30 min réelles).
 - Sous chaque chapitre, une sous-issue par ressource prévue dans la colonne
   « Ressources nécessaires » de `livrables/scenarisation.md` (support écrit,
   dépôt, squelette, corrigé, vidéo), avec responsable et échéance.
 - Une issue par livrable transversal : test final, cas pratique, budget vidéo,
-  dépôt Moodle et document d'avancement de chaque jalon.
+  dépôt sur Teams et document d'avancement de chaque jalon.
 - Une PR qui modifie la scénarisation met Linear à jour et le dit. `/audit-plan`
   vérifie l'écart entre le plan et Linear ; `/retour-mentor` le lance après
   chaque séance.

@@ -67,7 +67,7 @@ scripts/stats.sh                 # signes, pages équivalentes, durées par chap
 
 - Une sous-issue par ressource de la colonne « Ressources nécessaires », sous
   l'issue du chapitre. Titre : `NN · Sx.y · …` (ou `NN · Vidéo · …`,
-  `Moodle · …`, `Avancement · …`, `Évaluation · …` pour le transversal).
+  `Teams · …`, `Avancement · …`, `Évaluation · …` pour le transversal).
 - Une PR qui modifie `livrables/scenarisation.md` liste dans sa description
   les issues créées, modifiées ou fermées en conséquence.
 - Les deux prochains jalons sont toujours découpés, avec responsable et

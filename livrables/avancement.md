@@ -99,7 +99,7 @@ transformés en tâches Linear le 12/09/2026 (FYC-31 à FYC-36).
 | Tâche | Responsable | Échéance |
 |-------|-------------|----------|
 | Rendu du week-end : suivi Linear, bibliographie, vidéo de présentation | Groupe | 13/09/2026 |
-| Chapitres 00, 01 et 02 complets sur Moodle (50 %) | Groupe | 02/12/2026 |
+| Chapitres 00, 01 et 02 complets sur Teams (50 %) | Groupe | 02/12/2026 |
 | Chapitres 03, 04 et 05, cas pratique, test final (100 %) | Groupe | 06/01/2027 |
 
 # Séance 1 : 08/07/2026
