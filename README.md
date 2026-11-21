@@ -77,8 +77,9 @@ assets/           Schémas et images construits par nous
 
 1. Une branche par tâche (`feat/03-nom-du-chapitre`), pull request vers `main`.
 2. Chaque tâche a une issue Linear. Le titre de l'issue commence par le
-   numéro du chapitre. L'estimation est en **heures apprenant** : la somme
-   des estimations doit égaler la durée cible du cours.
+   numéro du chapitre puis la séquence (`02 · S2.3 · …`). L'estimation est en
+   **heures apprenant**, sur l'issue du chapitre seulement : la somme des
+   estimations doit égaler la durée cible du cours.
 3. Le contenu s'écrit en Markdown. Les conventions sont dans `charte/guide-de-style.md`.
 4. Export docx : `scripts/build.sh` (voir ci-dessous).
 5. Après chaque séance, on note les retours du mentor dans `retours-mentor/`
@@ -137,6 +138,14 @@ Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-c
 - Un jalon par séance (S2, S3, S4, fermeture Moodle, soutenance).
 - Une issue par chapitre (label `chapitre`, estimation = heures apprenant,
   Linear n'accepte que des entiers : le chapitre 00 vaut 1 pour 30 min réelles).
+- Sous chaque chapitre, une sous-issue par ressource prévue dans la colonne
+  « Ressources nécessaires » de `livrables/scenarisation.md` (support écrit,
+  dépôt, squelette, corrigé, vidéo), avec responsable et échéance.
+- Une issue par livrable transversal : test final, cas pratique, budget vidéo,
+  dépôt Moodle et document d'avancement de chaque jalon.
+- Une PR qui modifie la scénarisation met Linear à jour et le dit. `/audit-plan`
+  vérifie l'écart entre le plan et Linear ; `/retour-mentor` le lance après
+  chaque séance.
 - Une issue par action issue d'un retour du mentor (label `retour-mentor`).
 - Labels `spring` / `laravel` pour les tâches propres à un parcours.
 - Nomenclature complète (labels, jalons, priorités, statuts, définition de
