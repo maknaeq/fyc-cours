@@ -2,7 +2,7 @@
 title: "Texte d'accroche"
 ---
 
-<!-- Texte affiché sur Moodle pour donner envie de s'inscrire. -->
+<!-- Texte affiché sur Teams pour donner envie de s'inscrire. -->
 
 # Concevoir une application web maintenable intégrant un agent IA
 

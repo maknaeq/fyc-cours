@@ -39,7 +39,7 @@ Pour chaque jalon audité, produire trois listes.
 - Chaque livrable obligatoire FYC a une issue (test final, cas pratique,
   test de positionnement, budget vidéo).
 - Les attendus écrits dans la description du jalon Linear (ex. « dépôt sur
-  Moodle », « V0 du support de soutenance ») ont une issue.
+  Teams », « V0 du support de soutenance ») ont une issue.
 
 **B. Issue qui ne correspond plus au plan.**
 - Durées, séquences ou choix (parcours, format) d'une description différents de
@@ -51,7 +51,7 @@ Pour chaque jalon audité, produire trois listes.
 - Issue ouverte dans un jalon dont la date est passée.
 - Issue « In Progress » sans mise à jour depuis plus de 3 semaines.
 - Titre de contenu qui ne suit pas la convention `NN · Sx.y · …` (ou
-  `NN · Vidéo · …`, `Moodle · …`, `Avancement · …`, `Évaluation · …`).
+  `NN · Vidéo · …`, `Teams · …`, `Avancement · …`, `Évaluation · …`).
   Exceptions : les issues parentes de chapitre (FYC-5 à FYC-10) et les issues
   étiquetées `retour-mentor`.
 - Exception à l'échéance : une issue en réserve sans jalon (ex. bonus live

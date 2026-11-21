@@ -1,7 +1,7 @@
 # Règles de rédaction
 
 Règles qui s'appliquent à tout texte publié ou affiché : contenu du cours,
-livrables, scripts vidéo, QCM, exercices, textes Moodle. Elles s'appliquent
+livrables, scripts vidéo, QCM, exercices, textes affichés sur Teams. Elles s'appliquent
 aussi bien aux humains qu'à Claude.
 
 Ce fichier est chargé automatiquement par Claude dans chaque session (via

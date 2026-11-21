@@ -10,7 +10,7 @@
 - Consigne FYC : « 1 vidéo de présentation du cours et de l'équipe (3 mn
   maxi) » (page 5) et « présentation des pré-requis » parmi les vidéos
   obligatoires (page 18). Décision du groupe : une seule vidéo pour les trois.
-  Le détail des pré-requis est repris en texte sous la vidéo dans Moodle
+  Le détail des pré-requis est repris en texte à côté de la vidéo sur Teams
   (`livrables/accroche.md` et `installation.md`).
 - Retour mentor du 09/09/2026 : cette vidéo est ce qui donne envie de suivre la
   formation, elle doit vendre le cours. Ouverture réécrite en conséquence
