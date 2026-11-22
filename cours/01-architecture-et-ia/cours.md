@@ -207,6 +207,20 @@ découpage est le même. C'est ce que montre la démo de S1.1 : le cœur métier
 est identique dans les deux versions, seuls les adaptateurs et la façon de les
 brancher diffèrent.
 
+**Les dépôts d'exemple.** La démo s'appuie sur un même besoin métier, un petit
+gestionnaire de pages en Markdown (arborescence, étiquettes, corbeille), codé
+deux fois avec les mêmes couches :
+
+- [notion-lite-laravel](https://github.com/sorantino/notion-lite-laravel) :
+  la version de référence, à lancer et à explorer.
+- [notion-lite-spring](https://github.com/sorantino/notion-lite-spring) : la
+  même chose en Spring Boot, à lire seulement.
+
+Le README de chaque dépôt range les fichiers en deux colonnes : ce qui vient du
+framework, ce qui vient du métier. Comparez les deux dossiers du domaine : ils
+ne contiennent aucune référence à Laravel ni à Spring, et leurs règles sont
+identiques.
+
 ### 1.4 Pour aller plus loin : CQRS et événements
 
 Deux notions complètent le tableau. Elles sont présentées ici parce que vous
