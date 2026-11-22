@@ -2,7 +2,7 @@
 
 - Durée apprenant : 3h
 - Séquences :
-  - S1.1 Architectures web : les bases (45 min) : support écrit, section 1
+  - S1.1 Architectures web : les bases (45 min) : support écrit, section 1, dépôts d'exemple [notion-lite-laravel](https://github.com/sorantino/notion-lite-laravel) et [notion-lite-spring](https://github.com/sorantino/notion-lite-spring)
   - S1.2 Pourquoi l'IA complique les architectures classiques (45 min) : support écrit, section 2, et exercice 1
   - S1.3 Installer son environnement : IA en ligne ou IA en local (40 min) : guide d'installation
   - S1.4 TP : réorganiser un code fourre-tout (50 min) : énoncé `TP-S1-enonce.md` sur [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp), branche `fyc-tp-s1`, corrigé sur `fyc-tp-s1-correction`
@@ -14,4 +14,4 @@
 - Exercices : exercice 1 (fiche de réponse, corrigé), QCM de 5 questions
 - Auteurs : Quentin Bauduin (S1.1, S1.2), Erwin Gossin (S1.3), Kaan Topkaya (S1.4)
 
-<!-- Suivi interne, non exporté : FYC-5 (chapitre), FYC-26 (support S1.1 et S1.2), FYC-29 (installation), FYC-27 (dépôt TP) -->
+<!-- Suivi interne, non exporté : FYC-5 (chapitre), FYC-26 (support S1.1 et S1.2), FYC-29 (installation), FYC-27 (dépôt TP), FYC-39 (dépôts d'exemple S1.1) -->
