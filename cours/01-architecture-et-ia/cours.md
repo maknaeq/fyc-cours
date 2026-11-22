@@ -39,20 +39,20 @@ moins un fournisseur d'IA.
 // app/Http/Controllers/NoteController.php : couche présentation
 final class NoteController
 {
-    public function __construct(private SummarizeNote $summarizeNote) {}
-
-    public function summarize(Request $request, int $id): JsonResponse
+    public function summarize(int $id, SummarizeNote $summarizeNote): RedirectResponse
     {
-        $summary = $this->summarizeNote->handle($id);
+        $summarizeNote->handle($id);
 
-        return response()->json(['summary' => $summary]);
+        return redirect()->route('notes.show', $id)->with('status', 'Résumé généré.');
     }
 }
 ```
 
-Le contrôleur ne fait que traduire HTTP en appel de service, puis résultat en
-JSON. Il ne contient aucune règle métier. Si demain le résumé est déclenché
-par une commande Artisan au lieu d'une requête HTTP, le service ne change pas.
+Le contrôleur ne fait que traduire HTTP en appel de service, puis renvoyer
+l'utilisateur sur la note avec un message. Laravel lui fournit le service
+`SummarizeNote` en paramètre de la méthode. Le contrôleur ne contient aucune
+règle métier. Si demain le résumé est déclenché par une commande Artisan au
+lieu d'une requête HTTP, le service ne change pas.
 
 ### 1.2 Séparer les responsabilités
 
@@ -80,7 +80,7 @@ public function summarize(Request $request, int $id): JsonResponse
             'model' => 'large-model-v2',
             'messages' => [
                 ['role' => 'system', 'content' => 'Résume en trois phrases.'],
-                ['role' => 'user', 'content' => $note->body],
+                ['role' => 'user', 'content' => $note->content],
             ],
         ]);
 
@@ -133,23 +133,29 @@ Et l'adaptateur est une classe d'infrastructure qui l'implémente :
 final class HttpLlmAdapter implements LlmPort
 {
     public function __construct(
-        private string $baseUrl,
-        private string $apiKey,
-        private string $model,
+        private readonly string $baseUrl,
+        private readonly ?string $apiKey,
+        private readonly string $model,
     ) {}
 
     public function complete(array $messages): string
     {
-        $response = Http::withToken($this->apiKey)
-            ->post("{$this->baseUrl}/v1/chat", [
+        return Http::timeout(60)
+            ->when($this->apiKey, fn (PendingRequest $request) => $request->withToken($this->apiKey))
+            ->post(rtrim($this->baseUrl, '/').'/chat/completions', [
                 'model' => $this->model,
                 'messages' => $messages,
-            ]);
-
-        return $response->json('choices.0.message.content');
+            ])
+            ->throw()
+            ->json('choices.0.message.content', '');
     }
 }
 ```
+
+Tout ce qui est propre au fournisseur est ici : l'adresse `/chat/completions`,
+la clé, le délai maximal de 60 secondes, et le chemin du texte dans la réponse
+JSON. `throw()` transforme une erreur HTTP en exception au lieu de renvoyer un
+résumé vide.
 
 Le service métier ne connaît que l'interface :
 
@@ -158,18 +164,18 @@ Le service métier ne connaît que l'interface :
 final class SummarizeNote
 {
     public function __construct(
-        private NoteRepository $notes,
-        private LlmPort $llm,
+        private readonly NoteRepository $notes,
+        private readonly LlmPort $llm,
     ) {}
 
     public function handle(int $noteId): string
     {
-        $note = $this->notes->find($noteId);
+        $note = $this->notes->find($noteId) ?? throw NoteNotFound::withId($noteId);
 
-        $summary = $this->llm->complete([
-            ['role' => 'system', 'content' => 'Résume en trois phrases.'],
-            ['role' => 'user', 'content' => $note->body],
-        ]);
+        $summary = trim($this->llm->complete([
+            ['role' => 'system', 'content' => 'Tu résumes des notes en français, en trois phrases maximum.'],
+            ['role' => 'user', 'content' => "# {$note->title()}\n\n{$note->content()}"],
+        ]));
 
         $this->notes->saveSummary($note, $summary);
 
@@ -183,17 +189,21 @@ seul endroit qui connaît à la fois le port et l'adaptateur :
 
 ```php
 // app/Providers/AppServiceProvider.php
-$this->app->bind(LlmPort::class, function () {
-    return match (config('llm.provider')) {
-        'ollama' => new OllamaAdapter(config('llm.ollama.url'), config('llm.ollama.model')),
-        default  => new HttpLlmAdapter(
-            config('llm.http.url'),
-            config('llm.http.key'),
-            config('llm.http.model'),
-        ),
-    };
+$this->app->bind(LlmPort::class, fn (): LlmPort => match (config('llm.provider')) {
+    'fake' => new FakeLlmAdapter,
+    'http' => new HttpLlmAdapter(
+        config('llm.http.base_url'),
+        config('llm.http.api_key'),
+        config('llm.http.model'),
+    ),
+    'ollama' => new OllamaAdapter(config('llm.ollama.host'), config('llm.ollama.model')),
+    default => throw new InvalidArgumentException('Fournisseur LLM inconnu : '.config('llm.provider')),
 });
 ```
+
+La valeur vient de `config/llm.php`, alimenté par la variable d'environnement
+`LLM_PROVIDER`. Par défaut, elle vaut `fake` : `FakeLlmAdapter` renvoie un
+résumé fixe, et le dépôt d'exemple tourne sans clé d'API.
 
 Changer de fournisseur, c'est changer une valeur de configuration. Tester
 `SummarizeNote`, c'est lui passer une implémentation de `LlmPort` qui renvoie
@@ -208,7 +218,7 @@ est identique dans les deux versions, seuls les adaptateurs et la façon de les
 brancher diffèrent.
 
 **Les dépôts d'exemple.** La démo s'appuie sur un même besoin métier, un petit
-gestionnaire de pages en Markdown (arborescence, étiquettes, corbeille), codé
+gestionnaire de notes en Markdown (arborescence, étiquettes, corbeille), codé
 deux fois avec les mêmes couches :
 
 - [notion-lite-laravel](https://github.com/sorantino/notion-lite-laravel) :
