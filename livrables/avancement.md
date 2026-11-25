@@ -31,10 +31,41 @@ Répartition revue le 08/09/2026 après la décision d'un parcours unique Larave
   chapitre et par livrable, chaque tâche assignée à un responsable avec une
   échéance.
 - Suivi des tâches : Linear, [projet FYC](https://linear.app/fyc/project/fyc-cours-ia-and-architecture-web-838bc16885f9).
-  L'avancement du projet y est calculé sur la durée apprenant des chapitres
-  terminés.
+  L'avancement du projet y est calculé sur la durée apprenant des séquences
+  terminées (voir « Calcul de l'avancement » ci-dessous).
 - Chaque document et chaque support est relu par un autre membre du groupe
   avant d'être considéré comme terminé.
+
+## Calcul de l'avancement
+
+Règle appliquée depuis le 25/11/2026 (cadrage V2) :
+
+- Le cours compte 20 séquences pour 900 minutes de durée apprenant (15 h,
+  chapitre 00 compris). Chaque séquence est une issue Linear
+  (`NN · Sx.y · …`) assignée à son responsable, avec sa durée en description.
+- Le pourcentage d'avancement est la durée des séquences terminées divisée par
+  900 minutes. Une séquence est terminée quand toutes ses ressources sont
+  terminées, dépôts de TP compris.
+- Le travail hors contenu apprenant (dépôts de TP, outillage, dépôt sur Teams,
+  documents d'avancement, soutenance, relectures) porte le label `annexe`.
+  Il ne compte pas dans le pourcentage du cours ; il compte pour l'avancement
+  individuel et pour la note, qui suit Linear et la complexité des tâches.
+- `scripts/avancement.py export.json` calcule le pourcentage, le détail par
+  chapitre et, membre par membre, les minutes de séquences portées et les
+  tâches `annexe` terminées et ouvertes. Il signale aussi une séquence terminée
+  alors qu'une de ses ressources ne l'est pas.
+
+Répartition des séquences à la mise en place de la règle (minutes apprenant) :
+
+| Membre | Séquences portées | Minutes |
+|--------|-------------------|---------|
+| Quentin Bauduin | 00.1, 00.2, S1.1, S1.2, S5.3 | 210 |
+| Kaan Topkaya | S1.3, S2.4, S3.4, S4.3 (les quatre TP) | 280 |
+| Timothé Geoffroy | S2.1, S2.2, S3.2, S4.1, S4.2 | 210 |
+| Erwin Gossin | 00.3, S2.3, S3.1, S3.3, S5.1, S5.2 | 200 |
+
+Quentin porte en plus l'avancement, les relectures, les scripts et le montage
+des vidéos ; les autres membres tournent les vidéos de leurs séquences.
 
 # Séance 2 : 09/09/2026
 

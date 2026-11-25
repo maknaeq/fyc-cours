@@ -31,8 +31,9 @@ Personne ne comparait le plan à Linear. Cette skill fait cette comparaison.
 Pour chaque jalon audité, produire trois listes.
 
 **A. Prévu dans le plan, sans issue.**
-- Chaque séquence `Sx.y` du jalon a au moins une issue dont le titre contient
-  `Sx.y`.
+- Chaque séquence `Sx.y` du jalon a une issue de séquence (titre
+  `NN · Sx.y · …`, description `Durée apprenant : N min`, assignée) et ses
+  ressources en sous-issues. La somme des durées des séquences fait 900 min.
 - Chaque ressource de la colonne « Ressources nécessaires » est couverte par
   une issue (titre ou description). Une ressource déjà présente dans le dépôt
   compte comme couverte si une issue Done la mentionne.
@@ -48,6 +49,8 @@ Pour chaque jalon audité, produire trois listes.
 
 **C. Hygiène.**
 - Issue ouverte sans échéance ou sans assigné.
+- Issue de travail hors contenu apprenant (outillage, dépôt de TP, Teams,
+  avancement, soutenance) sans le label `annexe`.
 - Issue ouverte dans un jalon dont la date est passée.
 - Issue « In Progress » sans mise à jour depuis plus de 3 semaines.
 - Titre de contenu qui ne suit pas la convention `NN · Sx.y · …` (ou

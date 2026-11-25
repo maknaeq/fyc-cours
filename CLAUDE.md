@@ -71,9 +71,22 @@ scripts/stats.sh                 # signes, pages équivalentes, durées par chap
 
 `livrables/scenarisation.md` est la source du découpage. Linear doit la suivre :
 
-- Une sous-issue par ressource de la colonne « Ressources nécessaires », sous
-  l'issue du chapitre. Titre : `NN · Sx.y · …` (ou `NN · Vidéo · …`,
-  `Teams · …`, `Avancement · …`, `Évaluation · …` pour le transversal).
+- Une issue par séquence du plan, sous l'issue du chapitre. Titre :
+  `NN · Sx.y · …` ; description : `Durée apprenant : N min` ; assignée au
+  responsable de la séquence. Elle passe Done quand toutes ses ressources non
+  `annexe` sont Done.
+- Une sous-issue par ressource de la colonne « Ressources », sous l'issue de
+  sa séquence. Titre : `NN · Sx.y · …` (ou `NN · Vidéo · …`, `Teams · …`,
+  `Avancement · …`, `Évaluation · …` pour le transversal).
+- Le label `annexe` marque le travail hors contenu apprenant (dépôts de TP,
+  outillage, Teams, avancement, soutenance, relectures). Il compte pour
+  l'avancement individuel et la note, pas dans le pourcentage du cours. Un
+  dépôt de TP est rattaché à sa séquence (traçabilité, et la séquence n'est
+  Done qu'une fois le dépôt livré) ; le transversal reste sous le chapitre ou
+  sans parent.
+- Le pourcentage d'avancement se calcule par séquence : durée des séquences
+  Done / durée de toutes les séquences. `scripts/avancement.py` le calcule à
+  partir d'un export Linear et liste les tâches `annexe` membre par membre.
 - Une PR qui modifie `livrables/scenarisation.md` liste dans sa description
   les issues créées, modifiées ou fermées en conséquence.
 - Les deux prochains jalons sont toujours découpés, avec responsable et

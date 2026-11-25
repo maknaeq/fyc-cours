@@ -2,7 +2,7 @@
 title: "Présentation de la problématique"
 subtitle: "Projet FYC 2026-2027"
 author: "Quentin Bauduin, Timothé Geoffroy, Kaan Topkaya, Erwin Gossin"
-date: "9 septembre 2026"
+date: "25 novembre 2026"
 ---
 
 # Constitution du groupe
@@ -21,8 +21,9 @@ architecture, tests, sécurité et mise en production.**
 
 Le cours traite l'intégration d'un agent IA dans une application web comme un
 problème d'ingénierie logicielle, et non comme une fonctionnalité que l'on
-branche. Il s'appuie sur deux parcours techniques au choix, Spring AI (Java) et
-Laravel AI SDK (PHP), pour faire ressortir les principes d'architecture qui
+branche. Il suit un parcours technique unique, Laravel (PHP), sans SDK d'IA :
+l'apprenant écrit lui-même chaque brique, puis la compare au Laravel AI SDK et
+à Spring AI (Java), pour faire ressortir les principes d'architecture qui
 restent valables quel que soit le framework.
 
 # Élaboration de la problématique
@@ -44,9 +45,9 @@ de paiement.
 Le comportement d'un agent IA diffère de celui des composants classiques sur
 plusieurs points, et chacun a des conséquences directes sur l'architecture.
 
-- **Non-déterminisme.** À entrée identique, la réponse d'un modèle varie. Les
-  tests fondés sur l'égalité exacte ne fonctionnent plus, et la qualité peut
-  baisser sans qu'une ligne de code ait changé.
+- **Non-déterminisme.** À entrée identique, rien ne garantit la même réponse,
+  même à température 0. Les tests fondés sur l'égalité exacte ne fonctionnent
+  plus, et la qualité peut baisser sans qu'une ligne de code ait changé.
 - **Latence variable et élevée.** Un appel à un modèle prend souvent plusieurs
   secondes. Fait en direct dans une requête HTTP, il bloque un worker, provoque
   des timeouts et dégrade l'expérience de tous les utilisateurs.
@@ -54,12 +55,14 @@ plusieurs points, et chacun a des conséquences directes sur l'architecture.
   d'agent mal bornée ou une politique de réessai naïve peut multiplier la
   facture sans que rien ne l'arrête.
 - **Dépendance à un fournisseur externe.** Le modèle, ses versions, sa
-  disponibilité et ses tarifs échappent à l'équipe. Une mise à jour côté
-  fournisseur est un déploiement que l'on ne contrôle pas.
+  disponibilité, ses tarifs et ses limites de débit (requêtes et tokens par
+  minute) échappent à l'équipe. Une mise à jour côté fournisseur est un
+  déploiement que l'on ne contrôle pas.
 - **Nouvelle surface d'attaque.** Les instructions et les données passent par
   le même canal textuel. L'injection de prompt, directe ou indirecte via un
-  document indexé, occupe la première place du référentiel OWASP Top 10 pour
-  les applications fondées sur des LLM, et aucune mesure isolée ne la règle.
+  document indexé, occupe la première place du Top 10 OWASP pour les
+  applications fondées sur des LLM (édition 2026, comme dans les précédentes),
+  et OWASP reconnaît qu'aucun mécanisme ne l'empêche de façon fiable.
 - **Outillage jeune et hétérogène.** Les SDK d'intégration (Spring AI, Laravel
   AI SDK, LangChain) sont récents, évoluent vite et proposent des abstractions
   différentes pour les mêmes besoins : outils, RAG, observabilité, tests.
@@ -82,8 +85,8 @@ la sécurité et le cycle de mise en production.
 - Que faut-il versionner, surveiller et évaluer en continu quand une partie du
   comportement de l'application vit dans un prompt et dans un modèle tiers ?
 - Ces réponses dépendent-elles du framework choisi, ou existe-t-il des
-  principes communs que la comparaison Spring AI / Laravel AI SDK permet de
-  dégager ?
+  principes communs que la comparaison du code construit avec le Laravel AI SDK
+  et Spring AI permet de dégager ?
 
 # Problématique
 
@@ -92,13 +95,16 @@ la sécurité et le cycle de mise en production.
 
 # Délimitation et pré-requis
 
-**Ce que le cours couvre.** L'architecture d'intégration (ports et adaptateurs,
-CQRS, événements), la construction d'un agent avec outils et RAG, la
-résilience et l'observabilité des appels IA, les stratégies de test d'un
-composant non déterministe, les risques de sécurité propres aux LLM et leurs
-parades, et l'adaptation du cycle de mise en production. Chaque notion est
-mise en pratique sur un fil rouge que l'apprenant fait évoluer d'une séance à
-l'autre, dans le parcours de son choix.
+**Ce que le cours couvre.** L'architecture d'intégration (couches, ports et
+adaptateurs ; CQRS et événements sont présentés en encart, sans être
+manipulés), la construction d'un agent avec outils et RAG, la résilience et
+l'observabilité des appels IA, les stratégies de test d'un composant non
+déterministe, les risques de sécurité propres aux LLM et leurs parades, et
+l'adaptation du cycle de mise en production. L'évaluation continue est
+abordée par le jeu de cas de référence et les alertes de dérive ; l'évaluation
+automatique par un autre modèle reste une ouverture. Chaque notion est mise en
+pratique sur un fil rouge que l'apprenant fait évoluer d'une séance à l'autre,
+dans un parcours unique en Laravel.
 
 **Ce que le cours ne couvre pas.** L'entraînement ou le fine-tuning de
 modèles, la théorie des réseaux de neurones, le choix d'un modèle sur des
@@ -106,11 +112,13 @@ critères de performance brute, et l'apprentissage des frameworks Spring Boot
 ou Laravel eux-mêmes.
 
 **À qui il s'adresse.** Développeurs de niveau première année de mastère,
-à l'aise en programmation orientée objet (Java ou PHP), connaissant un
-framework web, les API REST et Git. Aucune connaissance préalable en IA
+à l'aise en programmation orientée objet en PHP, connaissant Laravel, les API
+REST et Git. Aucune connaissance préalable en IA
 n'est requise.
 
 **Comparaison des frameworks.** Spring AI et Laravel AI SDK ne sont pas
-l'objet du cours mais sa méthode. Confronter deux implémentations du même
-besoin permet de séparer ce qui vient du framework de ce qui relève de
-principes d'architecture indépendants du langage.
+l'objet du cours mais sa méthode. L'apprenant construit chaque brique sans
+SDK, puis la compare à la façon dont le Laravel AI SDK et Spring AI (lu, non
+exécuté) répondent au même besoin. Cela permet de séparer ce qui vient du
+framework de ce qui relève de principes d'architecture indépendants du
+langage.
