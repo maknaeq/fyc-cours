@@ -19,6 +19,6 @@ dans `scripts/lint.sh`.
 
 ## Relecture
 
-2. Tout texte rédigé par Claude est relu par un membre du groupe avant d'être
-   mergé sur `main`. La PR ouverte par `/ship` reste en review tant qu'un
+2. Tout texte rédigé avec l'IA est relu et validé par un membre du groupe
+   avant d'être mergé sur `main`. La PR ouverte par `/ship` reste en review tant qu'un
    humain ne l'a pas approuvée.

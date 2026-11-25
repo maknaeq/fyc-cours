@@ -35,8 +35,10 @@ Source : `ressources/presentation-projet-fyc-26-27.pdf`.
   test final (~40 QCM). Corrigés pour tout.
 - Bibliographie aux normes de `ressources/normes-bibliographie.pdf`.
 - Pas de drive. Dépôts GitHub publics autorisés, accessibles 5 ans.
-- Toute génération IA automatique est considérée comme de la triche.
-  L'IA sert ici d'outillage (structure, relecture, export), pas de rédaction du fond.
+- Toute génération IA automatique est considérée comme de la triche. Notre
+  usage : aller-retour avec l'IA (proposition, rédaction, relecture), et
+  vérification puis validation humaine de chaque contenu avant merge.
+  Détail dans `CLAUDE.md`.
 
 ## Jalons
 

@@ -32,6 +32,32 @@ reporter dans `reference.docx` (styles Word) et ici.
 ```
 
 - Un seul `#` (titre de niveau 1) par fichier.
+- Le chapitre se termine par une section `## Pour aller plus loin` : 3 à 6
+  liens commentés (documentation officielle d'abord, puis article, vidéo ou
+  talk), chacun avec une ligne qui dit ce que l'apprenant y trouvera.
+
+### Déroulé d'une section
+
+Chaque section (`## N.` ou `### N.M`) porte **une seule notion nouvelle** et
+suit ce déroulé. On n'écrit pas les étapes comme intitulés : c'est la
+progression du texte.
+
+1. **Le problème concret** (3 à 6 lignes) : une situation que l'apprenant
+   reconnaît, qui se termine par la question à laquelle la section répond.
+   On n'ouvre jamais sur « Dans cette section, nous allons voir ».
+2. **L'explication** : une idée par paragraphe, le terme en **gras** à sa
+   première apparition. Une analogie est suivie de sa limite.
+3. **L'exemple travaillé** : 20 à 40 lignes de code au plus, découpées en
+   étapes commentées, avec ce que l'exécution affiche.
+4. **Le piège fréquent** : « On voit souvent… Le problème, c'est que…
+   À la place… ».
+5. **Le mini-exercice** (2 à 5 min) : une question ou un petit code à
+   compléter, réponse juste après (bloc `> **Réponse :** …`).
+6. **Le récap** : trois règles d'action au plus, puis une phrase vers la
+   suite.
+
+Ce qu'on reporte, on le dit : « on y revient en séance 4 ». Ce qui n'est pas
+réglé dans le domaine (injection de prompt, IA juge), on le dit aussi.
 - Les titres de niveau 2 sont numérotés à la main (`## 1.`, `## 2.`) pour
   garder la numérotation cohérente entre Markdown et docx.
 - Pas de titre de niveau 4 ou plus.
@@ -60,9 +86,15 @@ Format d'un exercice (`exercices.md`) :
 ### Énoncé
 ...
 
+### Indices
+1. (facultatif, du plus léger au plus direct)
+
 ### Corrigé
 ...
 ```
+
+Le corrigé explique la démarche, pas seulement le résultat, et cite les
+erreurs les plus probables.
 
 Format d'une question (`qcm.md`) :
 
@@ -76,8 +108,19 @@ Format d'une question (`qcm.md`) :
 - [ ] Réponse C
 - [ ] Réponse D
 
-**Explication :** pourquoi B.
+**Explications :**
+
+- A : pourquoi c'est faux (quelle erreur de raisonnement y mène).
+- B : pourquoi c'est juste.
+- C : …
+- D : …
 ```
+
+Règles d'une question : un seul objectif testé, ancré dans une situation
+concrète ; les mauvaises réponses viennent d'erreurs réelles et sont
+plausibles ; pas de « toutes / aucune des réponses », pas d'indice par la
+longueur ou la formulation ; la position de la bonne réponse varie. Le test
+de positionnement ajoute une option « Je ne sais pas » et n'est pas noté.
 
 ## Sources et citations
 

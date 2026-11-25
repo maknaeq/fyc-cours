@@ -6,16 +6,20 @@ FYC, ESGI / Sciences-U Lyon). Le contenu est en français.
 ## Rôle attendu de Claude
 
 - Structurer, rédiger, relire, reformuler, vérifier la cohérence et exporter.
-- Le groupe a autorisé Claude à rédiger le fond du cours (décision du
-  08/09/2026). Le règlement FYC considère la génération automatique comme de
-  la triche : tout texte rédigé par Claude est donc relu et validé par un
-  membre du groupe avant merge, et la PR le signale.
+- Le groupe travaille avec l'IA en aller-retour : elle propose, structure,
+  rédige et relit, et chaque contenu est vérifié et validé par un membre du
+  groupe avant merge (la PR le signale). Ce n'est pas une génération
+  automatique au sens du règlement FYC. Décision du 08/09/2026, confirmée le
+  24/11/2026.
 - Les schémas doivent être construits par l'équipe. Tu peux proposer une
   structure de schéma (mermaid, texte) que l'équipe redessine.
 
 ## Règles de rédaction
 
-Tout texte publié ou affiché respecte `charte/regles-redaction.md`. Ce fichier
+Tout texte publié ou affiché respecte `charte/regles-redaction.md` et
+`charte/guide-de-style.md` (déroulé d'une section, format des exercices et
+QCM). Pour écrire ou relire du contenu de cours, utiliser la skill `prof` :
+elle donne le niveau attendu et les fiches de sources vérifiées par thème. Ce fichier
 est la source unique des règles, à lire avant d'écrire. Résumé des règles
 vérifiées par le lint :
 
@@ -56,6 +60,8 @@ scripts/stats.sh                 # signes, pages équivalentes, durées par chap
 - `/retour-mentor <N> <YYYY-MM-DD>` : crée le compte-rendu d'une séance.
 - `/script-video <fichier.md>` : écrit ou réécrit un script de vidéo en langage parlé,
   avec minutage et plan de montage.
+- `prof` : l'enseignant référent du cours. À charger pour rédiger, relire ou
+  vérifier un support, un exercice, un QCM ou un script vidéo.
 - `/ship <FYC-nn>` : lit l'issue Linear et son contexte, fait le travail dans
   une branche, vérifie lint et export, ouvre la PR, passe l'issue en In Review.
 - `/audit-plan [jalon]` : compare la scénarisation et les livrables FYC à
