@@ -16,8 +16,8 @@ et à générer les documents Word (docx) avec la charte graphique du groupe.
 | Nom | Prénom | Filière | Rôle |
 |-----|--------|---------|------|
 | Bauduin | Quentin | IW | Chef de projet, contenu transversal |
-| Geoffroy | Timothé | IW | Parcours Spring / Java |
-| Topkaya | Kaan | IW | Parcours Laravel / PHP |
+| Geoffroy | Timothé | IW | Fil rouge et comparaisons |
+| Topkaya | Kaan | IW | TP Laravel |
 | Gossin | Erwin | IW | Environnement & infrastructure |
 
 ## Contraintes du projet (résumé)
@@ -77,7 +77,7 @@ assets/           Schémas et images construits par nous
 
 ## Workflow
 
-1. Une branche par tâche (`feat/03-nom-du-chapitre`), pull request vers `main`.
+1. Une branche par tâche (nom généré par Linear, `prenom/fyc-nn-titre`), pull request vers `main`.
 2. Chaque tâche a une issue Linear. Le titre de l'issue commence par le
    numéro du chapitre puis la séquence (`02 · S2.3 · …`). L'estimation est en
    **heures apprenant**, sur l'issue du chapitre seulement : la somme des
@@ -93,7 +93,7 @@ Prérequis : [pandoc](https://pandoc.org) (`brew install pandoc`).
 
 ```bash
 scripts/build.sh                      # tout le cours et tous les livrables
-scripts/build.sh cours/01-intro       # un chapitre
+scripts/build.sh cours/01-architecture-et-ia   # un chapitre
 scripts/build.sh livrables/scenarisation.md
 ```
 
@@ -163,10 +163,19 @@ Le suivi se fait dans Linear : [projet FYC](https://linear.app/fyc/project/fyc-c
 
 - Un jalon par séance (S2, S3, S4, dépôt final sur Teams, soutenance).
 - Une issue par chapitre (label `chapitre`, estimation = heures apprenant,
-  Linear n'accepte que des entiers : le chapitre 00 vaut 1 pour 30 min réelles).
-- Sous chaque chapitre, une sous-issue par ressource prévue dans la colonne
-  « Ressources nécessaires » de `livrables/scenarisation.md` (support écrit,
-  dépôt, squelette, corrigé, vidéo), avec responsable et échéance.
+  Linear n'accepte que des entiers : le chapitre 00 vaut 1 pour 45 min réelles,
+  le chapitre 01 vaut 3 pour 2 h 15). La durée de référence est dans les
+  séquences.
+- Sous chaque chapitre, une issue par séquence (`NN · Sx.y · …`, durée
+  apprenant en description, 20 séquences pour 15 h), puis sous chaque séquence
+  une sous-issue par ressource prévue dans la colonne « Ressources » de
+  `livrables/scenarisation.md` (support écrit, dépôt, squelette, corrigé,
+  vidéo), avec responsable et échéance.
+- Le label `annexe` marque le travail hors contenu apprenant (dépôts de TP,
+  outillage, Teams, avancement, soutenance, relectures) : il compte pour
+  l'avancement individuel, pas dans le pourcentage du cours, calculé par
+  séquence avec `scripts/avancement.py`. Un dépôt de TP `annexe` est rattaché à
+  sa séquence, qui n'est Done qu'une fois le dépôt livré.
 - Une issue par livrable transversal : test final, cas pratique, budget vidéo,
   dépôt sur Teams et document d'avancement de chaque jalon.
 - Une PR qui modifie la scénarisation met Linear à jour et le dit. `/audit-plan`
