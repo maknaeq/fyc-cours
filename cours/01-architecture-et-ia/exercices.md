@@ -51,9 +51,9 @@ serveur web et du proxy, au lieu d'hériter des trente secondes du framework,
 et on gère l'échec proprement. Le délai de PHP ne joue pas ce rôle : il ne
 compte pas le temps passé à attendre le réseau. Incident visé : les requêtes
 de 9 h 01 qui occupent un processus trente secondes ou plus pour rien. Ce
-qu'il ne résout pas : l'appel
-interrompu est peut-être quand même facturé côté fournisseur, et réessayer
-immédiatement coûte deux fois. La politique de réessai est un sujet en soi.
+qu'il ne résout pas : l'appel interrompu est peut-être quand même facturé côté
+fournisseur, et réessayer immédiatement coûte deux fois. La politique de
+réessai est un sujet en soi.
 
 **Cache et limites d'entrée.** Deux mesures simples. Le cache : si la note
 n'a pas changé, on renvoie le résumé déjà calculé au lieu de rappeler l'IA. La

@@ -400,8 +400,9 @@ contrôleur en hérite du framework. Si un proxy plus pressé est placé devant
 moins), c'est lui qui renvoie une erreur 504 en premier, pendant que le
 processus PHP continue d'attendre un fournisseur que plus personne n'écoute.
 Dans tous les cas, l'appel vers le fournisseur a bien été envoyé et sera
-facturé. Les utilisateurs recliquent. Chaque clic relance un appel facturé
-qui échouera.
+probablement facturé, selon le fournisseur, même si personne n'attend plus la
+réponse. Les utilisateurs recliquent. Chaque clic relance un appel qui
+échouera et peut être facturé.
 
 Ces deux premiers incidents se reproduisent sur votre machine : le dossier
 `etude/` de la branche `fyc-etude-s1-2` du dépôt
@@ -435,7 +436,7 @@ implicite qu'il ne devrait pas prendre :
   PHP ne compte pas l'attente réseau. Ce qui coupe, ce sont des délais posés
   par d'autres couches (le client HTTP du framework, le serveur web, le
   proxy), sans rapport avec le temps qu'un utilisateur accepte d'attendre, et
-  l'appel reste facturé. C'est le point de rupture de 9 h 01.
+  l'appel est probablement facturé. C'est le point de rupture de 9 h 01.
 - **Aucune limite de taille ni de coût.** Le prompt contient tout ce que
   l'utilisateur a saisi. C'est le point de rupture de 9 h 05.
 - **Le modèle n'est pas figé.** Le code dit `mistral-small-latest`, un alias :
