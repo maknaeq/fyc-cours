@@ -229,6 +229,11 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
 - Ollama (2026), _Ollama Documentation_, version 0.40.18 (publiée le
   24 novembre 2026), https://docs.ollama.com/, consulté le 24 novembre 2026.
   [00.3]
+- Ollama (2026), _Tool calling_, Ollama Documentation, version 0.40.18,
+  https://docs.ollama.com/capabilities/tool-calling, consulté le
+  25 novembre 2026. [S2.4]
+  _Format local des appels d'outils (arguments en objet, pas d'identifiant
+  d'appel) et du résultat renvoyé (`role: "tool"`, `tool_name`)._
 - pgvector (2026), _pgvector: open-source vector similarity search for
   Postgres_, version 0.8.7 (publiée le 1er octobre 2026),
   https://github.com/pgvector/pgvector, consulté le 24 novembre 2026. [00.3,
