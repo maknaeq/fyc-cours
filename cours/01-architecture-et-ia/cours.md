@@ -1,11 +1,12 @@
 # Chapitre 01 : Les bases de l'architecture web, et pourquoi l'IA les bouscule
 
-> Durée estimée : 3 h (dont 1 h 30 de lecture et 1 h 30 de TP) · Objectifs : reconnaître les couches d'une application web et la place du cœur métier, isoler une dépendance externe derrière un port, nommer les cinq caractéristiques qui distinguent un agent IA d'un composant classique et en déduire les conséquences sur l'architecture.
+> Durée estimée : 2 h 15 (dont 1 h 20 de lecture et d'étude de cas, et 55 min de TP) · Objectifs : reconnaître les couches d'une application web et la place du cœur métier, isoler une dépendance externe derrière un port et y brancher trois adaptateurs (en ligne, local et doublure de test), nommer les cinq caractéristiques qui distinguent un agent IA d'un composant classique et en déduire les conséquences sur l'architecture.
 
-Ce chapitre couvre les séquences S1.1 et S1.2. Les séquences S1.3 (installation
-de l'environnement) et S1.4 (TP de réorganisation) ont leurs propres supports :
-le guide d'installation et le dépôt du TP, [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp)
-(branche `fyc-tp-s1`, corrigé sur `fyc-tp-s1-correction`).
+Ce support couvre les séquences S1.1 et S1.2. Le TP de la séquence S1.3
+(« un port, trois adaptateurs ») a son propre énoncé, dans le dépôt
+[xKaan/fyc-tp](https://github.com/xKaan/fyc-tp) (branche `fyc-tp-s1`, corrigé
+sur `fyc-tp-s1-correction`). L'installation de l'environnement (Ollama, Docker)
+se fait avant, au chapitre 00.
 
 ## 1. Architectures web : les bases
 
@@ -39,18 +40,19 @@ moins un fournisseur d'IA.
 // app/Http/Controllers/NoteController.php : couche présentation
 final class NoteController
 {
-    public function summarize(int $id, SummarizeNote $summarizeNote): RedirectResponse
+    public function summarize(Note $note, SummarizeNote $summarizeNote): RedirectResponse
     {
-        $summarizeNote->handle($id);
+        $summarizeNote($note);
 
-        return redirect()->route('notes.show', $id)->with('status', 'Résumé généré.');
+        return redirect()->route('notes.show', $note)->with('status', 'Résumé généré.');
     }
 }
 ```
 
 Le contrôleur ne fait que traduire HTTP en appel de service, puis renvoyer
-l'utilisateur sur la note avec un message. Laravel lui fournit le service
-`SummarizeNote` en paramètre de la méthode. Le contrôleur ne contient aucune
+l'utilisateur sur la note avec un message. Laravel lui fournit la note,
+retrouvée à partir de l'URL, et le service `SummarizeNote`, en paramètres de
+la méthode. Le contrôleur ne contient aucune
 règle métier. Si demain le résumé est déclenché par une commande Artisan au
 lieu d'une requête HTTP, le service ne change pas.
 
@@ -66,36 +68,43 @@ unitaire. Si tester une règle métier oblige à démarrer une base de données 
 à appeler un service externe, c'est que la règle est collée à son
 infrastructure.
 
-Voici un contrôleur qui échoue à ce test. Vous le retrouverez au TP S1.4, c'est
-le code de départ.
+Voici un contrôleur qui échoue à ce test. C'est un extrait, simplifié, du code
+de départ du TP S1.3.
 
 ```php
 // Ce qu'on ne veut PAS : tout au même endroit
-public function summarize(Request $request, int $id): JsonResponse
+public function summarize($id, Request $request)
 {
-    $note = Note::findOrFail($id);
+    $note = Note::where('id', $id)->first();
 
-    $response = Http::withToken(config('services.llm.key'))
-        ->post('https://api.example-llm.com/v1/chat', [
-            'model' => 'large-model-v2',
-            'messages' => [
-                ['role' => 'system', 'content' => 'Résume en trois phrases.'],
-                ['role' => 'user', 'content' => $note->content],
-            ],
-        ]);
+    if (env('LLM_PROVIDER', 'ollama') == 'http') {
+        $reponse = Http::withToken(env('LLM_HTTP_API_KEY'))
+            ->post('https://api.mistral.ai/v1/chat/completions', [
+                'model' => 'mistral-small-latest',
+                'messages' => [[
+                    'role' => 'user',
+                    'content' => "Résume la note suivante en 3 phrases maximum.\n\n"
+                        .$note->title."\n".$note->content,
+                ]],
+            ]);
+        $resume = $reponse->json()['choices'][0]['message']['content'];
+    } else {
+        // ... le même bloc, réécrit pour l'API d'Ollama
+    }
 
-    $note->summary = $response->json('choices.0.message.content');
+    $note->summary = $resume;
     $note->save();
 
-    return response()->json(['summary' => $note->summary]);
+    return redirect('/notes/'.$id);
 }
 ```
 
-Tout y est mélangé : l'accès aux données, l'appel HTTP à un fournisseur
-précis, le prompt, le format de réponse propre à ce fournisseur, et la
-persistance. Changer de fournisseur, tester le résumé sans réseau, ou
-réutiliser le résumé ailleurs que dans une réponse HTTP, tout cela demande de
-réécrire la méthode.
+Tout y est mélangé : l'accès aux données, le choix du fournisseur, l'appel
+HTTP, le prompt, le format de réponse propre à chaque fournisseur, et la
+persistance. La consigne et le contenu de la note sont collés dans le même
+message. Changer de fournisseur, tester le résumé sans réseau, ou réutiliser
+le résumé ailleurs que dans une réponse HTTP, tout cela demande de réécrire la
+méthode.
 
 ### 1.3 L'architecture hexagonale : ports et adaptateurs
 
@@ -121,8 +130,32 @@ En PHP, un port est une interface :
 // app/Domain/Ports/LlmPort.php : port de sortie, défini par le cœur métier
 interface LlmPort
 {
-    /** @param list<array{role: string, content: string}> $messages */
+    /**
+     * @param non-empty-list<Message> $messages
+     * @throws LlmCallFailed quelle que soit la cause de la panne
+     */
     public function complete(array $messages): string;
+}
+```
+
+Le port prend une liste de messages, chacun avec un rôle : la consigne de
+l'application en rôle `system`, le texte fourni par l'utilisateur en rôle
+`user`. C'est la forme commune aux API de modèles actuelles, et elle tiendra
+jusqu'à la boucle d'agent de la séance 2, où l'historique et les résultats
+d'outils s'ajouteront à la liste sans changer la signature. Mais `Message` est
+un type de l'application, pas le tableau JSON d'un fournisseur :
+
+```php
+// app/Domain/Ports/Message.php : un message, dans le vocabulaire de l'application
+final class Message
+{
+    private function __construct(
+        public readonly Role $role,       // enum : System, User, Assistant
+        public readonly string $content,
+    ) {}
+
+    public static function system(string $content): self { return new self(Role::System, $content); }
+    public static function user(string $content): self { return new self(Role::User, $content); }
 }
 ```
 
@@ -136,26 +169,37 @@ final class HttpLlmAdapter implements LlmPort
         private readonly string $baseUrl,
         private readonly ?string $apiKey,
         private readonly string $model,
+        private readonly int $timeout,
     ) {}
 
     public function complete(array $messages): string
     {
-        return Http::timeout(60)
-            ->when($this->apiKey, fn (PendingRequest $request) => $request->withToken($this->apiKey))
+        $reponse = Http::timeout($this->timeout)
+            ->when($this->apiKey, fn (PendingRequest $requete) => $requete->withToken($this->apiKey))
             ->post(rtrim($this->baseUrl, '/').'/chat/completions', [
                 'model' => $this->model,
-                'messages' => $messages,
-            ])
-            ->throw()
-            ->json('choices.0.message.content', '');
+                'messages' => array_map(
+                    fn (Message $m) => ['role' => $m->role->value, 'content' => $m->content],
+                    $messages,
+                ),
+            ]);
+
+        $texte = $reponse->json('choices.0.message.content');
+
+        if ($reponse->failed() || ! is_string($texte)) {
+            throw LlmCallFailed::rejected('http', $reponse->status());
+        }
+
+        return trim($texte);
     }
 }
 ```
 
 Tout ce qui est propre au fournisseur est ici : l'adresse `/chat/completions`,
-la clé, le délai maximal de 60 secondes, et le chemin du texte dans la réponse
-JSON. `throw()` transforme une erreur HTTP en exception au lieu de renvoyer un
-résumé vide.
+la clé, le délai d'attente, la traduction des messages en JSON et le chemin du
+texte dans la réponse. Une erreur HTTP ou une réponse de forme inattendue
+devient une `LlmCallFailed`, l'exception du port : le reste de l'application
+l'attrape sans rien savoir du fournisseur.
 
 Le service métier ne connaît que l'interface :
 
@@ -164,50 +208,67 @@ Le service métier ne connaît que l'interface :
 final class SummarizeNote
 {
     public function __construct(
-        private readonly NoteRepository $notes,
         private readonly LlmPort $llm,
+        private readonly Prompt $prompt,   // la consigne, lue dans un fichier versionné
     ) {}
 
-    public function handle(int $noteId): string
+    public function __invoke(Note $note): void
     {
-        $note = $this->notes->find($noteId) ?? throw NoteNotFound::withId($noteId);
+        $note->summary = $this->llm->complete([
+            Message::system($this->prompt->text),
+            Message::user($note->title."\n".$note->content),
+        ]);
 
-        $summary = trim($this->llm->complete([
-            ['role' => 'system', 'content' => 'Tu résumes des notes en français, en trois phrases maximum.'],
-            ['role' => 'user', 'content' => "# {$note->title()}\n\n{$note->content()}"],
-        ]));
-
-        $this->notes->saveSummary($note, $summary);
-
-        return $summary;
+        $note->save();
     }
 }
 ```
 
+La consigne et la note partent dans deux messages distincts. Ce n'est pas une
+défense suffisante contre l'injection de prompt (séance 4), mais aucune
+défense n'est possible sans cette séparation.
+
+Vous remarquerez qu'il n'y a pas de port devant la base de données : le cas
+d'usage manipule directement le modèle Eloquent `Note`. C'est un choix. L'IA
+justifie un port : service externe, lent, faillible, facturé, remplaçable.
+Eloquent est un choix stable du framework, déjà testable avec une base SQLite
+en mémoire ; un port de plus coûterait des classes en double pour un bénéfice
+nul ici. On pose un port là où l'instabilité et le coût de test le
+justifient, pas partout.
+
 Le branchement se fait dans le conteneur de dépendances de Laravel. C'est le
-seul endroit qui connaît à la fois le port et l'adaptateur :
+seul endroit qui connaît à la fois le port et les adaptateurs :
 
 ```php
-// app/Providers/AppServiceProvider.php
+// app/Providers/LlmServiceProvider.php
 $this->app->bind(LlmPort::class, fn (): LlmPort => match (config('llm.provider')) {
     'fake' => new FakeLlmAdapter,
     'http' => new HttpLlmAdapter(
         config('llm.http.base_url'),
         config('llm.http.api_key'),
         config('llm.http.model'),
+        config('llm.http.timeout'),
     ),
-    'ollama' => new OllamaAdapter(config('llm.ollama.host'), config('llm.ollama.model')),
+    'ollama' => new OllamaAdapter(
+        config('llm.ollama.host'),
+        config('llm.ollama.model'),
+        config('llm.ollama.timeout'),
+    ),
     default => throw new InvalidArgumentException('Fournisseur LLM inconnu : '.config('llm.provider')),
 });
 ```
 
 La valeur vient de `config/llm.php`, alimenté par la variable d'environnement
-`LLM_PROVIDER`. Par défaut, elle vaut `fake` : `FakeLlmAdapter` renvoie un
-résumé fixe, et le dépôt d'exemple tourne sans clé d'API.
+`LLM_PROVIDER`. Par défaut, elle vaut `fake` : la doublure `FakeLlmAdapter`
+renvoie une réponse fixe sans aucune requête réseau, et l'application tourne
+sans clé ni modèle local. Le même fichier épingle le modèle en ligne sur un
+identifiant daté (`mistral-small-2603`), et non sur un alias comme
+`mistral-small-latest`, qui change de modèle sans prévenir.
 
 Changer de fournisseur, c'est changer une valeur de configuration. Tester
-`SummarizeNote`, c'est lui passer une implémentation de `LlmPort` qui renvoie
-une chaîne fixe. Vous ferez exactement cela en séance 4.
+`SummarizeNote`, c'est lui passer la doublure et vérifier ce qu'elle a reçu.
+Vous écrirez ces trois adaptateurs au TP S1.3, et la doublure servira dans
+tous les tests du cours.
 
 **Pour aller plus loin : le même principe en Java.** Dans Spring Boot, le port
 est aussi une interface, l'adaptateur une classe annotée `@Component`, et le
@@ -297,7 +358,9 @@ produise.
 tarifs, ses conditions d'utilisation et ses mises à jour échappent à votre
 équipe. Conséquence : une panne chez le fournisseur est une panne chez vous,
 et une mise à jour du modèle est un déploiement que vous n'avez pas décidé.
-Il faut prévoir un plan de repli, c'est la séance 3.
+Le fournisseur impose aussi des limites de débit, en requêtes et en tokens par
+minute : au-delà, il refuse les appels (erreur 429), même quand tout va bien
+chez lui. Il faut prévoir un plan de repli, c'est la séance 3.
 
 **Nouvelle surface d'attaque.** Le modèle reçoit les instructions et les
 données par le même canal, du texte. Il ne peut pas distinguer une consigne
@@ -308,9 +371,9 @@ non fiable, y compris vos propres documents indexés. C'est la séance 4.
 | Caractéristique | Ce qui casse si on l'ignore | Réponse du cours |
 |-----------------|-----------------------------|------------------|
 | Non-déterminisme | Tests fragiles, régressions invisibles | Doublures, jeu de référence (S4.1) |
-| Latence | Workers bloqués, timeouts | Traitement en arrière-plan, files (S2.2, S3.1) |
-| Coût | Facture imprévisible | Mesure, budget, coupe-circuit (S3.1, S3.2) |
-| Dépendance | Panne ou changement subi | Adaptateurs, plan de repli (S1.3, S3.1) |
+| Latence | Workers bloqués, timeouts | Délais, traitement en arrière-plan, files (S3.1) |
+| Coût | Facture imprévisible | Budget de l'agent, coupe-circuit, mesure du coût (S2.2, S3.2, S3.3) |
+| Dépendance | Panne, limite de débit, changement subi | Adaptateurs, modèle épinglé, plan de repli (S1.3, S3.2, S5.1) |
 | Surface d'attaque | Injection de prompt, fuite de données | Défense en couches (S4.2) |
 
 ### 2.2 Étude de cas : un appel d'IA dans un contrôleur
@@ -326,9 +389,12 @@ onzième utilisateur veut simplement ouvrir la page d'accueil : il attend
 aussi, parce qu'aucun processus n'est libre. Pour lui, le site est en panne.
 
 **Lundi, 9 h 01.** Le fournisseur ralentit. Les appels prennent maintenant
-trente-cinq secondes. Le délai maximal de PHP est fixé à trente secondes. Les
-requêtes échouent avec une erreur 500 après avoir attendu trente secondes,
-mais l'appel vers le fournisseur a bien été envoyé et sera facturé. Les
+plus d'une minute. L'équipe comptait sur le délai maximal de PHP
+(`max_execution_time`, trente secondes) pour couper. Il ne coupe pas : sous
+Linux, il ne compte que le temps passé à exécuter le script, pas le temps
+passé à attendre le réseau. C'est le serveur web ou le proxy placé devant qui
+finit par abandonner, à son propre délai, et renvoie une erreur 504.
+L'appel vers le fournisseur, lui, a bien été envoyé et sera facturé. Les
 utilisateurs recliquent. Chaque clic relance un appel facturé qui échouera.
 
 **Lundi, 9 h 05.** Un utilisateur colle dans une note un document de deux
@@ -352,13 +418,14 @@ implicite qu'il ne devrait pas prendre :
 
 - **L'appel est synchrone.** Le contrôleur attend la réponse. C'est le point
   de rupture de 9 h.
-- **Aucune limite de temps n'est fixée côté application.** C'est PHP qui
-  coupe, tard et brutalement. C'est le point de rupture de 9 h 01.
+- **Aucune limite de temps n'est fixée sur l'appel lui-même.** Le délai de
+  PHP ne compte pas l'attente réseau : c'est le serveur web qui coupe, tard et
+  brutalement, et l'appel reste facturé. C'est le point de rupture de 9 h 01.
 - **Aucune limite de taille ni de coût.** Le prompt contient tout ce que
   l'utilisateur a saisi. C'est le point de rupture de 9 h 05.
-- **Le modèle n'est pas figé.** La configuration dit `large-model-v2`, mais
-  le fournisseur décide de ce que ce nom désigne. C'est le point de rupture
-  de mardi.
+- **Le modèle n'est pas figé.** Le code dit `mistral-small-latest`, un alias :
+  c'est le fournisseur qui décide du modèle que ce nom désigne. C'est le point
+  de rupture de mardi.
 - **Rien n'est mesuré.** Ni durée, ni coût, ni taux d'échec. On découvre les
   problèmes par les plaintes.
 

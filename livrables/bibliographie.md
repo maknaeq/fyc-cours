@@ -207,6 +207,12 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
 
 ## Fournisseurs de modèles
 
+- Mistral AI (2026), _Models Overview_ et _Mistral Small 4_, Mistral AI
+  Documentation, https://docs.mistral.ai/models et
+  https://docs.mistral.ai/models/mistral-small-4-0-26-03, consulté le
+  25 novembre 2026. [S1.1, S1.3]
+  _Identifiant daté `mistral-small-2603` et alias `mistral-small-latest` ;
+  `mistral-small-2506` déprécié._
 - Anthropic (2026), _Model IDs and versioning_ et _Model deprecations_, Claude
   Platform Docs,
   https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions
