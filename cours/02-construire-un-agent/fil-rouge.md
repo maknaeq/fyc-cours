@@ -98,7 +98,10 @@ n'apparaissent qu'en comparaison, jamais dans le code de l'apprenant.
 
 **Fourni**
 - Le dépôt de départ Laravel réorganisé en S1.3 (architecture en ports et
-  adaptateurs, sans logique d'IA).
+  adaptateurs, sans logique d'IA), étendu pour S2.4 sur la branche
+  `fyc-tp-s2` de [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp/tree/fyc-tp-s2) :
+  port de tool calling et adaptateurs normalisés, outil d'exemple
+  `lister_taches_ouvertes`, confirmation des actions, tests du TP.
 - Le schéma de base de données des notes, étiquettes, projets et tâches.
 - Le jeu des 26 notes à indexer (contenu complet, livré avec la séquence S2.3).
 - Le script de panne simulée utilisé en S3.4.
