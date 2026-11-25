@@ -125,13 +125,37 @@ partagés :
 | Contexte du projet | `CLAUDE.md` | `AGENTS.md` (lien vers le même fichier) |
 | Skills (`/ship`, `/chapitre`, `/retour-mentor`) | `.claude/skills/` | `.agents/skills/` (lien vers le même dossier) |
 | Lint après chaque écriture | hook dans `.claude/settings.json` | pas d'équivalent : installer le hook git ci-dessous |
-| Linear | connecteur claude.ai | serveur MCP Linear à déclarer dans `~/.codex/config.toml` |
+| Linear | `.mcp.json` du dépôt (connexion avec son propre compte via `/mcp`) | serveur MCP Linear à déclarer dans `~/.codex/config.toml` |
+| Prof du cours | skill `prof` (`.claude/skills/prof/`, fiches de sources dans `references/`) | même skill via `.agents/skills/` |
 
 Après le clonage, quel que soit l'outil :
 
 ```bash
 scripts/install-hooks.sh   # refuse un commit qui viole charte/regles-redaction.md
 ```
+
+### Travailler en local avec un abonnement Claude (repli de l'agent Discord)
+
+L'agent FYC sur Discord tourne sur un budget API partagé. Quand il n'est pas
+disponible, chacun peut travailler sur son PC avec Claude Code et son propre
+abonnement Claude (Pro suffit pour rédiger, Max pour un usage intensif). Les
+règles, les skills et le prof sont dans le dépôt : le résultat est le même.
+
+1. Prérequis : `git`, `bash` (Git Bash sous Windows), `jq` (utilisé par le
+   hook de lint), [pandoc](https://pandoc.org/installing.html) pour l'export,
+   [Claude Code](https://docs.claude.com/en/docs/claude-code) connecté à son
+   compte Claude (`claude` puis `/login`).
+2. Cloner le dépôt, configurer son identité git (`git config user.name` et
+   `user.email`, celle de son compte GitHub), puis `scripts/install-hooks.sh`.
+3. Dans le dossier du dépôt, lancer `claude`, accepter le serveur `linear-server`
+   proposé par `.mcp.json`, puis `/mcp` pour se connecter à Linear avec son
+   propre compte : les commentaires et changements d'état sont à son nom.
+4. Travailler comme avec l'agent : `/ship FYC-nn` pour une issue, ou
+   « utilise la skill prof et rédige la section… ». Le lint tourne après
+   chaque écriture.
+5. Ce qui manque par rapport à l'agent : la mémoire partagée du groupe. Pour
+   que les autres (et l'agent) soient au courant, laisser un commentaire sur
+   l'issue Linear à la fin de chaque session (fait, reste à faire, décision).
 
 ## Suivi du projet
 
