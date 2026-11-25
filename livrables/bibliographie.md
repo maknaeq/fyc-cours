@@ -217,6 +217,13 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   25 novembre 2026. [S1.1, S1.3]
   _Identifiant daté `mistral-small-2603` et alias `mistral-small-latest` ;
   `mistral-small-2506` déprécié._
+- Mistral AI (2026), _Function Calling_, Mistral AI Documentation,
+  https://docs.mistral.ai/inference/conversations/function-calling, consulté le
+  25 novembre 2026. [S2.1, S2.4]
+  _Format des appels d'outils : `tool_calls` avec identifiant, arguments en
+  chaîne JSON, résultat renvoyé dans un message `tool` portant le
+  `tool_call_id`. Mistral Small 4 (`mistral-small-latest`) figure parmi les
+  modèles compatibles._
 - Anthropic (2026), _Model IDs and versioning_ et _Model deprecations_, Claude
   Platform Docs,
   https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions
