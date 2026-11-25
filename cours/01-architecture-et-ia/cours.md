@@ -392,10 +392,23 @@ aussi, parce qu'aucun processus n'est libre. Pour lui, le site est en panne.
 plus d'une minute. L'équipe comptait sur le délai maximal de PHP
 (`max_execution_time`, trente secondes) pour couper. Il ne coupe pas : sous
 Linux, il ne compte que le temps passé à exécuter le script, pas le temps
-passé à attendre le réseau. C'est le serveur web ou le proxy placé devant qui
-finit par abandonner, à son propre délai, et renvoie une erreur 504.
-L'appel vers le fournisseur, lui, a bien été envoyé et sera facturé. Les
-utilisateurs recliquent. Chaque clic relance un appel facturé qui échouera.
+passé à attendre le réseau. Ce qui coupe, c'est le client HTTP de Laravel :
+sans consigne, il abandonne toute requête au bout de trente secondes et lève
+une exception, d'où une erreur 500. Ce délai, personne ne l'a choisi, le
+contrôleur en hérite du framework. Si un proxy plus pressé est placé devant
+(nginx attend soixante secondes par défaut, un répartiteur de charge parfois
+moins), c'est lui qui renvoie une erreur 504 en premier, pendant que le
+processus PHP continue d'attendre un fournisseur que plus personne n'écoute.
+Dans tous les cas, l'appel vers le fournisseur a bien été envoyé et sera
+facturé. Les utilisateurs recliquent. Chaque clic relance un appel facturé
+qui échouera.
+
+Ces deux premiers incidents se reproduisent sur votre machine : le dossier
+`etude/` de la branche `fyc-etude-s1-2` du dépôt
+[xKaan/fyc-tp](https://github.com/xKaan/fyc-tp/tree/fyc-etude-s1-2/etude)
+fait tourner ce contrôleur derrière nginx et huit processus PHP-FPM, face à un
+faux fournisseur dont on règle la lenteur. La vidéo « Le timeout réel d'un
+appel d'IA dans un contrôleur » en montre l'exécution.
 
 **Lundi, 9 h 05.** Un utilisateur colle dans une note un document de deux
 cents pages, puis clique sur « Résumer ». Le corps de la note part en entier
@@ -418,9 +431,11 @@ implicite qu'il ne devrait pas prendre :
 
 - **L'appel est synchrone.** Le contrôleur attend la réponse. C'est le point
   de rupture de 9 h.
-- **Aucune limite de temps n'est fixée sur l'appel lui-même.** Le délai de
-  PHP ne compte pas l'attente réseau : c'est le serveur web qui coupe, tard et
-  brutalement, et l'appel reste facturé. C'est le point de rupture de 9 h 01.
+- **Aucune limite de temps n'est choisie pour l'appel lui-même.** Le délai de
+  PHP ne compte pas l'attente réseau. Ce qui coupe, ce sont des délais posés
+  par d'autres couches (le client HTTP du framework, le serveur web, le
+  proxy), sans rapport avec le temps qu'un utilisateur accepte d'attendre, et
+  l'appel reste facturé. C'est le point de rupture de 9 h 01.
 - **Aucune limite de taille ni de coût.** Le prompt contient tout ce que
   l'utilisateur a saisi. C'est le point de rupture de 9 h 05.
 - **Le modèle n'est pas figé.** Le code dit `mistral-small-latest`, un alias :
