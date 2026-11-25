@@ -68,7 +68,9 @@ export_chapter() {
   local name
   name="$(basename "$dir")"
   local files=()
-  mapfile -t files < <(chapter_files "$dir")
+  # Pas de mapfile : absent du bash 3.2 livré avec macOS.
+  local f
+  while IFS= read -r f; do files+=("$f"); done < <(chapter_files "$dir")
   if [[ ${#files[@]} -eq 0 ]]; then
     echo "  (aucun fichier md dans $dir)"
     return
