@@ -1,7 +1,8 @@
 # Fil rouge : NoteFlow, une app de notes avec agent
 
-> Projet que l'apprenant fait évoluer de S2.4 à S5.3. Le dépôt de code arrive
-> en séance 3 : cette page présente le cas au mentor pour la séance 2.
+> Projet que l'apprenant fait évoluer de S2.4 à S5.3. Le contenu complet des
+> 26 notes est livré avec la séquence S2.3 et le dépôt de départ avec le TP
+> S2.4 : cette page présente le cas au mentor.
 
 ## 1. Cas métier
 
@@ -22,19 +23,25 @@ l'utilisateur.
 
 | Outil | Ce qu'il fait | Entrée | Sortie |
 |---|---|---|---|
-| `chercher_notes` | Recherche par similarité dans l'index de notes (RAG, S2.3) | une question en langage naturel | une liste de notes (titre, extrait, score) |
+| `chercher_notes` | Recherche dans l'index de notes (plein texte, puis similarité, S2.3), limitée aux notes que l'utilisateur courant a le droit de lire | une question en langage naturel | une liste de notes (titre, extrait, score) |
 | `creer_tache` | Crée une tâche liée à une note source | titre de la tâche, note source, échéance optionnelle | la tâche créée |
 | `lister_taches_ouvertes` | Liste les tâches déjà ouvertes, pour éviter les doublons avant d'en créer une | filtre de projet optionnel | une liste de tâches |
 | `etoffer_note` | Propose une version plus étoffée d'un brouillon court (auto-complétion), sans jamais l'enregistrer elle-même | le brouillon de note | une proposition de texte plus complet |
 
-`chercher_notes` et `etoffer_note` sont en lecture ou en proposition seule.
-Seul `creer_tache` modifie une donnée : c'est le seul outil qui justifie,
-en séance 4, un point d'attention sur les droits qu'on lui accorde.
+`creer_tache` est le seul outil qui modifie une donnée, mais ce n'est pas le
+seul qui demande des droits. `chercher_notes` lit des données privées : la
+recherche est filtrée par les droits de l'utilisateur courant dans la requête
+SQL elle-même, jamais par une consigne dans le prompt. Et comme les notes
+indexées sont du contenu non fiable, la réponse de l'agent ne doit pas pouvoir
+faire sortir de données (pas d'image externe dans le rendu Markdown). Enfin,
+`creer_tache` écrit en base : il est idempotent (clé d'idempotence, S3.1),
+pour qu'un nouvel essai (S3.2) ne crée pas de doublon.
 
 ## 3. Jeu de notes à indexer (RAG, S2.3)
 
 26 notes réalistes, réparties par thème. Les titres ci-dessous servent de plan
-pour rédiger le contenu complet au moment du dépôt de code (séance 3).
+pour rédiger le contenu complet, livré avec la séquence S2.3 (le TP S2.4 les
+indexe).
 
 **Onboarding et équipe (4)**
 - Bienvenue dans l'équipe : outils et accès
@@ -78,10 +85,11 @@ pour rédiger le contenu complet au moment du dépôt de code (séance 3).
 
 | Séance | Critère de réussite |
 |---|---|
-| S2.4 (agent + recherche) | Pour une question test (« qu'a-t-on décidé pour la base de données ? »), `chercher_notes` retourne la note « Décision : choix de PostgreSQL plutôt que MongoDB » parmi les résultats. L'agent peut créer une tâche via `creer_tache` à partir d'une note contenant une action explicite. L'agent fonctionne à l'identique avec l'IA en ligne et l'IA locale, sans changer le cœur métier. |
-| S3.3 (suivi + plan de secours) | Chaque appel (recherche, outil, génération) est tracé avec un identifiant de requête commun, sa durée et son coût. En coupant l'accès à l'IA en ligne, l'agent bascule sur l'IA locale puis, si elle aussi est indisponible, sur un mode sans IA qui reste capable de retrouver des notes par recherche lexicale simple. |
-| S4.4 (tests + injections) | La suite de tests couvre le cas normal avec une doublure de fournisseur. Au moins un test d'injection directe (dans la question posée à l'agent) et un test d'injection indirecte (texte piégé caché dans une note indexée) prouvent que `creer_tache` n'est jamais appelé sans une action réellement présente dans une note légitime. |
-| S5.3 (cas pratique final) | La fiche d'architecture justifie, sur ce cas précis, les choix de découpage du pipeline RAG, la politique de résilience retenue, le coût mensuel estimé pour l'équipe de 5 à 10 personnes, et les mesures de sécurité effectivement en place face aux deux types d'injection testés en S4. |
+| S2.3 (récupération) | Le recall@5 est calculé sur cinq questions de référence, en comparant la recherche plein texte et la recherche vectorielle. |
+| S2.4 (agent + recherche) | Pour une question test (« qu'a-t-on décidé pour la base de données ? »), `chercher_notes` retourne la note « Décision : choix de PostgreSQL plutôt que MongoDB » parmi les résultats, et seulement parmi les notes que l'utilisateur a le droit de lire. L'agent s'arrête à un plafond d'étapes. Il peut créer une tâche via `creer_tache` à partir d'une note contenant une action explicite, après une confirmation qui montre l'action exacte. Sa réponse cite la note source ou dit « je ne sais pas ». Cinq cas de référence sont écrits. L'agent remplit les mêmes critères avec l'IA en ligne et l'IA locale, sans changer le cœur métier : seuls l'adaptateur et sa configuration changent (par exemple la taille de contexte d'Ollama). |
+| S3.4 (suivi + plan de secours) | Chaque requête produit une trace avec un identifiant commun, un span par appel au modèle, par outil et par recherche, avec sa durée, ses tokens et son coût. En coupant l'accès à l'IA en ligne, l'agent bascule sur l'IA locale puis, si elle aussi est indisponible, sur un mode sans IA qui reste capable de retrouver des notes par recherche plein texte. Rejouer un même appel à `creer_tache` ne crée pas de doublon. Deux cas de référence tirés des traces s'ajoutent aux cinq de S2.4. |
+| S4.3 (tests + injections) | Les tests déterministes couvrent le cas normal avec une doublure de fournisseur. Un test d'injection directe (dans la question posée à l'agent) et un test d'injection indirecte (texte piégé caché dans une note indexée) vérifient que, lorsque la doublure simule une demande de `creer_tache` issue du texte piégé, le code de l'application refuse l'appel ou le soumet à la validation de l'utilisateur. Deux autres tests vérifient que la sortie ne contient pas d'image externe et que la recherche ne renvoie pas les notes d'un autre projet. Rejoués contre un vrai modèle sur plusieurs essais, les mêmes cas donnent un taux (pass^k), pas une preuve. |
+| S5.3 (cas pratique final) | La fiche d'architecture justifie, sur ce cas précis, les choix de découpage du pipeline RAG, la politique de résilience retenue, le coût mensuel estimé pour l'équipe de 5 à 10 personnes, le choix entre un SDK et du code maison, la raison d'avoir un agent plutôt qu'un workflow, et les mesures de sécurité effectivement en place face aux deux types d'injection testés en S4.3. |
 
 ## 5. Fourni à l'apprenant vs construit par l'apprenant
 
@@ -89,18 +97,20 @@ Rappel : le cours n'utilise pas de SDK d'IA (Laravel AI SDK, Spring AI). Ils
 n'apparaissent qu'en comparaison, jamais dans le code de l'apprenant.
 
 **Fourni**
-- Le dépôt de départ Laravel réorganisé en S1.4 (architecture en ports et
+- Le dépôt de départ Laravel réorganisé en S1.3 (architecture en ports et
   adaptateurs, sans logique d'IA).
 - Le schéma de base de données des notes, étiquettes, projets et tâches.
-- Le jeu des 26 notes à indexer (contenu complet, livré avec le dépôt de S3).
-- Le script de panne simulée utilisé en S3.3.
-- Les squelettes de tests et les textes piégés utilisés en S4.4.
+- Le jeu des 26 notes à indexer (contenu complet, livré avec la séquence S2.3).
+- Le script de panne simulée utilisé en S3.4.
+- Les squelettes de tests et les textes piégés utilisés en S4.3.
 
 **Construit par l'apprenant**
 - L'adaptateur vers le fournisseur d'IA (en ligne et local).
 - Le contrat des quatre outils et la boucle d'agent qui les enchaîne.
-- Le pipeline RAG complet : découpage des notes, vectorisation, indexation
-  et recherche sur pgvector.
-- Le retry, le coupe-circuit et le plan de repli à trois niveaux.
+- Le pipeline RAG complet : recherche plein texte, découpage des notes,
+  vectorisation, indexation et recherche sur pgvector, avec le filtrage par
+  droits.
+- La clé d'idempotence de `creer_tache`, le retry, le coupe-circuit et le plan
+  de repli à trois niveaux.
 - La doublure de fournisseur et la suite de tests, y compris les cas
   d'injection directe et indirecte.
