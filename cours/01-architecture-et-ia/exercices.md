@@ -46,9 +46,10 @@ fournisseur est en panne, la file grossit sans fin. Il faut un coupe-circuit,
 vu en séance 3.
 
 **Limite de temps côté application.** On fixe un délai maximal sur l'appel
-HTTP vers le fournisseur, par exemple quinze secondes, plus court que le délai
-de PHP, et on gère l'échec proprement. Incident visé : les requêtes de 9 h 01
-qui attendent trente secondes pour rien. Ce qu'il ne résout pas : l'appel
+HTTP vers le fournisseur, par exemple quinze secondes, plus court que celui du
+serveur web, et on gère l'échec proprement. Le délai de PHP ne joue pas ce
+rôle : il ne compte pas le temps passé à attendre le réseau. Incident visé :
+les requêtes de 9 h 01 qui attendent plus d'une minute pour rien. Ce qu'il ne résout pas : l'appel
 interrompu est peut-être quand même facturé côté fournisseur, et réessayer
 immédiatement coûte deux fois. La politique de réessai est un sujet en soi.
 
