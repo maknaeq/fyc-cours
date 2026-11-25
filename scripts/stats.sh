@@ -4,6 +4,10 @@
 # Lit aussi la durée apprenant déclarée dans le README.md de chaque chapitre
 # (ligne "Durée apprenant : Xh" ou "X min").
 
+# Compte tous les .md du chapitre (cours, exercices, QCM, test de
+# positionnement, fil rouge, installation, cas pratique, test final...),
+# sauf README.md (fiche du chapitre) et les sous-dossiers (scripts vidéo).
+
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
@@ -16,8 +20,10 @@ for d in "$ROOT"/cours/*/; do
   [[ -d "$d" ]] || continue
   name="$(basename "$d")"
   chars=0
-  for f in "$d"cours.md "$d"exercices.md "$d"qcm.md; do
-    [[ -f "$f" ]] && chars=$((chars + $(wc -m < "$f")))
+  for f in "$d"*.md; do
+    [[ -f "$f" ]] || continue
+    [[ "$(basename "$f")" == "README.md" ]] && continue
+    chars=$((chars + $(wc -m < "$f")))
   done
   mins=0
   if [[ -f "$d/README.md" ]]; then

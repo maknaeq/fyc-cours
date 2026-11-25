@@ -16,7 +16,7 @@ OUT="$ROOT/build"
 mkdir -p "$OUT"
 
 if ! command -v pandoc >/dev/null 2>&1; then
-  echo "pandoc introuvable. Installer avec : brew install pandoc" >&2
+  echo "pandoc introuvable. Installation : https://pandoc.org/installing.html (macOS : brew install pandoc)" >&2
   exit 1
 fi
 
@@ -36,6 +36,25 @@ PANDOC_OPTS=(
   --metadata toc-title="Sommaire"
 )
 
+# Ordre d'export et de comptage d'un chapitre : les fichiers connus dans
+# l'ordre de lecture de l'apprenant, puis tout autre .md du dossier (ordre
+# alphabétique). Les sous-dossiers (videos/, assets/) sont ignorés.
+CHAPTER_ORDER=(README.md positionnement.md installation.md cours.md fil-rouge.md exercices.md cas-pratique.md qcm.md test-final.md)
+
+chapter_files() {
+  local dir="$1" f known
+  for f in "${CHAPTER_ORDER[@]}"; do
+    [[ -f "$dir/$f" ]] && echo "$dir/$f"
+  done
+  for f in "$dir"/*.md; do
+    [[ -f "$f" ]] || continue
+    known=0
+    for k in "${CHAPTER_ORDER[@]}"; do [[ "$(basename "$f")" == "$k" ]] && known=1; done
+    [[ $known -eq 0 ]] && echo "$f"
+  done
+  return 0
+}
+
 export_file() {
   local src="$1"
   local name
@@ -49,9 +68,7 @@ export_chapter() {
   local name
   name="$(basename "$dir")"
   local files=()
-  for f in README.md cours.md exercices.md qcm.md; do
-    [[ -f "$dir/$f" ]] && files+=("$dir/$f")
-  done
+  mapfile -t files < <(chapter_files "$dir")
   if [[ ${#files[@]} -eq 0 ]]; then
     echo "  (aucun fichier md dans $dir)"
     return

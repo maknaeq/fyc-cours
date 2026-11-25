@@ -15,7 +15,10 @@ autre. Il ne se lit pas. Tout ce qui suit découle de ça.
    pour la présentation du cours), et la seule chose que le spectateur doit
    retenir à la fin.
 3. Compter : 140 mots par minute parlée. Un script de 3 min fait 400 mots au
-   plus, on vise 380.
+   plus, on vise 380. C'est un budget de longueur, pas un débit à tenir : on
+   parle naturellement, la marge sert aux pauses et aux démonstrations.
+4. Viser 4 à 6 min, jamais plus de 8. Une correction ou une démo plus longue
+   se découpe en 2 ou 3 vidéos, chacune avec un objectif et un titre.
 
 ## Règles du parlé
 
@@ -47,6 +50,21 @@ autre. Il ne se lit pas. Tout ce qui suit découle de ça.
 - **Une seule question rhétorique par script**, au maximum, et on y répond
   dans la phrase suivante.
 - **Finir sur une action** : ce que le spectateur fait juste après.
+- **Montrer avant d'expliquer.** On fait apparaître le phénomène à l'écran
+  (la requête qui bloque, l'agent qui obéit à l'injection), puis on explique.
+
+## Screencast et live coding
+
+- Le code à l'écran est lisible (police 18 pt au moins, thème clair ou
+  contrasté), une seule fenêtre à la fois.
+- On dit ce qu'on fait avant de le taper (« on ajoute un délai au client
+  HTTP »), puis pourquoi, pas chaque caractère.
+- Une erreur en direct se garde si elle apprend quelque chose : on lit le
+  message, on explique la cause, on corrige.
+- Une correction commence par « Si vous n'avez pas encore essayé, mettez en
+  pause » et montre d'abord le raisonnement, puis le code.
+- Le script indique les actions entre crochets : `[Code : ajouter
+  ->timeout(10)]`, `[Terminal : php artisan test]`.
 
 ## Test obligatoire avant de livrer
 
