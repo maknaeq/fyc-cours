@@ -3,7 +3,7 @@
 - Durée apprenant : 135 min
 - Séquences (trame V2, `livrables/scenarisation.md`) :
   - S1.1 Architectures web : les bases (40 min) : support écrit, section 1, dépôts d'exemple [notion-lite-laravel](https://github.com/sorantino/notion-lite-laravel) et [notion-lite-spring](https://github.com/sorantino/notion-lite-spring)
-  - S1.2 Pourquoi l'IA complique les architectures classiques (40 min) : support écrit, section 2, et exercice 1
+  - S1.2 Pourquoi l'IA complique les architectures classiques (40 min) : support écrit, section 2, étude de cas `etude/` sur [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp/tree/fyc-etude-s1-2/etude), branche `fyc-etude-s1-2`, et exercice 1
   - S1.3 TP : un port, trois adaptateurs (55 min) : énoncé `TP-S1-enonce.md` sur [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp), branche `fyc-tp-s1`, corrigé sur `fyc-tp-s1-correction` ; fusion des anciennes S1.3 et S1.4, l'installation est passée au chapitre 00
 - Objectifs pédagogiques :
   - Reconnaître les couches d'une application web et la place du cœur métier

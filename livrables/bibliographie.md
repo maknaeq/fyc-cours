@@ -198,6 +198,10 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   24 novembre 2026. [S1.1, S1.2, S2.3, S3.1, S5.2]
   _Documentation distincte de celle du Laravel AI SDK (`laravel.com/docs/ai-sdk`,
   package `laravel/ai` séparé)._
+- NGINX (2026), _Module ngx_http_fastcgi_module_ (directive
+  `fastcgi_read_timeout`, 60 s par défaut),
+  https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html, consulté le
+  25 novembre 2026. [S1.2]
 - Resilience4j (2026), _Resilience4j User Guide_, version 2.4.0 (publiée le
   14 mars 2026), https://resilience4j.readme.io/, consulté le 24 novembre 2026.
   [S3.2]
