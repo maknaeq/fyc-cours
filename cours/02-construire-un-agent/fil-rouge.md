@@ -101,7 +101,13 @@ n'apparaissent qu'en comparaison, jamais dans le code de l'apprenant.
   adaptateurs, sans logique d'IA), étendu pour S2.4 sur la branche
   `fyc-tp-s2` de [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp/tree/fyc-tp-s2) :
   port de tool calling et adaptateurs normalisés, outil d'exemple
-  `lister_taches_ouvertes`, confirmation des actions, tests du TP.
+  `lister_taches_ouvertes`, confirmation des actions, tests du TP, modèle
+  de journal des comportements et modèle de cas de référence.
+- L'état fin S2, point de départ du TP S3.4 pour l'apprenant en retard :
+  branche
+  [`fyc-tp-s2-correction`](https://github.com/xKaan/fyc-tp/tree/fyc-tp-s2-correction),
+  avec l'agent complet, la recherche par similarité sur pgvector
+  (`NOTEFLOW_SEARCH=vector`) et les cinq cas de référence remplis.
 - Le schéma de base de données des notes, étiquettes, projets et tâches.
 - Le jeu des 26 notes à indexer (contenu complet, livré avec la séquence S2.3).
 - Le script de panne simulée utilisé en S3.4.
