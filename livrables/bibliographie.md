@@ -224,6 +224,11 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   chaîne JSON, résultat renvoyé dans un message `tool` portant le
   `tool_call_id`. Mistral Small 4 (`mistral-small-latest`) figure parmi les
   modèles compatibles._
+- Mistral AI (2026), _Embeddings_, Mistral AI API Reference,
+  https://docs.mistral.ai/api/endpoint/embeddings, consulté le
+  25 novembre 2026. [S2.4]
+  _Point d'entrée `POST /v1/embeddings` au format OpenAI : vecteurs dans
+  `data[].embedding` avec leur `index`, modèle d'exemple `mistral-embed`._
 - Anthropic (2026), _Model IDs and versioning_ et _Model deprecations_, Claude
   Platform Docs,
   https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions
@@ -241,7 +246,13 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   25 novembre 2026. [S2.4]
   _Format local des appels d'outils (arguments en objet, pas d'identifiant
   d'appel) et du résultat renvoyé (`role: "tool"`, `tool_name`)._
+- Ollama (2026), _Embeddings_ et _Generate embeddings_, Ollama
+  Documentation, https://docs.ollama.com/capabilities/embeddings et
+  https://docs.ollama.com/api/embed, consulté le 25 novembre 2026. [S2.4]
+  _Point d'entrée `/api/embed` (`input` en liste, un vecteur par texte dans
+  `embeddings`), modèle d'exemple `embeddinggemma`, même modèle à
+  l'indexation et à la recherche._
 - pgvector (2026), _pgvector: open-source vector similarity search for
   Postgres_, version 0.8.7 (publiée le 1er octobre 2026),
   https://github.com/pgvector/pgvector, consulté le 24 novembre 2026. [00.3,
-  S2.3]
+  S2.3, S2.4]

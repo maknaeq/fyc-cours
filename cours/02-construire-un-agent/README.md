@@ -5,7 +5,7 @@
   - S2.1 Le contrat d'outil (40 min)
   - S2.2 Workflow ou agent ? La boucle et ses arrêts (30 min)
   - S2.3 Récupérer l'information, et le mesurer (45 min)
-  - S2.4 TP : l'agent NoteFlow (65 min) : énoncé `TP-S2-enonce.md` sur [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp/tree/fyc-tp-s2), branche `fyc-tp-s2` (dépôt de départ NoteFlow, 26 notes, squelette de l'agent, tests), modèle `cas-de-reference.md`
+  - S2.4 TP : l'agent NoteFlow (65 min) : énoncé `TP-S2-enonce.md` sur [xKaan/fyc-tp](https://github.com/xKaan/fyc-tp/tree/fyc-tp-s2), branche `fyc-tp-s2` (dépôt de départ NoteFlow, 26 notes, squelette de l'agent, tests), modèles `journal-comportements.md` et `cas-de-reference.md` ; corrigé « état fin S2 » sur la branche [`fyc-tp-s2-correction`](https://github.com/xKaan/fyc-tp/tree/fyc-tp-s2-correction) (`TP-S2-corrige.md`, recherche par similarité sur pgvector, 5 cas de référence remplis)
 - Objectifs pédagogiques :
   - Concevoir la boucle d'un agent (contrat d'outils, conditions d'arrêt, budget, validation humaine) et justifier quand un workflow suffit (O2)
   - Construire un pipeline de récupération (plein texte et vectoriel sur pgvector) et en mesurer la qualité par le recall@5 (O3)
