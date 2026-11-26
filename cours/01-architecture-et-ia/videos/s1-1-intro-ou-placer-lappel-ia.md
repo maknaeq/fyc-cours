@@ -10,7 +10,7 @@
 
 ## Script
 
-[Écran : l'application de notes dans le navigateur, une note ouverte, un bouton « Résumer » ajouté sur la capture]
+[Écran : l'application de notes dans le navigateur, une note ouverte, le bouton « Resumer avec l'IA » entouré]
 
 Votre responsable produit veut un bouton « Résumer » sur chaque note. L'appel à l'IA tient en quelques lignes. La vraie décision, c'est où les ranger.
 
@@ -38,7 +38,7 @@ Gardez votre réponse sous les yeux et ouvrez le support. Vous la retrouverez à
 
 | Temps | Plan | Écran |
 |-------|------|-------|
-| 0:00 | Screencast | Application dans le navigateur, une note ouverte, bouton « Résumer » ajouté sur la capture |
+| 0:00 | Screencast | Application dans le navigateur (`http://localhost`), une note ouverte, bouton « Resumer avec l'IA » entouré |
 | 0:15 | Screencast | `NoteController.php`, `summarize`, défilement lent, surlignages au rythme de la phrase |
 | 0:37 | Screencast | `suggestTags`, bloc d'appel entouré de la même couleur que celui de `summarize` |
 | 0:51 | Incrustation | Trois cartes : le contrôleur, le modèle Note, une classe à part. Elles restent 10 s après la question, sans voix |
@@ -47,7 +47,7 @@ Gardez votre réponse sous les yeux et ouvrez le support. Vous la retrouverez à
 
 ## À faire au tournage
 
-- Aucun lancement du code : on lit le fichier, pas besoin d'application qui tourne. La capture de l'application (premier plan) vient du dépôt du TP (`sail up`), le bouton « Résumer » y est déjà présent, la maquette n'est utile que si l'application n'est pas lancée.
+- Le code se lit dans l'éditeur : il n'y a pas d'appel à lancer. Seul le premier plan demande l'application lancée (`./vendor/bin/sail up -d`, page sur `http://localhost`) : le bouton « Resumer avec l'IA » y existe déjà, sans accent dans le dépôt.
 - Ne pas montrer la réponse (une classe à part derrière une interface) : elle est donnée par le support. La vidéo ne la dit pas, ni à l'écran ni à la voix.
 - La vidéo du TP S1.3 (« Un port, deux fournisseurs, une ligne de config ») montre la solution à partir du même contrôleur : ne pas la dévoiler ici.
 - Relire à voix haute en chronométrant. Toute phrase où l'on bute est réécrite.
