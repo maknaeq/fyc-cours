@@ -36,7 +36,17 @@ cours/NN-slug/
 - Exercices : _..._
 - Auteur principal : _..._
 - Issue Linear : _..._
+
+## Ressources
+
+| Notion | Ressource officielle | À consulter si… |
+|--------|----------------------|-----------------|
+| _..._ | _[Titre, version](URL)_ | _vous ne connaissez pas ..._ |
 ```
+
+   La rubrique « Ressources » est obligatoire (format et règles : section
+   « Ressources externes et renvois » de `charte/guide-de-style.md`). Les
+   ressources citées remontent dans `livrables/bibliographie.md`.
 
 4. Contenu de `cours.md` :
 

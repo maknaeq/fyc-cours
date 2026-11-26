@@ -17,4 +17,8 @@ Bloc d'ouverture du cours sur Teams. Ne contient pas de chapitre de fond.
 - Vidéos : présentation (3 min)
 - Auteurs : Quentin Bauduin (00.1, 00.2), Erwin Gossin (00.3)
 
+## Ressources
+
+<!-- À remplir : une ligne par notion extérieure manipulée dans le chapitre (tableau Notion / Ressource officielle / À consulter si…, format dans charte/guide-de-style.md). -->
+
 <!-- Suivi interne, non exporté : FYC-10 (chapitre), séquences FYC-100 (00.1), FYC-101 (00.2), FYC-97 (00.3) ; FYC-30 (vidéo), FYC-44 (page d'accueil), FYC-117 (questions de contenu), FYC-29 (installation), FYC-38 (script de vérification) -->

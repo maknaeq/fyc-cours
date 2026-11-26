@@ -67,7 +67,7 @@ build/            Sorties générées (ignoré par git)
 Chaque chapitre dans `cours/NN-slug/` contient :
 
 ```
-README.md         Fiche du chapitre : objectifs, durée apprenant, pré-requis
+README.md         Fiche du chapitre : objectifs, durée apprenant, pré-requis, rubrique « Ressources »
 cours.md          Le support écrit
 exercices.md      Exercices non-QCM avec corrigés
 qcm.md            Questions à choix multiples avec corrigés
@@ -82,7 +82,9 @@ assets/           Schémas et images construits par nous
    numéro du chapitre puis la séquence (`02 · S2.3 · …`). L'estimation est en
    **heures apprenant**, sur l'issue du chapitre seulement : la somme des
    estimations doit égaler la durée cible du cours.
-3. Le contenu s'écrit en Markdown. Les conventions sont dans `charte/guide-de-style.md`.
+3. Le contenu s'écrit en Markdown. Les conventions sont dans `charte/guide-de-style.md`. Toute notion extérieure manipulée
+   renvoie vers une ressource officielle (rubrique « Ressources » du `README.md`
+   du chapitre et renvois en ligne).
 4. Export docx : `scripts/build.sh` (voir ci-dessous).
 5. Après chaque séance, on note les retours du mentor dans `retours-mentor/`
    et on crée les issues correspondantes.

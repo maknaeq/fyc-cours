@@ -43,6 +43,8 @@ Détail dans `README.md` et `ressources/presentation-projet-fyc-26-27.pdf`.
 - Chapitres dans `cours/NN-slug/` avec la structure décrite dans `README.md`.
 - Bibliographie dans `livrables/bibliographie.md` aux normes de
   `ressources/normes-bibliographie.pdf`. Style : `Nom I. (année), Titre, Éditeur.`
+- Ressources externes : une rubrique « Ressources » dans le `README.md` de chaque
+  chapitre et des renvois en ligne (format dans `charte/guide-de-style.md`).
 - Compte-rendus de séance dans `retours-mentor/YYYY-MM-DD-seance-N.md`.
 - Export docx : `scripts/build.sh`, mise en page via `charte/reference.docx`.
 
