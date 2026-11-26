@@ -206,8 +206,8 @@ indicatives.
 
 | Durée | Contenu | Point d'attention | Ce que fait l'apprenant | Ressources |
 |-----|------------------------|------------------|------------------|----------|
-| 15 min | Les cinq caractéristiques : rien ne garantit une réponse identique, un temps variable, un coût à chaque appel, un fournisseur externe (avec ses limites de débit), une surface d'attaque nouvelle | Relier chaque caractéristique à sa conséquence concrète sur l'architecture | Prend des notes organisées par caractéristique | Support écrit S1.2 |
 | 15 min | Étude de cas : un appel à une IA fait en direct dans un contrôleur web, ce qui casse (timeout, worker bloqué, facture imprévisible) | Montrer un vrai timeout et chercher où il coupe réellement (client HTTP, serveur web, worker), pas seulement dans PHP | Analyse le cas et repère les points de rupture | Dépôt de l'étude de cas, vidéo de 3 min du timeout réel |
+| 15 min | Les cinq caractéristiques : rien ne garantit une réponse identique, un temps variable, un coût à chaque appel, un fournisseur externe (avec ses limites de débit), une surface d'attaque nouvelle | Partir des incidents de l'étude de cas (trois caractéristiques sur cinq y apparaissent), puis relier chaque caractéristique à sa conséquence concrète sur l'architecture | Prend des notes organisées par caractéristique et classe trois situations dans un mini-exercice | Support écrit S1.2 |
 | 10 min | Fiche de réponse : proposer trois parades possibles, puis lire le corrigé commenté qui passe en revue les pistes (traitement en arrière-plan, file d'attente, limite de temps, cache) et leurs limites | Le corrigé ne tranche pas : les solutions sont construites en séance 3 | Rédige sa fiche, la compare au corrigé, note les écarts | Modèle de fiche, corrigé commenté |
 
 ### S1.3 : TP : un port, trois adaptateurs (55 min)
