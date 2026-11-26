@@ -56,7 +56,7 @@ Source : `ressources/presentation-projet-fyc-26-27.pdf`.
 ```
 ressources/       Documents fournis par l'école (consigne, template, normes biblio)
 cours/            Contenu du cours en Markdown, un dossier par chapitre
-livrables/        Problématique, scénarisation, bibliographie, accroche, avancement, soutenance
+livrables/        Problématique, scénarisation, bibliographie, accroche, budget vidéo, avancement, soutenance
                   archives/ : les PDF tels que rendus à chaque séance
 retours-mentor/   Compte-rendu de chaque séance avec le mentor
 charte/           Charte graphique : reference.docx, logos, guide de style
