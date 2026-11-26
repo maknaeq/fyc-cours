@@ -12,7 +12,7 @@ Bloc d'ouverture du cours sur Teams. Ne contient pas de chapitre de fond.
   - Texte des pré-requis à côté de la vidéo sur Teams (repris de l'accroche et du guide d'installation)
   - Page d'accueil (`accueil.md`) : objectifs, plan des séances, pré-requis, mode d'emploi, première page lue sur Teams
   - Texte d'accroche (`livrables/accroche.md`)
-  - Test de positionnement : dix questions de pré-requis corrigées, plus 3 à 5 questions de contenu annoncées comme normales à rater
+  - Test de positionnement : dix questions de pré-requis corrigées (résultat sur 10), plus quatre questions de contenu annoncées comme normales à rater, option « Je ne sais pas » partout
   - Guide d'installation et script de vérification (Ollama, pgvector épinglé, clé en ligne facultative)
 - Objectifs pédagogiques : aucun objectif de fond ; la sortie du chapitre est un environnement vérifié par le script (condition d'entrée en séance 1)
 - Vidéos : présentation (3 min)
