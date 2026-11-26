@@ -164,5 +164,5 @@ dépôt.
 - **5 ou moins :** le cours risque d'être difficile à suivre. Avant de
   commencer, prenez le temps de revoir les bases de PHP objet et de Laravel
   (routes, contrôleurs, Eloquent, conteneur), et de refaire un premier
-  projet simple avec Git. Les ressources sont indiquées dans la
-  bibliographie, section documentation technique.
+  projet simple avec Git. Une ressource par question est indiquée
+  dans la rubrique « Ressources » de la fiche du chapitre 00.

@@ -195,7 +195,9 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   le 24 novembre 2026. [S2.1, S2.3, S3.2, S4.1]
 - Laravel LLC (2026), _Laravel 13 Documentation_, version 13.x (framework
   v13.44.1 au 24 novembre 2026), https://laravel.com/docs/13.x, consulté le
-  24 novembre 2026. [S1.1, S1.2, S2.3, S3.1, S5.2]
+  24 novembre 2026 (pages citées dans les rubriques « Ressources » des chapitres
+  00 et 01 consultées le 26 novembre 2026). [00.1, 00.2, S1.1, S1.2, S1.3, S2.3,
+  S3.1, S5.2]
   _Documentation distincte de celle du Laravel AI SDK (`laravel.com/docs/ai-sdk`,
   package `laravel/ai` séparé)._
 - NGINX (2026), _Module ngx_http_fastcgi_module_ (directive
@@ -209,6 +211,23 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   `max_execution_time`), https://www.php.net/manual/en/function.set-time-limit.php,
   consulté le 24 novembre 2026. [S1.2]
 
+## Pré-requis et prise en main
+
+- The PHP Group (2026), _PHP Manual_ (pages sur les interfaces, les
+  constructeurs, les énumérations et les propriétés en lecture seule),
+  https://www.php.net/manual/fr/, consulté le 26 novembre 2026. [00.1, 00.2,
+  S1.1]
+- Mozilla (2026), _HTTP_, MDN Web Docs (codes de réponse, méthodes, en-tête
+  `Authorization`), https://developer.mozilla.org/fr/docs/Web/HTTP, consulté le
+  26 novembre 2026. [00.1, 00.2]
+- Chacon S. et Straub B. (2014), _Pro Git_, 2e édition, Apress, version en
+  ligne en français, https://git-scm.com/book/fr/v2, consulté le 26 novembre
+  2026. [00.1, 00.2]
+- VMware / Broadcom (2026), _Spring Framework Reference Documentation_
+  (conteneur IoC et beans), version 7.0 (7.0.11 publiée le 19 novembre 2026),
+  https://docs.spring.io/spring-framework/reference/, consulté le 26 novembre
+  2026. [S1.1]
+
 ## Fournisseurs de modèles
 
 - Mistral AI (2026), _Models Overview_ et _Mistral Small 4_, Mistral AI
@@ -217,6 +236,10 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   25 novembre 2026. [S1.1, S1.3]
   _Identifiant daté `mistral-small-2603` et alias `mistral-small-latest` ;
   `mistral-small-2506` déprécié._
+- Mistral AI (2026), _Chat Completions_, Mistral AI API Reference,
+  https://docs.mistral.ai/api/endpoint/chat, consulté le 26 novembre 2026.
+  [S1.3]
+  _Format de requête et de réponse que traduit l'adaptateur en ligne du TP._
 - Mistral AI (2026), _Function Calling_, Mistral AI Documentation,
   https://docs.mistral.ai/inference/conversations/function-calling, consulté le
   25 novembre 2026. [S2.1, S2.4]
@@ -235,12 +258,18 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
 
 - Ollama (2026), _Ollama Documentation_, version 0.40.18 (publiée le
   24 novembre 2026), https://docs.ollama.com/, consulté le 24 novembre 2026.
-  [00.3]
+  [00.3, S1.3]
 - Ollama (2026), _Tool calling_, Ollama Documentation, version 0.40.18,
   https://docs.ollama.com/capabilities/tool-calling, consulté le
   25 novembre 2026. [S2.4]
   _Format local des appels d'outils (arguments en objet, pas d'identifiant
   d'appel) et du résultat renvoyé (`role: "tool"`, `tool_name`)._
+- Ollama (2026), _Generate a chat message_ et _OpenAI compatibility_, Ollama
+  Documentation, version 0.40.18, https://docs.ollama.com/api/chat et
+  https://docs.ollama.com/api/openai-compatibility, consulté le 26 novembre
+  2026. [S1.3]
+  _Endpoint `/api/chat` utilisé par l'adaptateur local, et compatibilité avec le
+  format OpenAI (`/v1/chat/completions`)._
 - pgvector (2026), _pgvector: open-source vector similarity search for
   Postgres_, version 0.8.7 (publiée le 1er octobre 2026),
   https://github.com/pgvector/pgvector, consulté le 24 novembre 2026. [00.3,
