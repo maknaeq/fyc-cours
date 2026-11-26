@@ -39,7 +39,7 @@ PANDOC_OPTS=(
 # Ordre d'export et de comptage d'un chapitre : les fichiers connus dans
 # l'ordre de lecture de l'apprenant, puis tout autre .md du dossier (ordre
 # alphabétique). Les sous-dossiers (videos/, assets/) sont ignorés.
-CHAPTER_ORDER=(README.md positionnement.md installation.md cours.md fil-rouge.md exercices.md cas-pratique.md qcm.md test-final.md)
+CHAPTER_ORDER=(accueil.md README.md positionnement.md installation.md cours.md fil-rouge.md exercices.md cas-pratique.md qcm.md test-final.md)
 
 chapter_files() {
   local dir="$1" f known
