@@ -122,7 +122,7 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   dans toutes les éditions (2023, 2025, 2026)._
 - OWASP GenAI Security Project (2026), _LLM01:2026 Prompt Injection_, édition
   2026, https://genai.owasp.org/llm2026/llm012026-prompt-injection/, consulté
-  le 24 novembre 2026. [S1.2, S4.2, S4.3]
+  le 24 novembre 2026. [00.2, S1.2, S4.2, S4.3]
   _Fiche du risque n° 1 : pas de mécanisme de prévention fiable à ce jour,
   d'où la priorité aux mesures qui bornent l'impact._
 - OWASP GenAI Security Project (2025), _OWASP Top 10 for Agentic Applications
@@ -179,7 +179,7 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   inference_, billet de recherche (Connectionism), septembre 2025,
   doi:10.64434/tml.20250910,
   https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/,
-  consulté le 24 novembre 2026. [S1.2, S4.1]
+  consulté le 24 novembre 2026. [00.2, S1.2, S4.1]
   _Pourquoi température 0 ne garantit pas une réponse identique._
 - Brooker M. (2019), _Timeouts, retries, and backoff with jitter_, Amazon
   Builders' Library, 5 décembre 2019,
@@ -214,7 +214,7 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   [S3.2]
 - The PHP Group (2026), _PHP Manual : set_time_limit_ (note sur
   `max_execution_time`), https://www.php.net/manual/en/function.set-time-limit.php,
-  consulté le 24 novembre 2026. [S1.2]
+  consulté le 24 novembre 2026. [00.2, S1.2]
 
 ## Pré-requis et prise en main
 
