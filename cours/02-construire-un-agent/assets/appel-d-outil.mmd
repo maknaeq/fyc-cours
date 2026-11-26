@@ -1,0 +1,13 @@
+%% Structure proposée pour le schéma « un appel d'outil » (S2.1, FYC-49).
+%% À redessiner par l'équipe (FYC-60), puis exporter en assets/appel-d-outil.png.
+sequenceDiagram
+    participant U as Utilisateur
+    participant A as Application NoteFlow
+    participant M as Modèle (IA)
+    U->>A: Question
+    A->>M: 1. Question + contrats des outils
+    M-->>A: 2. Demande d'appel (nom + arguments)
+    A->>A: 3. Vérifie (outil connu, arguments valides, droits) puis exécute
+    A->>M: 4. Résultat de l'outil
+    M-->>A: 5. Réponse finale, ou nouvelle demande d'appel
+    A-->>U: Réponse
