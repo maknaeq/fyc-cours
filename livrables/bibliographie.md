@@ -150,6 +150,11 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
 - Fowler M. (2011), _CQRS_, article en ligne (martinfowler.com),
   https://martinfowler.com/bliki/CQRS.html, consulté le 8 septembre 2026.
   [S1.1]
+- Fowler M. (2007), _Mocks Aren't Stubs_, article en ligne (martinfowler.com),
+  2 janvier 2007, https://martinfowler.com/articles/mocksArentStubs.html,
+  consulté le 26 novembre 2026. [S1.1]
+  _Doublures de test : un spy est un stub qui enregistre aussi ce qu'il a reçu
+  (question 3 du QCM du chapitre 01)._
 - Martin R.C. (2014), _The single responsibility principle_, billet en ligne
   (The Clean Code Blog), 8 mai 2014,
   https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html,

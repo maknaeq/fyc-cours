@@ -45,12 +45,13 @@ Dans une application Laravel, où déclare-t-on qu'une requête `POST /notes`
 doit être traitée par la méthode `store` de `NoteController` ?
 
 - [ ] Dans `config/app.php`
-- [x] Dans `routes/web.php` ou `routes/api.php`
+- [x] Dans un fichier de routes, comme `routes/web.php`
 - [ ] Dans le constructeur de `NoteController`
 - [ ] Dans une migration
 
-**Explication :** les fichiers de routes associent une méthode HTTP et un
-chemin à une action de contrôleur. Le contrôleur ne sait pas lui-même quelle
+**Explication :** les fichiers de routes (`routes/web.php`, et `routes/api.php`
+quand on active l'API avec `php artisan install:api`) associent une méthode
+HTTP et un chemin à une action de contrôleur. Le contrôleur ne sait pas lui-même quelle
 URL le déclenche.
 
 ## Question 4 : Laravel

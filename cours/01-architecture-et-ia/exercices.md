@@ -64,9 +64,10 @@ du résumé d'un texte tronqué, et le cas du texte qui change à chaque fois.
 
 **Ce qu'aucune de ces parades ne résout.** L'incident de mardi. Les résumés en
 anglais viennent d'un changement de modèle chez le fournisseur. Aucune file
-d'attente, aucun délai, aucun cache ne le détecte. Il faut figer la version du
-modèle dans la configuration et mesurer la qualité des réponses dans le temps.
-C'est la séance 5.
+d'attente, aucun délai, aucun cache ne le détecte. Il faut utiliser un
+identifiant de modèle figé (pas un alias), mesurer la qualité des réponses
+dans le temps, et prévoir la migration : un modèle figé finit toujours par
+être retiré. C'est la séance 5.
 
 **Question bonus.** La limite de temps et le cache se mettent en place dans
 l'adaptateur `HttpLlmAdapter` ou dans sa configuration, sans que

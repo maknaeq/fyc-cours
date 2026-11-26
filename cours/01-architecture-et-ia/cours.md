@@ -23,7 +23,7 @@ application Laravel, on retrouve presque toujours trois niveaux.
 
 | Couche | Rôle | Dans Laravel |
 |--------|------|--------------|
-| Présentation | Recevoir la requête, valider les entrées, renvoyer la réponse | Routes, contrôleurs, _Form Requests_, ressources JSON |
+| Présentation | Recevoir la requête, valider les entrées, renvoyer la réponse | Routes, contrôleurs, [_Form Requests_](https://laravel.com/docs/13.x/validation#form-request-validation), ressources JSON |
 | Application ou service | Enchaîner les étapes d'un cas d'usage | Classes de service, _actions_, _jobs_ |
 | Domaine | Les règles du métier, indépendantes de tout framework | Entités, objets valeur, interfaces |
 
@@ -40,7 +40,7 @@ moins un fournisseur d'IA.
 // app/Http/Controllers/NoteController.php : couche présentation
 final class NoteController
 {
-    public function summarize(Note $note, SummarizeNote $summarizeNote): RedirectResponse
+    public function summarize(SummarizeNote $summarizeNote, Note $note): RedirectResponse
     {
         $summarizeNote($note);
 
@@ -50,17 +50,20 @@ final class NoteController
 ```
 
 Le contrôleur ne fait que traduire HTTP en appel de service, puis renvoyer
-l'utilisateur sur la note avec un message. Laravel lui fournit la note,
-retrouvée à partir de l'URL, et le service `SummarizeNote`, en paramètres de
-la méthode. Le contrôleur ne contient aucune
-règle métier. Si demain le résumé est déclenché par une commande Artisan au
+l'utilisateur sur la note avec un message. Laravel lui fournit le service
+`SummarizeNote` et la note, retrouvée à partir de l'URL, en paramètres de la
+méthode (la documentation demande de lister les paramètres de route après les
+dépendances injectées). Si vous ne connaissez pas ce mécanisme :
+[Route Model Binding, Laravel 13.x](https://laravel.com/docs/13.x/routing#route-model-binding).
+Le contrôleur ne contient aucune règle métier. Si demain le résumé est déclenché par une commande Artisan au
 lieu d'une requête HTTP, le service ne change pas.
 
 ### 1.2 Séparer les responsabilités
 
 Le découpage en couches est une conséquence d'un principe plus général : la
-**séparation des responsabilités**. Une classe a une raison de changer, et une
-seule. Le contrôleur change si l'API HTTP change. Le service change si le cas
+**séparation des responsabilités**. Robert C. Martin (2014) en tire le
+**principe de responsabilité unique** : une classe n'a qu'une raison de
+changer. Le contrôleur change si l'API HTTP change. Le service change si le cas
 d'usage change. L'entité change si la règle métier change.
 
 Le test le plus simple pour repérer une violation : essayer d'écrire un test
@@ -108,14 +111,18 @@ méthode.
 
 ### 1.3 L'architecture hexagonale : ports et adaptateurs
 
-L'**architecture hexagonale** pousse la séparation un cran plus loin. Elle
-place le cœur métier au centre et le protège de tout ce qui est extérieur :
-base de données, interface web, services distants. Le cœur ne parle au monde
+L'**architecture hexagonale**, décrite par Alistair Cockburn (2005), pousse
+la séparation un cran plus loin. Son but premier est la testabilité : piloter
+l'application par des tests automatisés et la développer isolée de ses bases
+de données et de ses services. Elle place le cœur métier au centre et le
+protège de tout ce qui est extérieur : base de données, interface web,
+services distants. Le cœur ne parle au monde
 extérieur qu'à travers des **ports**, c'est-à-dire des interfaces qu'il
 définit lui-même. Chaque technologie concrète est branchée sur un port par un
 **adaptateur**.
 
-On distingue deux sortes de ports :
+On distingue deux sortes de ports (Cockburn parle de côté primaire et de côté
+secondaire, on dit souvent ports d'entrée et de sortie) :
 
 - Les **ports d'entrée** : ce que le cœur sait faire. Un cas d'usage comme
   « résumer une note » est un port d'entrée. Le contrôleur HTTP est un
@@ -236,8 +243,9 @@ en mémoire ; un port de plus coûterait des classes en double pour un bénéfic
 nul ici. On pose un port là où l'instabilité et le coût de test le
 justifient, pas partout.
 
-Le branchement se fait dans le conteneur de dépendances de Laravel. C'est le
-seul endroit qui connaît à la fois le port et les adaptateurs :
+Le branchement se fait dans le conteneur de dépendances de Laravel (si vous ne
+le connaissez pas : [Service Container, Laravel 13.x](https://laravel.com/docs/13.x/container#binding-interfaces-to-implementations)).
+C'est le seul endroit qui connaît à la fois le port et les adaptateurs :
 
 ```php
 // app/Providers/LlmServiceProvider.php
@@ -259,19 +267,24 @@ $this->app->bind(LlmPort::class, fn (): LlmPort => match (config('llm.provider')
 ```
 
 La valeur vient de `config/llm.php`, alimenté par la variable d'environnement
-`LLM_PROVIDER`. Par défaut, elle vaut `fake` : la doublure `FakeLlmAdapter`
+`LLM_PROVIDER` (si vous ne connaissez pas ce mécanisme :
+[Configuration, Laravel 13.x](https://laravel.com/docs/13.x/configuration)). Par défaut, elle vaut `fake` : la doublure `FakeLlmAdapter`
 renvoie une réponse fixe sans aucune requête réseau, et l'application tourne
 sans clé ni modèle local. Le même fichier épingle le modèle en ligne sur un
 identifiant daté (`mistral-small-2603`), et non sur un alias comme
-`mistral-small-latest`, qui change de modèle sans prévenir.
+`mistral-small-latest`, dont le fournisseur décide seul ce qu'il désigne. Cela
+ne suffit pas à tout figer : un modèle finit toujours par être retiré, on y
+revient en séance 5.
 
 Changer de fournisseur, c'est changer une valeur de configuration. Tester
 `SummarizeNote`, c'est lui passer la doublure et vérifier ce qu'elle a reçu.
 Vous écrirez ces trois adaptateurs au TP S1.3, et la doublure servira dans
 tous les tests du cours.
 
-**Pour aller plus loin : le même principe en Java.** Dans Spring Boot, le port
-est aussi une interface, l'adaptateur une classe annotée `@Component`, et le
+**Pour aller plus loin : le même principe en Java.** Dans Spring Boot (si vous
+ne connaissez pas son conteneur :
+[Introduction to the Spring IoC Container and Beans](https://docs.spring.io/spring-framework/reference/core/beans/introduction.html)),
+le port est aussi une interface, l'adaptateur une classe annotée `@Component`, et le
 branchement se fait par injection de dépendances avec `@ConditionalOnProperty`
 ou un `@Bean` dans une classe de configuration. Le vocabulaire change, le
 découpage est le même. C'est ce que montre la démo de S1.1 : le cœur métier
@@ -299,17 +312,19 @@ les croiserez dans la littérature et dans les SDK, mais elles ne sont pas
 manipulées dans ce cours.
 
 **CQRS** (_Command Query Responsibility Segregation_, séparation des
-responsabilités entre commandes et requêtes) sépare le code qui modifie l'état
-(les commandes) de celui qui le lit (les requêtes). Une commande « résumer la
-note 42 » et une requête « donner le résumé de la note 42 » passent par des
-chemins différents, éventuellement avec des modèles de données différents.
-Intérêt pour nous : une commande qui appelle une IA est lente et coûteuse,
-une requête qui lit un résumé déjà calculé est instantanée. Les séparer permet
-de traiter la première en arrière-plan.
+responsabilités entre commandes et requêtes) utilise deux modèles différents :
+un pour modifier l'état (les commandes), un pour le lire (les requêtes). Une
+commande « résumer la note 42 » et une requête « donner le résumé de la note
+42 » passent par des chemins et des modèles de données différents. Martin
+Fowler (2011) prévient que, pour la plupart des systèmes, CQRS ajoute une
+complexité risquée : on ne l'applique qu'à une partie bien choisie du système.
+Dans notre cas, la séparation utile est plus modeste : la commande lente et
+payante est lancée en arrière-plan (file d'attente), la requête lit le résultat
+en base.
 
 Les **événements** permettent à une couche d'annoncer qu'il s'est passé quelque
 chose (« la note 42 a été résumée ») sans savoir qui écoute. Laravel les
-propose nativement. En séance 3, l'instrumentation de l'agent s'appuiera sur
+propose nativement ([Events, Laravel 13.x](https://laravel.com/docs/13.x/events)). En séance 3, l'instrumentation de l'agent s'appuiera sur
 ce mécanisme : chaque appel à l'IA émet un événement, et un écouteur mesure le
 temps et le coût.
 
@@ -334,22 +349,26 @@ aucun service de paiement ne présente ensemble.
 
 ### 2.1 Cinq caractéristiques et leurs conséquences
 
-**Non-déterminisme.** Posez deux fois la même question à un modèle de langage,
-vous obtiendrez deux réponses différentes. Même avec une température à zéro,
-le fournisseur peut changer de version de modèle sans prévenir. Conséquence :
-un test qui compare la réponse à une chaîne attendue échouera un jour sur
-deux. Il faut tester autrement, c'est la séance 4.
+**Non-déterminisme.** Posez deux fois la même question à un modèle de langage :
+rien ne garantit la même réponse. Même avec une température à zéro, les
+réponses varient. Dans une expérience de Thinking Machines (2025), 1 000
+envois du même prompt à température zéro ont donné 80 réponses différentes,
+parce que le calcul dépend de la charge du serveur. Conséquence : un test qui
+compare la réponse à une chaîne attendue est fragile par construction. Il
+faut tester autrement, c'est la séance 4.
 
-**Latence variable et élevée.** Un appel à un modèle prend entre une et
-trente secondes selon la longueur de la réponse, la charge du fournisseur et
-le modèle choisi. Une requête SQL prend quelques millisecondes. Conséquence :
+**Latence variable et élevée.** Un appel à un modèle prend de quelques
+secondes à plusieurs minutes, selon la longueur de la réponse, le modèle (ceux
+qui « raisonnent » sont plus lents), la charge du fournisseur ou la machine
+qui fait tourner un modèle local. Une requête SQL prend quelques millisecondes. Conséquence :
 un appel à l'IA fait dans le fil d'une requête HTTP bloque un processus PHP
 pendant tout ce temps. Avec quelques utilisateurs simultanés, le serveur ne
 répond plus à personne.
 
 **Coût par appel.** Chaque appel est facturé, en général au nombre de
-_tokens_ (les morceaux de mots) envoyés et reçus. Une base de données ne
-coûte rien de plus quand on l'interroge une fois de trop. Conséquence : une
+_tokens_ (les morceaux de mots) envoyés et reçus. Une base de données
+auto-hébergée ne coûte en général rien de plus quand on l'interroge une fois
+de trop. Conséquence : une
 boucle d'agent mal bornée, une politique de réessai naïve ou un utilisateur
 malveillant peuvent faire exploser la facture sans qu'aucune erreur ne se
 produise.
@@ -363,8 +382,10 @@ minute : au-delà, il refuse les appels (erreur 429), même quand tout va bien
 chez lui. Il faut prévoir un plan de repli, c'est la séance 3.
 
 **Nouvelle surface d'attaque.** Le modèle reçoit les instructions et les
-données par le même canal, du texte. Il ne peut pas distinguer une consigne
-de l'application d'une consigne glissée dans un document par un attaquant.
+données par le même canal, du texte. Rien ne lui permet de distinguer de
+façon fiable une consigne de l'application d'une consigne glissée dans un
+document par un attaquant : il n'existe pas d'équivalent des requêtes
+paramétrées du SQL (OWASP, LLM01:2026).
 Conséquence : tout texte qui entre dans le contexte du modèle est une entrée
 non fiable, y compris vos propres documents indexés. C'est la séance 4.
 
@@ -390,14 +411,18 @@ aussi, parce qu'aucun processus n'est libre. Pour lui, le site est en panne.
 
 **Lundi, 9 h 01.** Le fournisseur ralentit. Les appels prennent maintenant
 plus d'une minute. L'équipe comptait sur le délai maximal de PHP
-(`max_execution_time`, trente secondes) pour couper. Il ne coupe pas : sous
+(`max_execution_time`, trente secondes, voir la note de
+[set_time_limit](https://www.php.net/manual/en/function.set-time-limit.php))
+pour couper. Il ne coupe pas : sous
 Linux, il ne compte que le temps passé à exécuter le script, pas le temps
 passé à attendre le réseau. Ce qui coupe, c'est le client HTTP de Laravel :
-sans consigne, il abandonne toute requête au bout de trente secondes et lève
+sans consigne, il abandonne toute requête au bout de trente secondes
+([HTTP Client, Laravel 13.x](https://laravel.com/docs/13.x/http-client)) et lève
 une exception, d'où une erreur 500. Ce délai, personne ne l'a choisi, le
 contrôleur en hérite du framework. Si un proxy plus pressé est placé devant
-(nginx attend soixante secondes par défaut, un répartiteur de charge parfois
-moins), c'est lui qui renvoie une erreur 504 en premier, pendant que le
+(nginx attend soixante secondes par défaut, directive
+[`fastcgi_read_timeout`](https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_read_timeout) ;
+un répartiteur de charge parfois moins), c'est lui qui renvoie une erreur 504 en premier, pendant que le
 processus PHP continue d'attendre un fournisseur que plus personne n'écoute.
 Dans tous les cas, l'appel vers le fournisseur a bien été envoyé et sera
 probablement facturé, selon le fournisseur, même si personne n'attend plus la
@@ -440,7 +465,10 @@ implicite qu'il ne devrait pas prendre :
 - **Aucune limite de taille ni de coût.** Le prompt contient tout ce que
   l'utilisateur a saisi. C'est le point de rupture de 9 h 05.
 - **Le modèle n'est pas figé.** Le code dit `mistral-small-latest`, un alias :
-  c'est le fournisseur qui décide du modèle que ce nom désigne. C'est le point
+  c'est le fournisseur qui décide du modèle que ce nom désigne. Il faut
+  utiliser l'identifiant d'un instantané précis, en sachant que cela ne suffit
+  pas : le modèle sera retiré un jour, et le service autour de lui peut
+  changer. C'est le point
   de rupture de mardi.
 - **Rien n'est mesuré.** Ni durée, ni coût, ni taux d'échec. On découvre les
   problèmes par les plaintes.
