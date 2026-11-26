@@ -2,13 +2,13 @@
 
 ## Exercice 1 : Fiche de réponse, trois parades pour le contrôleur fourre-tout
 
-**Objectif :** relier chaque point de rupture de l'étude de cas (section 2.2
+**Objectif :** relier chaque point de rupture de l'étude de cas (section 2.1
 du cours) à une famille de solutions, sans encore les mettre en œuvre.
 **Durée :** 15 min
 
 ### Énoncé
 
-Relisez l'étude de cas de la section 2.2 et la liste des points de rupture de
+Relisez l'étude de cas de la section 2.1 et la liste des points de rupture de
 la section 2.3. Remplissez la fiche ci-dessous. Pour chaque parade, une ou
 deux phrases suffisent. Il n'y a pas une seule bonne réponse : ce qui compte,
 c'est que chaque parade réponde à un incident précis et que vous sachiez dire
@@ -74,3 +74,22 @@ l'adaptateur `HttpLlmAdapter` ou dans sa configuration, sans que
 `SummarizeNote` change. Le traitement en arrière-plan, lui, change le contrat
 du cas d'usage : il ne renvoie plus un résumé mais un accusé de réception.
 C'est une décision d'architecture, pas un réglage d'adaptateur.
+
+**Erreurs fréquentes.** Proposer « un réessai automatique » contre le blocage de
+9 h : il relance un appel lent et payant, il aggrave la charge au lieu de la
+réduire. Proposer « plus de processus PHP-FPM » : cela repousse le seuil (mini-exercice
+de la section 2.1), le problème revient avec plus de clics. Laisser vide la
+colonne « ce qu'elle ne résout pas » : une parade sans limite connue est le
+signe que l'incident visé n'est pas clair.
+
+**Comment vérifier votre fiche.** Pour chaque ligne, l'incident cité (9 h,
+9 h 01, 9 h 05 ou mardi) doit se retrouver dans la section 2.1, la parade doit
+répondre à cet incident et pas à un autre, et la dernière colonne doit nommer
+ce qui reste ouvert. Une parade qui ne vise aucun incident précis est trop
+vague.
+
+**Et ensuite.** Si vous avez manqué le blocage de 9 h, relisez les sections 2.1
+et 2.2 (latence). Pour le délai, relisez 2.3. Pour le coût et pour l'incident de
+mardi, relisez 2.2 (coût, dépendance). Les parades se construisent en séance 3,
+et le TP S1.3 vous en fait déjà poser deux : un délai choisi sur l'appel et le
+modèle épinglé dans la configuration.
