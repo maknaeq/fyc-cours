@@ -40,8 +40,8 @@ d'échec est une stratégie de repli, ce n'est pas le même sujet.
 ## Question 3
 
 Un test unitaire de `SummarizeNote` passe une implémentation de `LlmPort` qui
-renvoie toujours la chaîne « résumé de test ». Qu'est-ce que ce test peut
-vérifier ?
+renvoie toujours la chaîne « résumé de test » et garde en mémoire les
+messages qu'elle a reçus. Qu'est-ce que ce test peut vérifier ?
 
 - [ ] Que le modèle produit un bon résumé
 - [x] Que le service construit le bon prompt, appelle le port et enregistre le résultat
@@ -49,8 +49,10 @@ vérifier ?
 - [ ] Que le temps de réponse est acceptable
 
 **Explication :** avec une doublure, on teste l'orchestration du cas d'usage,
-pas le comportement du modèle ni le réseau. C'est justement l'intérêt : ce
-test est rapide, gratuit et déterministe. La qualité du résumé et la latence
+pas le comportement du modèle ni le réseau. Pour vérifier le prompt, la
+doublure doit enregistrer ce qu'elle reçoit : une doublure qui renvoie
+seulement une chaîne fixe ne le permettrait pas. C'est justement l'intérêt :
+ce test est rapide, gratuit et déterministe. La qualité du résumé et la latence
 se testent autrement, en séance 4 et en séance 3.
 
 ## Question 4
@@ -83,6 +85,6 @@ log ne montre d'erreur. Quelle caractéristique de l'agent IA est en cause ?
 
 **Explication :** la version du modèle est décidée par le fournisseur. Une mise
 à jour chez lui est un déploiement que vous n'avez pas fait et que vos tests
-n'ont pas vu. Les parades sont de figer explicitement la version du modèle
-dans la configuration et de mesurer la qualité des réponses dans le temps,
-sujets de la séance 5.
+n'ont pas vu. Les parades : appeler un identifiant de modèle figé plutôt qu'un
+alias, mesurer la qualité des réponses dans le temps et préparer la
+migration, car un modèle figé est retiré un jour (séance 5).
