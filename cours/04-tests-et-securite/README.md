@@ -13,4 +13,8 @@
 - Exercices : classer des défenses (bornent l'impact ou réduisent la probabilité), QCM du chapitre
 - Auteurs : Timothé Geoffroy (S4.1, S4.2), Kaan Topkaya (S4.3)
 
+## Ressources
+
+<!-- À remplir : une ligne par notion extérieure manipulée dans le chapitre (tableau Notion / Ressource officielle / À consulter si…, format dans charte/guide-de-style.md). -->
+
 <!-- Suivi interne, non exporté : FYC-8 (chapitre), séquences FYC-111 (S4.1), FYC-112 (S4.2), FYC-113 (S4.3) ; FYC-77 annulée -->

@@ -73,6 +73,46 @@ réglé dans le domaine (injection de prompt, IA juge), on le dit aussi.
 - Les schémas sont dans `assets/` du chapitre, référencés avec une légende :
   `![Légende du schéma](assets/nom.png)`.
 
+## Ressources externes et renvois
+
+Le cours suppose des connaissances que l'apprenant n'a pas forcément
+(demande du mentor, séance 2). Chaque notion extérieure qu'on manipule sans
+l'enseigner renvoie vers une ressource qu'il peut consulter s'il ne la
+connaît pas. Deux endroits, qui ne se remplacent pas :
+
+- **La rubrique « Ressources » du `README.md` du chapitre** : une ligne par
+  notion extérieure manipulée dans le chapitre, au format ci-dessous. Elle
+  sert avant ou pendant le chapitre.
+- **Le renvoi en ligne**, dans un support ou un énoncé de TP, à la première
+  occurrence de la notion, à l'étape qui la manipule : « Si vous ne connaissez
+  pas le routeur de Laravel : [Routing, Laravel 13.x](https://laravel.com/docs/13.x/routing). »
+  Une seule fois par notion et par document.
+
+La section `## Pour aller plus loin` de `cours.md` reste à part : elle sert
+après le chapitre, pour approfondir (3 à 6 liens commentés), pas pour
+rattraper un pré-requis.
+
+Format de la rubrique du `README.md` :
+
+```markdown
+## Ressources
+
+| Notion | Ressource officielle | À consulter si… |
+|--------|----------------------|-----------------|
+| Routage Laravel | [Routing, Laravel 13.x](https://laravel.com/docs/13.x/routing) | vous n'avez jamais déclaré une route |
+```
+
+Règles :
+
+- Documentation officielle d'abord, à la version utilisée par le cours. À
+  défaut, un article ou une vidéo gratuits, sans compte.
+- On renvoie, on ne recopie pas (limite des 15 % de contenu reproduit).
+- Chaque ressource citée remonte dans `livrables/bibliographie.md`
+  (catégorie « Documentation technique », balise `[Sx.y]` de la séquence,
+  date de consultation).
+- Une notion enseignée dans le chapitre n'a pas de ligne : elle est
+  définie dans le texte.
+
 ## Exercices et QCM
 
 Format d'un exercice (`exercices.md`) :

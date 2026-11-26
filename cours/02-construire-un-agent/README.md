@@ -13,4 +13,8 @@
 - Exercices : classer une liste d'outils (S2.1), étude de cas en trois étapes (S2.2), calcul du recall@5 (S2.3), QCM du chapitre
 - Auteurs : Timothé Geoffroy (S2.1, S2.2), Erwin Gossin (S2.3), Kaan Topkaya (S2.4)
 
+## Ressources
+
+<!-- À remplir : une ligne par notion extérieure manipulée dans le chapitre (tableau Notion / Ressource officielle / À consulter si…, format dans charte/guide-de-style.md). -->
+
 <!-- Suivi interne, non exporté : FYC-6 (chapitre), séquences FYC-99 (S2.1), FYC-104 (S2.2), FYC-105 (S2.3), FYC-106 (S2.4) -->

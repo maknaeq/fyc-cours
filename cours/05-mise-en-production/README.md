@@ -13,4 +13,8 @@
 - Exercices : fiche d'architecture (cas pratique), workflow de CI commenté, test final de 40 QCM
 - Auteurs : Erwin Gossin (S5.1, S5.2), Quentin Bauduin (S5.3)
 
+## Ressources
+
+<!-- À remplir : une ligne par notion extérieure manipulée dans le chapitre (tableau Notion / Ressource officielle / À consulter si…, format dans charte/guide-de-style.md). -->
+
 <!-- Suivi interne, non exporté : FYC-9 (chapitre), séquences FYC-114 (S5.1), FYC-115 (S5.2), FYC-116 (S5.3) -->

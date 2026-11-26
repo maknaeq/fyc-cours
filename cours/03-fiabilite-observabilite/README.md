@@ -14,4 +14,8 @@
 - Exercices : rejeu d'un appel idempotent (S3.1), diagnostic sur traces (S3.3), QCM du chapitre
 - Auteurs : Erwin Gossin (S3.1, S3.3), Timothé Geoffroy (S3.2), Kaan Topkaya (S3.4)
 
+## Ressources
+
+<!-- À remplir : une ligne par notion extérieure manipulée dans le chapitre (tableau Notion / Ressource officielle / À consulter si…, format dans charte/guide-de-style.md). -->
+
 <!-- Suivi interne, non exporté : FYC-7 (chapitre), séquences FYC-107 (S3.1), FYC-108 (S3.2), FYC-109 (S3.3), FYC-110 (S3.4) -->

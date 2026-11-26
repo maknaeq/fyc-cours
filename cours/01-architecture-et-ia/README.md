@@ -13,4 +13,8 @@
 - Exercices : exercice 1 (fiche de réponse, corrigé), QCM
 - Auteurs : Quentin Bauduin (S1.1, S1.2), Kaan Topkaya (S1.3)
 
+## Ressources
+
+<!-- À remplir : une ligne par notion extérieure manipulée dans le chapitre (tableau Notion / Ressource officielle / À consulter si…, format dans charte/guide-de-style.md). -->
+
 <!-- Suivi interne, non exporté : FYC-5 (chapitre), séquences FYC-102 (S1.1), FYC-103 (S1.2), FYC-98 (S1.3) ; FYC-26 (support S1.1 et S1.2), FYC-27 (dépôt TP), FYC-39 (dépôts d'exemple S1.1) ; les corrections B3 et B4 du chapitre viennent dans une PR à part -->
