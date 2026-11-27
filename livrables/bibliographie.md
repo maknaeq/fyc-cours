@@ -232,6 +232,18 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   (conteneur IoC et beans), version 7.0 (7.0.11 publiée le 19 novembre 2026),
   https://docs.spring.io/spring-framework/reference/, consulté le 26 novembre
   2026. [S1.1]
+- Docker (2026), _Install Docker Desktop on Windows_, Docker Docs,
+  https://docs.docker.com/desktop/setup/install/windows-install/, consulté le
+  26 novembre 2026. [00.3]
+  _Systèmes et éditions pris en charge, 8 Go de RAM, WSL 2, virtualisation._
+- Microsoft (2026), _Install WSL_, Microsoft Learn,
+  https://learn.microsoft.com/en-us/windows/wsl/install, consulté le 26 novembre
+  2026. [00.3]
+  _Commande `wsl --install` et version minimale de Windows._
+- Laravel LLC (2026), _Laravel Sail_ et _Release Notes_, Laravel 13.x,
+  https://laravel.com/docs/13.x/sail et https://laravel.com/docs/13.x/releases,
+  consulté le 26 novembre 2026. [00.3]
+  _Sail sous Windows via WSL 2 ; PHP 8.3 minimum pour Laravel 13._
 
 ## Fournisseurs de modèles
 
@@ -258,6 +270,12 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   et https://platform.claude.com/docs/en/about-claude/model-deprecations,
   consulté le 24 novembre 2026. [S1.2, S5.1]
   _Épinglage d'un identifiant de modèle et calendrier de retrait des modèles._
+- Mistral AI (2026), _Why am I hitting API rate limits, and how do I increase
+  them?_, Mistral Help Center,
+  https://help.mistral.ai/en/articles/698531-why-am-i-hitting-api-rate-limits-and-how-do-i-increase-them,
+  consulté le 26 novembre 2026. [00.3]
+  _Mode gratuit par défaut, aux limites les plus basses, et paliers du mode
+  payant._
 
 ## Outils
 
@@ -279,3 +297,17 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   Postgres_, version 0.8.7 (publiée le 1er octobre 2026),
   https://github.com/pgvector/pgvector, consulté le 24 novembre 2026. [00.3,
   S2.3]
+- pgvector (2026), _pgvector/pgvector_ (image Docker officielle du projet),
+  Docker Hub, tag `0.8.7-pg18` publié le 12 novembre 2026,
+  https://hub.docker.com/r/pgvector/pgvector/tags, consulté le 26 novembre 2026.
+  [00.3]
+  _Tags disponibles, par version de pgvector et de PostgreSQL._
+- Ollama (2026), _Windows_, _FAQ_ et _Context length_, Ollama Documentation,
+  https://docs.ollama.com/windows, https://docs.ollama.com/faq et
+  https://docs.ollama.com/context-length, consulté le 26 novembre 2026. [00.3]
+  _Pilote NVIDIA minimal, variables d'environnement sous Windows, déchargement
+  après 5 minutes, contexte de 4 096 tokens (4 k sous 24 Go de VRAM) et
+  `OLLAMA_CONTEXT_LENGTH`._
+- Ollama (2026), _llama3.2_, Ollama Library, https://ollama.com/library/llama3.2,
+  consulté le 26 novembre 2026. [00.3]
+  _Tailles des variantes 1b (1,3 Go) et 3b (2,0 Go), prise en charge des outils._

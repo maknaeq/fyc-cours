@@ -1,0 +1,20 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.7-pg18
+    container_name: fyc-pgvector
+    ports:
+      - "${FORWARD_DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_DB: noteflow
+      POSTGRES_USER: noteflow
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - fyc-pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "noteflow", "-d", "noteflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  fyc-pgdata:
