@@ -7,11 +7,12 @@ liste de contrôle et garde la trace de ce qui a été relu.
 ## Pourquoi maintenant
 
 La règle 2 de `charte/regles-redaction.md` demande qu'un membre relise et valide
-tout texte rédigé avec l'IA **avant** son merge sur `main`. Pour tenir le rythme
-des 50 %, plusieurs PR du chapitre 00 et du chapitre 01 ont été mergées après
-une lecture rapide, case « Relu par un humain » non cochée, avec une relecture de
-fond reportée à ce jalon. Cette relecture est donc le moment où la règle est
-tenue : elle précède le dépôt sur Teams, pas l'inverse.
+tout texte rédigé avec l'IA avant son merge sur `main` : l'auteur de la PR l'a
+fait, et la case « Relu par un humain » des PR mergées n'est pas toujours cochée.
+La relecture croisée est une **seconde lecture**, par quelqu'un qui n'a pas
+écrit ni fait écrire le texte : elle attrape ce que l'auteur ne voit plus
+(promesses non tenues, passages obscurs pour qui n'a pas suivi la conversation,
+erreurs recopiées de la source). Elle précède le dépôt sur Teams.
 
 ## Périmètre et répartition
 
