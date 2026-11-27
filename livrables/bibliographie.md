@@ -120,6 +120,15 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   24 novembre 2026. [S4.2]
   _Grille des dix risques de S4.2. L'injection de prompt est en première place
   dans toutes les éditions (2023, 2025, 2026)._
+- OWASP GenAI Security Project (2026), _LLM03:2026 Excessive Agency_, édition
+  2026, https://genai.owasp.org/llm2026/llm032026-excessive-agency/, consulté
+  le 26 novembre 2026. [S2.1, S4.2]
+  _Trois racines (fonctionnalités, permissions, autonomie) et neuf mesures,
+  dont « complete mediation » ; base du point sécurité de S2.1._
+- Model Context Protocol (2026), _Specification, version 2026-07-28_,
+  https://modelcontextprotocol.io/specification/2026-07-28, consulté le
+  24 novembre 2026. [S2.1]
+  _Révision en vigueur à la date d'écriture ; le protocole change vite._
 - OWASP GenAI Security Project (2026), _LLM01:2026 Prompt Injection_, édition
   2026, https://genai.owasp.org/llm2026/llm012026-prompt-injection/, consulté
   le 24 novembre 2026. [00.2, S1.2, S4.2, S4.3]
@@ -168,6 +177,12 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   24 novembre 2026. [S2.1, S2.2, S5.3]
   _Distinction workflow / agent et patterns de base ; argument pour commencer
   sans framework._
+- Aizawa K. (2025), _Writing effective tools for AI agents, with AI agents_,
+  billet en ligne (Anthropic Engineering), 11 septembre 2025,
+  https://www.anthropic.com/engineering/writing-tools-for-agents, consulté le
+  24 novembre 2026. [S2.1, S2.4]
+  _Conception d'un outil pour un agent : nom, description, nombre d'outils,
+  réponses économes._
 - Willison S. (2025), _The lethal trifecta for AI agents: private data,
   untrusted content, and external communication_, billet en ligne
   (simonwillison.net), 16 juin 2025,
@@ -201,8 +216,8 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
 - Laravel LLC (2026), _Laravel 13 Documentation_, version 13.x (framework
   v13.44.1 au 24 novembre 2026), https://laravel.com/docs/13.x, consulté le
   24 novembre 2026 (pages citées dans les rubriques « Ressources » des chapitres
-  00 et 01 consultées le 26 novembre 2026). [00.1, 00.2, S1.1, S1.2, S1.3, S2.3,
-  S3.1, S5.2]
+  00 et 01 consultées le 26 novembre 2026 ; page _Validation_ consultée le
+  26 novembre 2026). [00.1, 00.2, S1.1, S1.2, S1.3, S2.1, S2.3, S3.1, S5.2]
   _Documentation distincte de celle du Laravel AI SDK (`laravel.com/docs/ai-sdk`,
   package `laravel/ai` séparé)._
 - NGINX (2026), _Module ngx_http_fastcgi_module_ (directive
@@ -252,6 +267,18 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   chaîne JSON, résultat renvoyé dans un message `tool` portant le
   `tool_call_id`. Mistral Small 4 (`mistral-small-latest`) figure parmi les
   modèles compatibles._
+- Anthropic (2026), _How tool use works_, Claude Platform Docs,
+  https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works,
+  consulté le 26 novembre 2026. [S2.1]
+  _Contrat d'outil, blocs `tool_use` et `tool_result` : « le modèle n'exécute
+  rien lui-même »._
+- OpenAI (2026), _Function calling_, OpenAI API documentation,
+  https://platform.openai.com/docs/guides/function-calling, consulté le
+  24 novembre 2026. [S2.1]
+  _Appel d'outil défini par un schéma JSON ; option `strict`._
+- JSON Schema (2026), _JSON Schema reference_, json-schema.org,
+  https://json-schema.org/understanding-json-schema, consulté le 26 novembre
+  2026. [S2.1]
 - Anthropic (2026), _Model IDs and versioning_ et _Model deprecations_, Claude
   Platform Docs,
   https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions
@@ -266,7 +293,7 @@ Les versions sont à revérifier avant chaque dépôt sur Teams.
   [00.3, S1.3]
 - Ollama (2026), _Tool calling_, Ollama Documentation, version 0.40.18,
   https://docs.ollama.com/capabilities/tool-calling, consulté le
-  25 novembre 2026. [S2.4]
+  25 novembre 2026. [S2.1, S2.4]
   _Format local des appels d'outils (arguments en objet, pas d'identifiant
   d'appel) et du résultat renvoyé (`role: "tool"`, `tool_name`)._
 - Ollama (2026), _Generate a chat message_ et _OpenAI compatibility_, Ollama
