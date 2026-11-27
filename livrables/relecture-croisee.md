@@ -8,7 +8,7 @@ liste de contrôle et garde la trace de ce qui a été relu.
 
 La règle 2 de `charte/regles-redaction.md` demande qu'un membre relise et valide
 tout texte rédigé avec l'IA avant son merge sur `main` : l'auteur de la PR l'a
-fait, et la case « Relu par un humain » des PR mergées n'est pas toujours cochée.
+fait (case « Relu par un humain » cochée dans les PR mergées).
 La relecture croisée est une **seconde lecture**, par quelqu'un qui n'a pas
 écrit ni fait écrire le texte : elle attrape ce que l'auteur ne voit plus
 (promesses non tenues, passages obscurs pour qui n'a pas suivi la conversation,
